@@ -2,60 +2,10 @@
 # yarn lockfile v1
 
 
-"@eslint/eslintrc@^1.0.2":
-  version "1.0.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@eslint/eslintrc/-/eslintrc-1.0.2.tgz"
-  integrity sha1-YESIT3+TxOzC0WlMdIbM6R7490Y=
-  dependencies:
-    ajv "^6.12.4"
-    debug "^4.3.2"
-    espree "^9.0.0"
-    globals "^13.9.0"
-    ignore "^4.0.6"
-    import-fresh "^3.2.1"
-    js-yaml "^3.13.1"
-    minimatch "^3.0.4"
-    strip-json-comments "^3.1.1"
-
-"@humanwhocodes/config-array@^0.6.0":
-  version "0.6.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@humanwhocodes/config-array/-/config-array-0.6.0.tgz"
-  integrity sha1-tWIf2zsyMJ0tFldUVsvCd/qPAho=
-  dependencies:
-    "@humanwhocodes/object-schema" "^1.2.0"
-    debug "^4.1.1"
-    minimatch "^3.0.4"
-
-"@humanwhocodes/object-schema@^1.2.0":
-  version "1.2.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@humanwhocodes/object-schema/-/object-schema-1.2.0.tgz"
-  integrity sha1-h956+cIxgm/daKxyWPd8Qp4OX88=
-
-"@nodelib/fs.scandir@2.1.5":
-  version "2.1.5"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
-  integrity sha1-dhnC6yGyVIP20WdUi0z9WnSIw9U=
-  dependencies:
-    "@nodelib/fs.stat" "2.0.5"
-    run-parallel "^1.1.9"
-
-"@nodelib/fs.stat@2.0.5", "@nodelib/fs.stat@^2.0.2":
-  version "2.0.5"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@nodelib/fs.stat/-/fs.stat-2.0.5.tgz#5bd262af94e9d25bd1e71b05deed44876a222e8b"
-  integrity sha1-W9Jir5Tp0lvR5xsF3u1Eh2oiLos=
-
-"@nodelib/fs.walk@^1.2.3":
-  version "1.2.8"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@nodelib/fs.walk/-/fs.walk-1.2.8.tgz#e95737e8bb6746ddedf69c556953494f196fe69a"
-  integrity sha1-6Vc36LtnRt3t9pxVaVNJTxlv5po=
-  dependencies:
-    "@nodelib/fs.scandir" "2.1.5"
-    fastq "^1.6.0"
-
 "@octokit/app@^12.0.4":
   version "12.0.5"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/app/-/app-12.0.5.tgz"
-  integrity sha1-CyVEba/8s2lnsmlEQQ6rHMu6DAY=
+  resolved "https://registry.npmjs.org/@octokit/app/-/app-12.0.5.tgz#0b25446daffcb36967b26944410eab1ccbba0c06"
+  integrity sha512-lM3pIfx2h+UbvsXHFVs1ApJ9Rmp8LO4ciFSr5q/9MdHmhsH6WtwayieUn875xwB77IoR9r8czxxxASu2WCtdeA==
   dependencies:
     "@octokit/auth-app" "^3.3.0"
     "@octokit/auth-unauthenticated" "^2.0.4"
@@ -67,8 +17,8 @@
 
 "@octokit/auth-app@^3.3.0":
   version "3.6.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/auth-app/-/auth-app-3.6.0.tgz"
-  integrity sha1-efxvZS0jYs4L0xIvb3ZKh8yBPeo=
+  resolved "https://registry.npmjs.org/@octokit/auth-app/-/auth-app-3.6.0.tgz#79fc6f652d2362ce0bd3122f6f764a87cc813dea"
+  integrity sha512-A+tLuHEMXw+Xz9dmKO7Ho9i4EmMr4tThrwYTlmMNu8y93JxvvRjKFFElpCTS+Z0NlbfuyNdaTlJnAinFbVKm7g==
   dependencies:
     "@octokit/auth-oauth-app" "^4.3.0"
     "@octokit/auth-oauth-user" "^1.2.3"
@@ -83,8 +33,8 @@
 
 "@octokit/auth-oauth-app@^4.0.0", "@octokit/auth-oauth-app@^4.3.0":
   version "4.3.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/auth-oauth-app/-/auth-oauth-app-4.3.0.tgz"
-  integrity sha1-3gLxhDYP/Xz8zvhhBTeE/EQQ5+o=
+  resolved "https://registry.npmjs.org/@octokit/auth-oauth-app/-/auth-oauth-app-4.3.0.tgz#de02f184360ffd7cfccef861053784fc4410e7ea"
+  integrity sha512-cETmhmOQRHCz6cLP7StThlJROff3A/ln67Q961GuIr9zvyFXZ4lIJy9RE6Uw5O7D8IXWPU3jhDnG47FTSGQr8Q==
   dependencies:
     "@octokit/auth-oauth-device" "^3.1.1"
     "@octokit/auth-oauth-user" "^1.2.1"
@@ -96,8 +46,8 @@
 
 "@octokit/auth-oauth-device@^3.1.1":
   version "3.1.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/auth-oauth-device/-/auth-oauth-device-3.1.2.tgz"
-  integrity sha1-0pn1H0kWafN/56+HOPWskh5jlzw=
+  resolved "https://registry.npmjs.org/@octokit/auth-oauth-device/-/auth-oauth-device-3.1.2.tgz#d299f51f491669f37fe7af8738f5ac921e63973c"
+  integrity sha512-w7Po4Ck6N2aAn2VQyKLuojruiyKROTBv4qs6IwE5rbwF7HhBXXp4A/NKmkpoFIZkiXQtM+N8QtkSck4ApYWdGg==
   dependencies:
     "@octokit/oauth-methods" "^1.1.0"
     "@octokit/request" "^5.4.14"
@@ -106,8 +56,8 @@
 
 "@octokit/auth-oauth-user@^1.2.1", "@octokit/auth-oauth-user@^1.2.3", "@octokit/auth-oauth-user@^1.3.0":
   version "1.3.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/auth-oauth-user/-/auth-oauth-user-1.3.0.tgz"
-  integrity sha1-2k5FKRRRgaaqcXroWK+3br1uM2A=
+  resolved "https://registry.npmjs.org/@octokit/auth-oauth-user/-/auth-oauth-user-1.3.0.tgz#da4e4529145181a6aa717ae858afb76ebd6e3360"
+  integrity sha512-3QC/TAdk7onnxfyZ24BnJRfZv8TRzQK7SEFUS9vLng4Vv6Hv6I64ujdk/CUkREec8lhrwU764SZ/d+yrjjqhaQ==
   dependencies:
     "@octokit/auth-oauth-device" "^3.1.1"
     "@octokit/oauth-methods" "^1.1.0"
@@ -118,23 +68,23 @@
 
 "@octokit/auth-token@^2.4.4":
   version "2.5.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/auth-token/-/auth-token-2.5.0.tgz"
-  integrity sha1-J8N+omwgXyhENAJHf/0mExHyHjY=
+  resolved "https://registry.npmjs.org/@octokit/auth-token/-/auth-token-2.5.0.tgz#27c37ea26c205f28443402477ffd261311f21e36"
+  integrity sha512-r5FVUJCOLl19AxiuZD2VRZ/ORjp/4IN98Of6YJoJOkY75CIBuYfmiNHGrDwXr+aLGG55igl9QrxX3hbiXlLb+g==
   dependencies:
     "@octokit/types" "^6.0.3"
 
 "@octokit/auth-unauthenticated@^2.0.0", "@octokit/auth-unauthenticated@^2.0.4":
   version "2.1.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/auth-unauthenticated/-/auth-unauthenticated-2.1.0.tgz"
-  integrity sha1-75feNmg24J8TDeTiIFvpVfnPExw=
+  resolved "https://registry.npmjs.org/@octokit/auth-unauthenticated/-/auth-unauthenticated-2.1.0.tgz#ef97de366836e09f130de4e2205be955f9cf131c"
+  integrity sha512-+baofLfSL0CAv3CfGQ9rxiZZQEX8VNJMGuuS4PgrMRBUL52Ho5+hQYb63UJQshw7EXYMPDZxbXznc0y33cbPqw==
   dependencies:
     "@octokit/request-error" "^2.1.0"
     "@octokit/types" "^6.0.3"
 
 "@octokit/core@^3.3.2", "@octokit/core@^3.4.0", "@octokit/core@^3.5.1":
   version "3.5.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/core/-/core-3.5.1.tgz"
-  integrity sha1-hgHO6x7A4bG4IXuWCkE+2OlHgJs=
+  resolved "https://registry.npmjs.org/@octokit/core/-/core-3.5.1.tgz#8601ceeb1ec0e1b1b8217b960a413ed8e947809b"
+  integrity sha512-omncwpLVxMP+GLpLPgeGJBF6IWJFjXDS5flY5VbppePYX9XehevbDykRH9PdCdvqt9TS5AOTiDide7h0qrkHjw==
   dependencies:
     "@octokit/auth-token" "^2.4.4"
     "@octokit/graphql" "^4.5.8"
@@ -146,8 +96,8 @@
 
 "@octokit/endpoint@^6.0.1":
   version "6.0.12"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/endpoint/-/endpoint-6.0.12.tgz"
-  integrity sha1-O01HpLDnmxAn+4111CIZKLLQVlg=
+  resolved "https://registry.npmjs.org/@octokit/endpoint/-/endpoint-6.0.12.tgz#3b4d47a4b0e79b1027fb8d75d4221928b2d05658"
+  integrity sha512-lF3puPwkQWGfkMClXb4k/eUT/nZKQfxinRWJrdZaJO85Dqwo/G0yOC434Jr2ojwafWJMYqFGFa5ms4jJUgujdA==
   dependencies:
     "@octokit/types" "^6.0.3"
     is-plain-object "^5.0.0"
@@ -155,8 +105,8 @@
 
 "@octokit/graphql@^4.5.8":
   version "4.8.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/graphql/-/graphql-4.8.0.tgz"
-  integrity sha1-Zk2bEcDhIRLL944Q9JoFlZqiLMM=
+  resolved "https://registry.npmjs.org/@octokit/graphql/-/graphql-4.8.0.tgz#664d9b11c0e12112cbf78e10f49a05959aa22cc3"
+  integrity sha512-0gv+qLSBLKF0z8TKaSKTsS39scVKF9dbMxJpj3U0vC7wjNWFuIpL/z76Qe2fiuCbDRcJSavkXsVtMS6/dtQQsg==
   dependencies:
     "@octokit/request" "^5.6.0"
     "@octokit/types" "^6.0.3"
@@ -164,8 +114,8 @@
 
 "@octokit/oauth-app@^3.3.2", "@octokit/oauth-app@^3.5.1":
   version "3.6.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/oauth-app/-/oauth-app-3.6.0.tgz"
-  integrity sha1-NvZgx+trWlzSP2IHqNledLaDTbA=
+  resolved "https://registry.npmjs.org/@octokit/oauth-app/-/oauth-app-3.6.0.tgz#36f660c7eb6b5a5cd23f6207a8d95e74b6834db0"
+  integrity sha512-OxPw4ItQXaC2GuEXyZB7EmZ2rHvNFX4y3yAsqdFIRW7qg2HyoEPxacxza6c8wqbEEvu84b98AJ5BXm+IjPWrww==
   dependencies:
     "@octokit/auth-oauth-app" "^4.0.0"
     "@octokit/auth-oauth-user" "^1.3.0"
@@ -179,13 +129,13 @@
 
 "@octokit/oauth-authorization-url@^4.2.1", "@octokit/oauth-authorization-url@^4.3.1":
   version "4.3.3"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/oauth-authorization-url/-/oauth-authorization-url-4.3.3.tgz"
-  integrity sha1-am7zjyQwhv7IgrYnRPObUXUo37k=
+  resolved "https://registry.npmjs.org/@octokit/oauth-authorization-url/-/oauth-authorization-url-4.3.3.tgz#6a6ef38f243086fec882b62744f39b517528dfb9"
+  integrity sha512-lhP/t0i8EwTmayHG4dqLXgU+uPVys4WD/qUNvC+HfB1S1dyqULm5Yx9uKc1x79aP66U1Cb4OZeW8QU/RA9A4XA==
 
 "@octokit/oauth-methods@^1.1.0", "@octokit/oauth-methods@^1.2.2":
   version "1.2.6"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/oauth-methods/-/oauth-methods-1.2.6.tgz"
-  integrity sha1-uaxl43SyzFXundjc3RZVhVBDjqc=
+  resolved "https://registry.npmjs.org/@octokit/oauth-methods/-/oauth-methods-1.2.6.tgz#b9ac65e374b2cc55ee9dd8dcdd16558550438ea7"
+  integrity sha512-nImHQoOtKnSNn05uk2o76om1tJWiAo4lOu2xMAHYsNr0fwopP+Dv+2MlGvaMMlFjoqVd3fF3X5ZDTKCsqgmUaQ==
   dependencies:
     "@octokit/oauth-authorization-url" "^4.3.1"
     "@octokit/request" "^5.4.14"
@@ -195,44 +145,44 @@
 
 "@octokit/openapi-types@^11.2.0":
   version "11.2.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/openapi-types/-/openapi-types-11.2.0.tgz"
-  integrity sha1-s41/w3NtUqHpayMMHM1KWKL0AKY=
+  resolved "https://registry.npmjs.org/@octokit/openapi-types/-/openapi-types-11.2.0.tgz#b38d7fc3736d52a1e96b230c1ccd4a58a2f400a6"
+  integrity sha512-PBsVO+15KSlGmiI8QAzaqvsNlZlrDlyAJYcrXBCvVUxCp7VnXjkwPoFHgjEJXx3WF9BAwkA6nfCUA7i9sODzKA==
 
 "@octokit/plugin-paginate-rest@^2.13.3", "@octokit/plugin-paginate-rest@^2.16.8":
   version "2.17.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-2.17.0.tgz"
-  integrity sha1-MunHyrKjdEIdPQ3iORAih9eRvOc=
+  resolved "https://registry.npmjs.org/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-2.17.0.tgz#32e9c7cab2a374421d3d0de239102287d791bce7"
+  integrity sha512-tzMbrbnam2Mt4AhuyCHvpRkS0oZ5MvwwcQPYGtMv4tUa5kkzG58SVB0fcsLulOZQeRnOgdkZWkRUiyBlh0Bkyw==
   dependencies:
     "@octokit/types" "^6.34.0"
 
 "@octokit/plugin-rest-endpoint-methods@^5.12.0":
   version "5.13.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-5.13.0.tgz"
-  integrity sha1-jEYQkCGjQSIz9vUNKHhvjlUkJ7o=
+  resolved "https://registry.npmjs.org/@octokit/plugin-rest-endpoint-methods/-/plugin-rest-endpoint-methods-5.13.0.tgz#8c46109021a3412233f6f50d28786f8e552427ba"
+  integrity sha512-uJjMTkN1KaOIgNtUPMtIXDOjx6dGYysdIFhgA52x4xSadQCz3b/zJexvITDVpANnfKPW/+E0xkOvLntqMYpviA==
   dependencies:
     "@octokit/types" "^6.34.0"
     deprecation "^2.3.1"
 
 "@octokit/plugin-retry@^3.0.9":
   version "3.0.9"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/plugin-retry/-/plugin-retry-3.0.9.tgz"
-  integrity sha1-rmJcyh5CsCUwSRAqzXHB1RNHiP4=
+  resolved "https://registry.npmjs.org/@octokit/plugin-retry/-/plugin-retry-3.0.9.tgz#ae625cca1e42b0253049102acd71c1d5134788fe"
+  integrity sha512-r+fArdP5+TG6l1Rv/C9hVoty6tldw6cE2pRHNGmFPdyfrc696R6JjrQ3d7HdVqGwuzfyrcaLAKD7K8TX8aehUQ==
   dependencies:
     "@octokit/types" "^6.0.3"
     bottleneck "^2.15.3"
 
 "@octokit/plugin-throttling@^3.5.1":
   version "3.5.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/plugin-throttling/-/plugin-throttling-3.5.2.tgz"
-  integrity sha1-ixeXpfFO28oLivYZOUBW7Q7VybU=
+  resolved "https://registry.npmjs.org/@octokit/plugin-throttling/-/plugin-throttling-3.5.2.tgz#8b1797a5f14edbca0b8af619394056ed0ed5c9b5"
+  integrity sha512-Eu7kfJxU8vmHqWGNszWpg+GVp2tnAfax3XQV5CkYPEE69C+KvInJXW9WajgSeW+cxYe0UVdouzCtcreGNuJo7A==
   dependencies:
     "@octokit/types" "^6.0.1"
     bottleneck "^2.15.3"
 
 "@octokit/request-error@^2.0.2", "@octokit/request-error@^2.0.5", "@octokit/request-error@^2.1.0":
   version "2.1.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/request-error/-/request-error-2.1.0.tgz"
-  integrity sha1-nhUDV4Mb/HiNE6T9SxkT1gx01nc=
+  resolved "https://registry.npmjs.org/@octokit/request-error/-/request-error-2.1.0.tgz#9e150357831bfc788d13a4fd4b1913d60c74d677"
+  integrity sha512-1VIvgXxs9WHSjicsRwq8PlR2LR2x6DwsJAaFgzdi0JfJoGSO8mYI/cHJQ+9FbN21aa+DrgNLnwObmyeSC8Rmpg==
   dependencies:
     "@octokit/types" "^6.0.3"
     deprecation "^2.0.0"
@@ -240,8 +190,8 @@
 
 "@octokit/request@^5.3.0", "@octokit/request@^5.4.14", "@octokit/request@^5.6.0":
   version "5.6.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/request/-/request-5.6.2.tgz"
-  integrity sha1-GqdNXae54ErGDvIy7dmnQ43PMtg=
+  resolved "https://registry.npmjs.org/@octokit/request/-/request-5.6.2.tgz#1aa74d5da7b9e04ac60ef232edd9a7438dcf32d8"
+  integrity sha512-je66CvSEVf0jCpRISxkUcCa0UkxmFs6eGDRSbfJtAVwbLH5ceqF+YEyC8lj8ystKyZTy8adWr0qmkY52EfOeLA==
   dependencies:
     "@octokit/endpoint" "^6.0.1"
     "@octokit/request-error" "^2.1.0"
@@ -252,25 +202,25 @@
 
 "@octokit/types@^6.0.1", "@octokit/types@^6.0.3", "@octokit/types@^6.10.0", "@octokit/types@^6.12.2", "@octokit/types@^6.16.1", "@octokit/types@^6.26.0", "@octokit/types@^6.27.1", "@octokit/types@^6.34.0":
   version "6.34.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/types/-/types-6.34.0.tgz"
-  integrity sha1-xgITMzNNHs+103CoeYFi3fGughg=
+  resolved "https://registry.npmjs.org/@octokit/types/-/types-6.34.0.tgz#c6021333334d1ecfb5d370a8798162ddf1ae8218"
+  integrity sha512-s1zLBjWhdEI2zwaoSgyOFoKSl109CUcVBCc7biPJ3aAf6LGLU6szDvi31JPU7bxfla2lqfhjbbg/5DdFNxOwHw==
   dependencies:
     "@octokit/openapi-types" "^11.2.0"
 
 "@octokit/webhooks-methods@^2.0.0":
   version "2.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/webhooks-methods/-/webhooks-methods-2.0.0.tgz"
-  integrity sha1-EQi56mYcpsgeSov6Y6Cesn1bwts=
+  resolved "https://registry.npmjs.org/@octokit/webhooks-methods/-/webhooks-methods-2.0.0.tgz#1108b9ea661ca6c81e4a8bfa63a09eb27d5bc2db"
+  integrity sha512-35cfQ4YWlnZnmZKmIxlGPUPLtbkF8lr/A/1Sk1eC0ddLMwQN06dOuLc+dI3YLQS+T+MoNt3DIQ0NynwgKPilig==
 
 "@octokit/webhooks-types@4.12.0":
   version "4.12.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/webhooks-types/-/webhooks-types-4.12.0.tgz"
-  integrity sha1-rdi5jWCrQullxLoxBACX+BDiIt4=
+  resolved "https://registry.npmjs.org/@octokit/webhooks-types/-/webhooks-types-4.12.0.tgz#add8b98d60ab42e965c4ba31040097f810e222de"
+  integrity sha512-G0k7CoS9bK+OI7kPHgqi1KqK4WhrjDQSjy0wJI+0OTx/xvbHUIZDeqatY60ceeRINP/1ExEk6kTARboP0xavEw==
 
 "@octokit/webhooks@^9.0.1":
   version "9.17.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@octokit/webhooks/-/webhooks-9.17.0.tgz"
-  integrity sha1-gRQLLhJxV6qYF9CFzYdYVF5KcuQ=
+  resolved "https://registry.npmjs.org/@octokit/webhooks/-/webhooks-9.17.0.tgz#81140b2e127157aa9817d085cd8758545e4a72e4"
+  integrity sha512-/+9WSLuDuoqNWnMY4w6ePioILBqsUOiUt0ygQzugYzd112WB+yPIjmUQjAbNXImDsAa1myLpBICAMQDZlULyAA==
   dependencies:
     "@octokit/request-error" "^2.0.2"
     "@octokit/webhooks-methods" "^2.0.0"
@@ -279,644 +229,95 @@
 
 "@types/aws-lambda@^8.10.83":
   version "8.10.84"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@types/aws-lambda/-/aws-lambda-8.10.84.tgz"
-  integrity sha1-sfORzutpCLKNhBbZPyev6NE0jU4=
+  resolved "https://registry.npmjs.org/@types/aws-lambda/-/aws-lambda-8.10.84.tgz#b1f391ceeb6908b28d8416d93f27afe8d1348d4e"
+  integrity sha512-5V78eLtmN0d4RA14hKDwcsMQRl3JotQJlhGFDBo/jdE2TyDFRaYwB/UmMUC4SzhSvRGn+YMkh7jGPnXi8COAng==
 
 "@types/btoa-lite@^1.0.0":
   version "1.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@types/btoa-lite/-/btoa-lite-1.0.0.tgz"
-  integrity sha1-4ZClpUjgs0itsN+ax/pfEVHHzKQ=
-
-"@types/json-schema@^7.0.7":
-  version "7.0.9"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@types/json-schema/-/json-schema-7.0.9.tgz#97edc9037ea0c38585320b28964dde3b39e4660d"
-  integrity sha1-l+3JA36gw4WFMgsolk3eOznkZg0=
+  resolved "https://registry.npmjs.org/@types/btoa-lite/-/btoa-lite-1.0.0.tgz#e190a5a548e0b348adb0df9ac7fa5f1151c7cca4"
+  integrity sha512-wJsiX1tosQ+J5+bY5LrSahHxr2wT+uME5UDwdN1kg4frt40euqA+wzECkmq4t5QbveHiJepfdThgQrPw6KiSlg==
 
 "@types/jsonwebtoken@^8.3.3":
   version "8.5.5"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@types/jsonwebtoken/-/jsonwebtoken-8.5.5.tgz"
-  integrity sha1-2l8vS67ojwUu8+TbTBoK+0bP8iw=
+  resolved "https://registry.npmjs.org/@types/jsonwebtoken/-/jsonwebtoken-8.5.5.tgz#da5f2f4baee88f052ef3e4db4c1a0afb46cff22c"
+  integrity sha512-OGqtHQ7N5/Ap/TUwO6IgHDuLiAoTmHhGpNvgkCm/F4N6pKzx/RBSfr2OXZSwC6vkfnsEdb6+7DNZVtiXiwdwFw==
   dependencies:
     "@types/node" "*"
 
 "@types/lru-cache@^5.1.0":
   version "5.1.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@types/lru-cache/-/lru-cache-5.1.1.tgz"
-  integrity sha1-xIwuJ7ZdKhU7Gb/BoxfjCHLgHu8=
+  resolved "https://registry.npmjs.org/@types/lru-cache/-/lru-cache-5.1.1.tgz#c48c2e27b65d2a153b19bfc1a317e30872e01eef"
+  integrity sha512-ssE3Vlrys7sdIzs5LOxCzTVMsU7i9oa/IaW92wF32JFb3CVczqOkru2xspuKczHEbG3nvmPY7IFqVmGGHdNbYw==
 
 "@types/node@*":
-  version "16.10.3"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@types/node/-/node-16.10.3.tgz"
-  integrity sha1-eo8oOGA+oxTR0iuzFx2JnhXFe9U=
-
-"@typescript-eslint/eslint-plugin@^5.0.0":
-  version "5.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@typescript-eslint/eslint-plugin/-/eslint-plugin-5.0.0.tgz#ecc7cc69d1e6f342beb6ea9cf9fbc02c97a212ac"
-  integrity sha1-7MfMadHm80K+tuqc+fvALJeiEqw=
-  dependencies:
-    "@typescript-eslint/experimental-utils" "5.0.0"
-    "@typescript-eslint/scope-manager" "5.0.0"
-    debug "^4.3.1"
-    functional-red-black-tree "^1.0.1"
-    ignore "^5.1.8"
-    regexpp "^3.1.0"
-    semver "^7.3.5"
-    tsutils "^3.21.0"
-
-"@typescript-eslint/experimental-utils@5.0.0":
-  version "5.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@typescript-eslint/experimental-utils/-/experimental-utils-5.0.0.tgz#c7d7e67443dfb9fd93a5d060fb72c9e9b5638bbc"
-  integrity sha1-x9fmdEPfuf2TpdBg+3LJ6bVji7w=
-  dependencies:
-    "@types/json-schema" "^7.0.7"
-    "@typescript-eslint/scope-manager" "5.0.0"
-    "@typescript-eslint/types" "5.0.0"
-    "@typescript-eslint/typescript-estree" "5.0.0"
-    eslint-scope "^5.1.1"
-    eslint-utils "^3.0.0"
-
-"@typescript-eslint/parser@^5.0.0":
-  version "5.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@typescript-eslint/parser/-/parser-5.0.0.tgz#50d1be2e0def82d73e863cceba74aeeac9973592"
-  integrity sha1-UNG+Lg3vgtc+hjzOunSu6smXNZI=
-  dependencies:
-    "@typescript-eslint/scope-manager" "5.0.0"
-    "@typescript-eslint/types" "5.0.0"
-    "@typescript-eslint/typescript-estree" "5.0.0"
-    debug "^4.3.1"
-
-"@typescript-eslint/scope-manager@5.0.0":
-  version "5.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@typescript-eslint/scope-manager/-/scope-manager-5.0.0.tgz#aea0fb0e2480c1169a02e89d9005ac3f2835713f"
-  integrity sha1-rqD7DiSAwRaaAuidkAWsPyg1cT8=
-  dependencies:
-    "@typescript-eslint/types" "5.0.0"
-    "@typescript-eslint/visitor-keys" "5.0.0"
-
-"@typescript-eslint/types@5.0.0":
-  version "5.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@typescript-eslint/types/-/types-5.0.0.tgz#25d93f6d269b2d25fdc51a0407eb81ccba60eb0f"
-  integrity sha1-Jdk/bSabLSX9xRoEB+uBzLpg6w8=
-
-"@typescript-eslint/typescript-estree@5.0.0":
-  version "5.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@typescript-eslint/typescript-estree/-/typescript-estree-5.0.0.tgz#bc20f413c6e572c7309dbe5fa3be027984952af3"
-  integrity sha1-vCD0E8blcscwnb5fo74CeYSVKvM=
-  dependencies:
-    "@typescript-eslint/types" "5.0.0"
-    "@typescript-eslint/visitor-keys" "5.0.0"
-    debug "^4.3.1"
-    globby "^11.0.3"
-    is-glob "^4.0.1"
-    semver "^7.3.5"
-    tsutils "^3.21.0"
-
-"@typescript-eslint/visitor-keys@5.0.0":
-  version "5.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/@typescript-eslint/visitor-keys/-/visitor-keys-5.0.0.tgz#b789f7cd105e59bee5c0983a353942a5a48f56df"
-  integrity sha1-t4n3zRBeWb7lwJg6NTlCpaSPVt8=
-  dependencies:
-    "@typescript-eslint/types" "5.0.0"
-    eslint-visitor-keys "^3.0.0"
-
-acorn-jsx@^5.3.1:
-  version "5.3.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/acorn-jsx/-/acorn-jsx-5.3.2.tgz"
-  integrity sha1-ftW7VZCLOy8bxVxq8WU7rafweTc=
-
-acorn@^8.5.0:
-  version "8.5.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/acorn/-/acorn-8.5.0.tgz"
-  integrity sha1-RRLMuZs2mMdSWR6btEcuOK1DzuI=
+  version "16.10.4"
+  resolved "https://registry.npmjs.org/@types/node/-/node-16.10.4.tgz#592f12b0b5f357533ddc3310b0176d42ea3e45d1"
+  integrity sha512-EITwVTX5B4nDjXjGeQAfXOrm+Jn+qNjDmyDRtWoD+wZsl/RDPRTFRKivs4Mt74iOFlLOrE5+Kf+p5yjyhm3+cA==
 
 aggregate-error@^3.1.0:
   version "3.1.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/aggregate-error/-/aggregate-error-3.1.0.tgz"
-  integrity sha1-kmcP9Q9TWb23o+DUDQ7DDFc3aHo=
+  resolved "https://registry.npmjs.org/aggregate-error/-/aggregate-error-3.1.0.tgz#92670ff50f5359bdb7a3e0d40d0ec30c5737687a"
+  integrity sha512-4I7Td01quW/RpocfNayFdFVk1qSuoh0E7JrbRJ16nH01HhKFQ88INq9Sd+nd72zqRySlr9BmDA8xlEJ6vJMrYA==
   dependencies:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-ajv@^6.10.0, ajv@^6.12.4:
-  version "6.12.6"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/ajv/-/ajv-6.12.6.tgz"
-  integrity sha1-uvWmLoArB9l3A0WG+MO69a3ybfQ=
-  dependencies:
-    fast-deep-equal "^3.1.1"
-    fast-json-stable-stringify "^2.0.0"
-    json-schema-traverse "^0.4.1"
-    uri-js "^4.2.2"
-
-ansi-colors@^4.1.1:
-  version "4.1.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/ansi-colors/-/ansi-colors-4.1.1.tgz"
-  integrity sha1-y7muJWv3UK8eqzRPIpqif+lLo0g=
-
-ansi-regex@^5.0.1:
-  version "5.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/ansi-regex/-/ansi-regex-5.0.1.tgz"
-  integrity sha1-CCyyyJyf6GWaMRpTvWpNxTAdswQ=
-
-ansi-styles@^4.1.0:
-  version "4.3.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/ansi-styles/-/ansi-styles-4.3.0.tgz"
-  integrity sha1-7dgDYornHATIWuegkG7a00tkiTc=
-  dependencies:
-    color-convert "^2.0.1"
-
-argparse@^1.0.7:
-  version "1.0.10"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/argparse/-/argparse-1.0.10.tgz"
-  integrity sha1-vNZ5HqWuCXJeF+WtmIE0zUCz2RE=
-  dependencies:
-    sprintf-js "~1.0.2"
-
-argparse@^2.0.1:
-  version "2.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/argparse/-/argparse-2.0.1.tgz"
-  integrity sha1-JG9Q88p4oyQPbJl+ipvR6sSeSzg=
-
-array-union@^2.1.0:
-  version "2.1.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/array-union/-/array-union-2.1.0.tgz#b798420adbeb1de828d84acd8a2e23d3efe85e8d"
-  integrity sha1-t5hCCtvrHego2ErNii4j0+/oXo0=
-
-balanced-match@^1.0.0:
-  version "1.0.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/balanced-match/-/balanced-match-1.0.2.tgz"
-  integrity sha1-6D46fj8wCzTLnYf2FfoMvzV2kO4=
-
 before-after-hook@^2.2.0:
   version "2.2.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/before-after-hook/-/before-after-hook-2.2.2.tgz"
-  integrity sha1-pujKQQKNkO4sJCIvIByQlWCRYT4=
+  resolved "https://registry.npmjs.org/before-after-hook/-/before-after-hook-2.2.2.tgz#a6e8ca41028d90ee2c24222f201c90956091613e"
+  integrity sha512-3pZEU3NT5BFUo/AD5ERPWOgQOCZITni6iavr5AUw5AUwQjMlI0kzu5btnyD39AF0gUEsDPwJT+oY1ORBJijPjQ==
 
 bottleneck@^2.15.3:
   version "2.19.5"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/bottleneck/-/bottleneck-2.19.5.tgz"
-  integrity sha1-XfC5D1n9R2VuvmPHiphBkgXK3ZE=
-
-brace-expansion@^1.1.7:
-  version "1.1.11"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/brace-expansion/-/brace-expansion-1.1.11.tgz"
-  integrity sha1-PH/L9SnYcibz0vUrlm/1Jx60Qd0=
-  dependencies:
-    balanced-match "^1.0.0"
-    concat-map "0.0.1"
-
-braces@^3.0.1:
-  version "3.0.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/braces/-/braces-3.0.2.tgz#3454e1a462ee8d599e236df336cd9ea4f8afe107"
-  integrity sha1-NFThpGLujVmeI23zNs2epPiv4Qc=
-  dependencies:
-    fill-range "^7.0.1"
+  resolved "https://registry.npmjs.org/bottleneck/-/bottleneck-2.19.5.tgz#5df0b90f59fd47656ebe63c78a98419205cadd91"
+  integrity sha512-VHiNCbI1lKdl44tGrhNfU3lup0Tj/ZBMJB5/2ZbNXRCPuRCO7ed2mgcK4r17y+KB2EfuYuRaVlwNbAeaWGSpbw==
 
 btoa-lite@^1.0.0:
   version "1.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/btoa-lite/-/btoa-lite-1.0.0.tgz"
+  resolved "https://registry.npmjs.org/btoa-lite/-/btoa-lite-1.0.0.tgz#337766da15801210fdd956c22e9c6891ab9d0337"
   integrity sha1-M3dm2hWAEhD92VbCLpxokaudAzc=
 
 buffer-equal-constant-time@1.0.1:
   version "1.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz"
+  resolved "https://registry.npmjs.org/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz#f8e71132f7ffe6e01a5c9697a4c6f3e48d5cc819"
   integrity sha1-+OcRMvf/5uAaXJaXpMbz5I1cyBk=
-
-callsites@^3.0.0:
-  version "3.1.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/callsites/-/callsites-3.1.0.tgz"
-  integrity sha1-s2MKvYlDQy9Us/BRkjjjPNffL3M=
-
-chalk@^4.0.0:
-  version "4.1.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/chalk/-/chalk-4.1.2.tgz"
-  integrity sha1-qsTit3NKdAhnrrFr8CqtVWoeegE=
-  dependencies:
-    ansi-styles "^4.1.0"
-    supports-color "^7.1.0"
 
 clean-stack@^2.0.0:
   version "2.2.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/clean-stack/-/clean-stack-2.2.0.tgz"
-  integrity sha1-7oRy27Ep5yezHooQpCfe6d/kAIs=
-
-color-convert@^2.0.1:
-  version "2.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/color-convert/-/color-convert-2.0.1.tgz"
-  integrity sha1-ctOmjVmMm9s68q0ehPIdiWq9TeM=
-  dependencies:
-    color-name "~1.1.4"
-
-color-name@~1.1.4:
-  version "1.1.4"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/color-name/-/color-name-1.1.4.tgz"
-  integrity sha1-wqCah6y95pVD3m9j+jmVyCbFNqI=
-
-concat-map@0.0.1:
-  version "0.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/concat-map/-/concat-map-0.0.1.tgz"
-  integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
-
-cross-spawn@^7.0.2:
-  version "7.0.3"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/cross-spawn/-/cross-spawn-7.0.3.tgz"
-  integrity sha1-9zqFudXUHQRVUcF34ogtSshXKKY=
-  dependencies:
-    path-key "^3.1.0"
-    shebang-command "^2.0.0"
-    which "^2.0.1"
-
-debug@^4.1.1, debug@^4.3.1, debug@^4.3.2:
-  version "4.3.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/debug/-/debug-4.3.2.tgz"
-  integrity sha1-8KScGKyHeeMdSgxgKd+3aHPHQos=
-  dependencies:
-    ms "2.1.2"
-
-deep-is@^0.1.3:
-  version "0.1.4"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/deep-is/-/deep-is-0.1.4.tgz"
-  integrity sha1-pvLc5hL63S7x9Rm3NVHxfoUZmDE=
+  resolved "https://registry.npmjs.org/clean-stack/-/clean-stack-2.2.0.tgz#ee8472dbb129e727b31e8a10a427dee9dfe4008b"
+  integrity sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==
 
 deprecation@^2.0.0, deprecation@^2.3.1:
   version "2.3.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/deprecation/-/deprecation-2.3.1.tgz"
-  integrity sha1-Y2jL20Cr8zc7UlrIfkomDDpwCRk=
-
-dir-glob@^3.0.1:
-  version "3.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/dir-glob/-/dir-glob-3.0.1.tgz#56dbf73d992a4a93ba1584f4534063fd2e41717f"
-  integrity sha1-Vtv3PZkqSpO6FYT0U0Bj/S5BcX8=
-  dependencies:
-    path-type "^4.0.0"
-
-doctrine@^3.0.0:
-  version "3.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/doctrine/-/doctrine-3.0.0.tgz"
-  integrity sha1-rd6+rXKmV023g2OdyHoSF3OXOWE=
-  dependencies:
-    esutils "^2.0.2"
+  resolved "https://registry.npmjs.org/deprecation/-/deprecation-2.3.1.tgz#6368cbdb40abf3373b525ac87e4a260c3a700919"
+  integrity sha512-xmHIy4F3scKVwMsQ4WnVaS8bHOx0DmVwRywosKhaILI0ywMDWPtBSku2HNxRvF7jtwDRsoEwYQSfbxj8b7RlJQ==
 
 ecdsa-sig-formatter@1.0.11:
   version "1.0.11"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.11.tgz"
-  integrity sha1-rg8PothQRe8UqBfao86azQSJ5b8=
+  resolved "https://registry.npmjs.org/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.11.tgz#ae0f0fa2d85045ef14a817daa3ce9acd0489e5bf"
+  integrity sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ==
   dependencies:
     safe-buffer "^5.0.1"
 
-enquirer@^2.3.5:
-  version "2.3.6"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/enquirer/-/enquirer-2.3.6.tgz"
-  integrity sha1-Kn/l3WNKHkElqXXsmU/1RW3Dc00=
-  dependencies:
-    ansi-colors "^4.1.1"
-
-escape-string-regexp@^4.0.0:
-  version "4.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz"
-  integrity sha1-FLqDpdNz49MR5a/KKc9b+tllvzQ=
-
-eslint-scope@^5.1.1:
-  version "5.1.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/eslint-scope/-/eslint-scope-5.1.1.tgz#e786e59a66cb92b3f6c1fb0d508aab174848f48c"
-  integrity sha1-54blmmbLkrP2wfsNUIqrF0hI9Iw=
-  dependencies:
-    esrecurse "^4.3.0"
-    estraverse "^4.1.1"
-
-eslint-scope@^6.0.0:
-  version "6.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/eslint-scope/-/eslint-scope-6.0.0.tgz"
-  integrity sha1-nPRbE8Wsjz1MUPRqUSH2Gz4xiXg=
-  dependencies:
-    esrecurse "^4.3.0"
-    estraverse "^5.2.0"
-
-eslint-utils@^3.0.0:
-  version "3.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/eslint-utils/-/eslint-utils-3.0.0.tgz"
-  integrity sha1-iuuvrOc0W7M1WdsKHxOh0tSMNnI=
-  dependencies:
-    eslint-visitor-keys "^2.0.0"
-
-eslint-visitor-keys@^2.0.0:
-  version "2.1.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/eslint-visitor-keys/-/eslint-visitor-keys-2.1.0.tgz"
-  integrity sha1-9lMoJZMFknOSyTjtROsKXJsr0wM=
-
-eslint-visitor-keys@^3.0.0:
-  version "3.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/eslint-visitor-keys/-/eslint-visitor-keys-3.0.0.tgz"
-  integrity sha1-4y6Zxs3C6wY/IE7aXbZ7/li7QYY=
-
-eslint@^8.0.0:
-  version "8.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/eslint/-/eslint-8.0.0.tgz"
-  integrity sha1-LC0KxjU3VWZ6yQyf9KnBMV5D/P8=
-  dependencies:
-    "@eslint/eslintrc" "^1.0.2"
-    "@humanwhocodes/config-array" "^0.6.0"
-    ajv "^6.10.0"
-    chalk "^4.0.0"
-    cross-spawn "^7.0.2"
-    debug "^4.3.2"
-    doctrine "^3.0.0"
-    enquirer "^2.3.5"
-    escape-string-regexp "^4.0.0"
-    eslint-scope "^6.0.0"
-    eslint-utils "^3.0.0"
-    eslint-visitor-keys "^3.0.0"
-    espree "^9.0.0"
-    esquery "^1.4.0"
-    esutils "^2.0.2"
-    fast-deep-equal "^3.1.3"
-    file-entry-cache "^6.0.1"
-    functional-red-black-tree "^1.0.1"
-    glob-parent "^6.0.1"
-    globals "^13.6.0"
-    ignore "^4.0.6"
-    import-fresh "^3.0.0"
-    imurmurhash "^0.1.4"
-    is-glob "^4.0.0"
-    js-yaml "^4.1.0"
-    json-stable-stringify-without-jsonify "^1.0.1"
-    levn "^0.4.1"
-    lodash.merge "^4.6.2"
-    minimatch "^3.0.4"
-    natural-compare "^1.4.0"
-    optionator "^0.9.1"
-    progress "^2.0.0"
-    regexpp "^3.2.0"
-    semver "^7.2.1"
-    strip-ansi "^6.0.0"
-    strip-json-comments "^3.1.0"
-    text-table "^0.2.0"
-    v8-compile-cache "^2.0.3"
-
-espree@^9.0.0:
-  version "9.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/espree/-/espree-9.0.0.tgz"
-  integrity sha1-6QopZWmCKFAudxx6WEibGp0QcJA=
-  dependencies:
-    acorn "^8.5.0"
-    acorn-jsx "^5.3.1"
-    eslint-visitor-keys "^3.0.0"
-
-esprima@^4.0.0:
-  version "4.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/esprima/-/esprima-4.0.1.tgz"
-  integrity sha1-E7BM2z5sXRnfkatph6hpVhmwqnE=
-
-esquery@^1.4.0:
-  version "1.4.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/esquery/-/esquery-1.4.0.tgz"
-  integrity sha1-IUj/w4uC6McFff7UhCWz5h8PJKU=
-  dependencies:
-    estraverse "^5.1.0"
-
-esrecurse@^4.3.0:
-  version "4.3.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/esrecurse/-/esrecurse-4.3.0.tgz"
-  integrity sha1-eteWTWeauyi+5yzsY3WLHF0smSE=
-  dependencies:
-    estraverse "^5.2.0"
-
-estraverse@^4.1.1:
-  version "4.3.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/estraverse/-/estraverse-4.3.0.tgz#398ad3f3c5a24948be7725e83d11a7de28cdbd1d"
-  integrity sha1-OYrT88WiSUi+dyXoPRGn3ijNvR0=
-
-estraverse@^5.1.0, estraverse@^5.2.0:
-  version "5.2.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/estraverse/-/estraverse-5.2.0.tgz"
-  integrity sha1-MH30JUfmzHMk088DwVXVzbjFOIA=
-
-esutils@^2.0.2:
-  version "2.0.3"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/esutils/-/esutils-2.0.3.tgz"
-  integrity sha1-dNLrTeC42hKTcRkQ1Qd1ubcQ72Q=
-
-fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
-  version "3.1.3"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz"
-  integrity sha1-On1WtVnWy8PrUSMlJE5hmmXGxSU=
-
-fast-glob@^3.1.1:
-  version "3.2.7"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/fast-glob/-/fast-glob-3.2.7.tgz#fd6cb7a2d7e9aa7a7846111e85a196d6b2f766a1"
-  integrity sha1-/Wy3otfpqnp4RhEehaGW1rL3ZqE=
-  dependencies:
-    "@nodelib/fs.stat" "^2.0.2"
-    "@nodelib/fs.walk" "^1.2.3"
-    glob-parent "^5.1.2"
-    merge2 "^1.3.0"
-    micromatch "^4.0.4"
-
-fast-json-stable-stringify@^2.0.0:
-  version "2.1.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/fast-json-stable-stringify/-/fast-json-stable-stringify-2.1.0.tgz"
-  integrity sha1-h0v2nG9ATCtdmcSBNBOZ/VWJJjM=
-
-fast-levenshtein@^2.0.6:
-  version "2.0.6"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz"
-  integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
-
-fastq@^1.6.0:
-  version "1.13.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/fastq/-/fastq-1.13.0.tgz#616760f88a7526bdfc596b7cab8c18938c36b98c"
-  integrity sha1-YWdg+Ip1Jr38WWt8q4wYk4w2uYw=
-  dependencies:
-    reusify "^1.0.4"
-
-file-entry-cache@^6.0.1:
-  version "6.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/file-entry-cache/-/file-entry-cache-6.0.1.tgz"
-  integrity sha1-IRst2WWcsDlLBz5zI6w8kz1SICc=
-  dependencies:
-    flat-cache "^3.0.4"
-
-fill-range@^7.0.1:
-  version "7.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/fill-range/-/fill-range-7.0.1.tgz#1919a6a7c75fe38b2c7c77e5198535da9acdda40"
-  integrity sha1-GRmmp8df44ssfHflGYU12prN2kA=
-  dependencies:
-    to-regex-range "^5.0.1"
-
-flat-cache@^3.0.4:
-  version "3.0.4"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/flat-cache/-/flat-cache-3.0.4.tgz"
-  integrity sha1-YbAzgwKy/p+Vfcwy/CqH8cMEixE=
-  dependencies:
-    flatted "^3.1.0"
-    rimraf "^3.0.2"
-
-flatted@^3.1.0:
-  version "3.2.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/flatted/-/flatted-3.2.2.tgz"
-  integrity sha1-ZL/tXLaP48p4s+shStl7Y77c5WE=
-
 fromentries@^1.3.1:
   version "1.3.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/fromentries/-/fromentries-1.3.2.tgz"
-  integrity sha1-5LymgIgWv4+TtSdQ8RJ/Wm/Ybjo=
-
-fs.realpath@^1.0.0:
-  version "1.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/fs.realpath/-/fs.realpath-1.0.0.tgz"
-  integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
-
-functional-red-black-tree@^1.0.1:
-  version "1.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz"
-  integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
-
-glob-parent@^5.1.2:
-  version "5.1.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/glob-parent/-/glob-parent-5.1.2.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
-  integrity sha1-hpgyxYA0/mikCTwX3BXoNA2EAcQ=
-  dependencies:
-    is-glob "^4.0.1"
-
-glob-parent@^6.0.1:
-  version "6.0.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/glob-parent/-/glob-parent-6.0.2.tgz"
-  integrity sha1-bSN9mQg5UMeSkPJMdkKj3poo+eM=
-  dependencies:
-    is-glob "^4.0.3"
-
-glob@^7.1.3:
-  version "7.2.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/glob/-/glob-7.2.0.tgz"
-  integrity sha1-0VU1r3cy4C6Uj0xBYovZECk/YCM=
-  dependencies:
-    fs.realpath "^1.0.0"
-    inflight "^1.0.4"
-    inherits "2"
-    minimatch "^3.0.4"
-    once "^1.3.0"
-    path-is-absolute "^1.0.0"
-
-globals@^13.6.0, globals@^13.9.0:
-  version "13.11.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/globals/-/globals-13.11.0.tgz"
-  integrity sha1-QO9njaEX/nvS4o8fqySVG9AlW+c=
-  dependencies:
-    type-fest "^0.20.2"
-
-globby@^11.0.3:
-  version "11.0.4"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/globby/-/globby-11.0.4.tgz#2cbaff77c2f2a62e71e9b2813a67b97a3a3001a5"
-  integrity sha1-LLr/d8Lypi5x6bKBOme5ejowAaU=
-  dependencies:
-    array-union "^2.1.0"
-    dir-glob "^3.0.1"
-    fast-glob "^3.1.1"
-    ignore "^5.1.4"
-    merge2 "^1.3.0"
-    slash "^3.0.0"
-
-has-flag@^4.0.0:
-  version "4.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/has-flag/-/has-flag-4.0.0.tgz"
-  integrity sha1-lEdx/ZyByBJlxNaUGGDaBrtZR5s=
-
-ignore@^4.0.6:
-  version "4.0.6"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/ignore/-/ignore-4.0.6.tgz"
-  integrity sha1-dQ49tYYgh7RzfrrIIH/9HvJ7Jfw=
-
-ignore@^5.1.4, ignore@^5.1.8:
-  version "5.1.8"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/ignore/-/ignore-5.1.8.tgz#f150a8b50a34289b33e22f5889abd4d8016f0e57"
-  integrity sha1-8VCotQo0KJsz4i9YiavU2AFvDlc=
-
-import-fresh@^3.0.0, import-fresh@^3.2.1:
-  version "3.3.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/import-fresh/-/import-fresh-3.3.0.tgz"
-  integrity sha1-NxYsJfy566oublPVtNiM4X2eDCs=
-  dependencies:
-    parent-module "^1.0.0"
-    resolve-from "^4.0.0"
-
-imurmurhash@^0.1.4:
-  version "0.1.4"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/imurmurhash/-/imurmurhash-0.1.4.tgz"
-  integrity sha1-khi5srkoojixPcT7a21XbyMUU+o=
+  resolved "https://registry.npmjs.org/fromentries/-/fromentries-1.3.2.tgz#e4bca6808816bf8f93b52750f1127f5a6fd86e3a"
+  integrity sha512-cHEpEQHUg0f8XdtZCc2ZAhrHzKzT0MrFUTcvx+hfxYu7rGMDc5SKoXFh+n4YigxsHXRzc6OrCshdR1bWH6HHyg==
 
 indent-string@^4.0.0:
   version "4.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/indent-string/-/indent-string-4.0.0.tgz"
-  integrity sha1-Yk+PRJfWGbLZdoUx1Y9BIoVNclE=
-
-inflight@^1.0.4:
-  version "1.0.6"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/inflight/-/inflight-1.0.6.tgz"
-  integrity sha1-Sb1jMdfQLQwJvJEKEHW6gWW1bfk=
-  dependencies:
-    once "^1.3.0"
-    wrappy "1"
-
-inherits@2:
-  version "2.0.4"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/inherits/-/inherits-2.0.4.tgz"
-  integrity sha1-D6LGT5MpF8NDOg3tVTY6rjdBa3w=
-
-is-extglob@^2.1.1:
-  version "2.1.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/is-extglob/-/is-extglob-2.1.1.tgz"
-  integrity sha1-qIwCU1eR8C7TfHahueqXc8gz+MI=
-
-is-glob@^4.0.0, is-glob@^4.0.1, is-glob@^4.0.3:
-  version "4.0.3"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/is-glob/-/is-glob-4.0.3.tgz"
-  integrity sha1-ZPYeQsu7LuwgcanawLKLoeZdUIQ=
-  dependencies:
-    is-extglob "^2.1.1"
-
-is-number@^7.0.0:
-  version "7.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/is-number/-/is-number-7.0.0.tgz#7535345b896734d5f80c4d06c50955527a14f12b"
-  integrity sha1-dTU0W4lnNNX4DE0GxQlVUnoU8Ss=
+  resolved "https://registry.npmjs.org/indent-string/-/indent-string-4.0.0.tgz#624f8f4497d619b2d9768531d58f4122854d7251"
+  integrity sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==
 
 is-plain-object@^5.0.0:
   version "5.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/is-plain-object/-/is-plain-object-5.0.0.tgz"
-  integrity sha1-RCf1CrNCnpAl6n1S6QQ6nvQVk0Q=
-
-isexe@^2.0.0:
-  version "2.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/isexe/-/isexe-2.0.0.tgz"
-  integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
-
-js-yaml@^3.13.1:
-  version "3.14.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/js-yaml/-/js-yaml-3.14.1.tgz"
-  integrity sha1-2ugS/bOCX6MGYJqHFzg8UMNqBTc=
-  dependencies:
-    argparse "^1.0.7"
-    esprima "^4.0.0"
-
-js-yaml@^4.1.0:
-  version "4.1.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/js-yaml/-/js-yaml-4.1.0.tgz"
-  integrity sha1-wftl+PUBeQHN0slRhkuhhFihBgI=
-  dependencies:
-    argparse "^2.0.1"
-
-json-schema-traverse@^0.4.1:
-  version "0.4.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz"
-  integrity sha1-afaofZUTq4u4/mO9sJecRI5oRmA=
-
-json-stable-stringify-without-jsonify@^1.0.1:
-  version "1.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz"
-  integrity sha1-nbe1lJatPzz+8wp1FC0tkwrXJlE=
+  resolved "https://registry.npmjs.org/is-plain-object/-/is-plain-object-5.0.0.tgz#4427f50ab3429e9025ea7d52e9043a9ef4159344"
+  integrity sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==
 
 jsonwebtoken@^8.5.1:
   version "8.5.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/jsonwebtoken/-/jsonwebtoken-8.5.1.tgz"
-  integrity sha1-AOceC431TCEhofJhN98igGc7zA0=
+  resolved "https://registry.npmjs.org/jsonwebtoken/-/jsonwebtoken-8.5.1.tgz#00e71e0b8df54c2121a1f26137df2280673bcc0d"
+  integrity sha512-XjwVfRS6jTMsqYs0EsuJ4LGxXV14zQybNd4L2r0UvbVnSF9Af8x7p5MzbJ90Ioz/9TI41/hTCvznF/loiSzn8w==
   dependencies:
     jws "^3.2.2"
     lodash.includes "^4.3.0"
@@ -931,8 +332,8 @@ jsonwebtoken@^8.5.1:
 
 jwa@^1.4.1:
   version "1.4.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/jwa/-/jwa-1.4.1.tgz"
-  integrity sha1-dDwymFy56YZVUw1TZBtmyGRbA5o=
+  resolved "https://registry.npmjs.org/jwa/-/jwa-1.4.1.tgz#743c32985cb9e98655530d53641b66c8645b039a"
+  integrity sha512-qiLX/xhEEFKUAJ6FiBMbes3w9ATzyk5W7Hvzpa/SLYdxNtng+gcurvrI7TbACjIXlsJyr05/S1oUhZrc63evQA==
   dependencies:
     buffer-equal-constant-time "1.0.1"
     ecdsa-sig-formatter "1.0.11"
@@ -940,113 +341,70 @@ jwa@^1.4.1:
 
 jws@^3.2.2:
   version "3.2.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/jws/-/jws-3.2.2.tgz"
-  integrity sha1-ABCZ82OUaMlBQADpmZX6UvtHgwQ=
+  resolved "https://registry.npmjs.org/jws/-/jws-3.2.2.tgz#001099f3639468c9414000e99995fa52fb478304"
+  integrity sha512-YHlZCB6lMTllWDtSPHz/ZXTsi8S00usEV6v1tjq8tOUZzw7DpSDWVXjXDre6ed1w/pd495ODpHZYSdkRTsa0HA==
   dependencies:
     jwa "^1.4.1"
     safe-buffer "^5.0.1"
 
-levn@^0.4.1:
-  version "0.4.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/levn/-/levn-0.4.1.tgz"
-  integrity sha1-rkViwAdHO5MqYgDUAyaN0v/8at4=
-  dependencies:
-    prelude-ls "^1.2.1"
-    type-check "~0.4.0"
-
 lodash.includes@^4.3.0:
   version "4.3.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/lodash.includes/-/lodash.includes-4.3.0.tgz"
+  resolved "https://registry.npmjs.org/lodash.includes/-/lodash.includes-4.3.0.tgz#60bb98a87cb923c68ca1e51325483314849f553f"
   integrity sha1-YLuYqHy5I8aMoeUTJUgzFISfVT8=
 
 lodash.isboolean@^3.0.3:
   version "3.0.3"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/lodash.isboolean/-/lodash.isboolean-3.0.3.tgz"
+  resolved "https://registry.npmjs.org/lodash.isboolean/-/lodash.isboolean-3.0.3.tgz#6c2e171db2a257cd96802fd43b01b20d5f5870f6"
   integrity sha1-bC4XHbKiV82WgC/UOwGyDV9YcPY=
 
 lodash.isinteger@^4.0.4:
   version "4.0.4"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/lodash.isinteger/-/lodash.isinteger-4.0.4.tgz"
+  resolved "https://registry.npmjs.org/lodash.isinteger/-/lodash.isinteger-4.0.4.tgz#619c0af3d03f8b04c31f5882840b77b11cd68343"
   integrity sha1-YZwK89A/iwTDH1iChAt3sRzWg0M=
 
 lodash.isnumber@^3.0.3:
   version "3.0.3"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/lodash.isnumber/-/lodash.isnumber-3.0.3.tgz"
+  resolved "https://registry.npmjs.org/lodash.isnumber/-/lodash.isnumber-3.0.3.tgz#3ce76810c5928d03352301ac287317f11c0b1ffc"
   integrity sha1-POdoEMWSjQM1IwGsKHMX8RwLH/w=
 
 lodash.isplainobject@^4.0.6:
   version "4.0.6"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz"
+  resolved "https://registry.npmjs.org/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
   integrity sha1-fFJqUtibRcRcxpC4gWO+BJf1UMs=
 
 lodash.isstring@^4.0.1:
   version "4.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/lodash.isstring/-/lodash.isstring-4.0.1.tgz"
+  resolved "https://registry.npmjs.org/lodash.isstring/-/lodash.isstring-4.0.1.tgz#d527dfb5456eca7cc9bb95d5daeaf88ba54a5451"
   integrity sha1-1SfftUVuynzJu5XV2ur4i6VKVFE=
-
-lodash.merge@^4.6.2:
-  version "4.6.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/lodash.merge/-/lodash.merge-4.6.2.tgz"
-  integrity sha1-VYqlO0O2YeGSWgr9+japoQhf5Xo=
 
 lodash.once@^4.0.0:
   version "4.1.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/lodash.once/-/lodash.once-4.1.1.tgz"
+  resolved "https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz#0dd3971213c7c56df880977d504c88fb471a97ac"
   integrity sha1-DdOXEhPHxW34gJd9UEyI+0cal6w=
 
 lru-cache@^6.0.0:
   version "6.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/lru-cache/-/lru-cache-6.0.0.tgz"
-  integrity sha1-bW/mVw69lqr5D8rR2vo7JWbbOpQ=
+  resolved "https://registry.npmjs.org/lru-cache/-/lru-cache-6.0.0.tgz#6d6fe6570ebd96aaf90fcad1dafa3b2566db3a94"
+  integrity sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==
   dependencies:
     yallist "^4.0.0"
 
-merge2@^1.3.0:
-  version "1.4.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/merge2/-/merge2-1.4.1.tgz#4368892f885e907455a6fd7dc55c0c9d404990ae"
-  integrity sha1-Q2iJL4hekHRVpv19xVwMnUBJkK4=
-
-micromatch@^4.0.4:
-  version "4.0.4"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/micromatch/-/micromatch-4.0.4.tgz#896d519dfe9db25fce94ceb7a500919bf881ebf9"
-  integrity sha1-iW1Rnf6dsl/OlM63pQCRm/iB6/k=
-  dependencies:
-    braces "^3.0.1"
-    picomatch "^2.2.3"
-
-minimatch@^3.0.4:
-  version "3.0.4"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/minimatch/-/minimatch-3.0.4.tgz"
-  integrity sha1-UWbihkV/AzBgZL5Ul+jbsMPTIIM=
-  dependencies:
-    brace-expansion "^1.1.7"
-
-ms@2.1.2:
-  version "2.1.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/ms/-/ms-2.1.2.tgz"
-  integrity sha1-0J0fNXtEP0kzgqjrPM0YOHKuYAk=
-
 ms@^2.1.1:
   version "2.1.3"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/ms/-/ms-2.1.3.tgz"
-  integrity sha1-V0yBOM4dK1hh8LRFedut1gxmFbI=
-
-natural-compare@^1.4.0:
-  version "1.4.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/natural-compare/-/natural-compare-1.4.0.tgz"
-  integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
+  resolved "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
+  integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
 node-fetch@^2.6.1:
   version "2.6.5"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/node-fetch/-/node-fetch-2.6.5.tgz"
-  integrity sha1-QnNVN9fwgKfl94tsVJtxRr4XQv0=
+  resolved "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.5.tgz#42735537d7f080a7e5f78b6c549b7146be1742fd"
+  integrity sha512-mmlIVHJEu5rnIxgEgez6b9GgWXbkZj5YZ7fx+2r94a2E+Uirsp6HsPTPlomfdHtpt/B0cdKviwkoaM6pyvUOpQ==
   dependencies:
     whatwg-url "^5.0.0"
 
 octokit@^1.7.0:
   version "1.7.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/octokit/-/octokit-1.7.0.tgz"
-  integrity sha1-uYpmPsupUaNUKN51eG+44maeFGc=
+  resolved "https://registry.npmjs.org/octokit/-/octokit-1.7.0.tgz#b98a663ecba951a35428de75786fb8e2669e1467"
+  integrity sha512-oxDHhPjxjKqUD8wa/2XMl7aqp/3ypihJVFxqEN8NbrtS6uAoa9i5KJmKuT1Nik1JuQHuCNeUqObrVKbIMBPMMQ==
   dependencies:
     "@octokit/app" "^12.0.4"
     "@octokit/core" "^3.5.1"
@@ -1057,261 +415,65 @@ octokit@^1.7.0:
     "@octokit/plugin-throttling" "^3.5.1"
     "@octokit/types" "^6.26.0"
 
-once@^1.3.0, once@^1.4.0:
+once@^1.4.0:
   version "1.4.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/once/-/once-1.4.0.tgz"
+  resolved "https://registry.npmjs.org/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
   integrity sha1-WDsap3WWHUsROsF9nFC6753Xa9E=
   dependencies:
     wrappy "1"
 
-optionator@^0.9.1:
-  version "0.9.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/optionator/-/optionator-0.9.1.tgz"
-  integrity sha1-TyNqY3Pa4FZqbUPhMmZ09QwpFJk=
-  dependencies:
-    deep-is "^0.1.3"
-    fast-levenshtein "^2.0.6"
-    levn "^0.4.1"
-    prelude-ls "^1.2.1"
-    type-check "^0.4.0"
-    word-wrap "^1.2.3"
-
-parent-module@^1.0.0:
-  version "1.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/parent-module/-/parent-module-1.0.1.tgz"
-  integrity sha1-aR0nCeeMefrjoVZiJFLQB2LKqqI=
-  dependencies:
-    callsites "^3.0.0"
-
-path-is-absolute@^1.0.0:
-  version "1.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/path-is-absolute/-/path-is-absolute-1.0.1.tgz"
-  integrity sha1-F0uSaHNVNP+8es5r9TpanhtcX18=
-
-path-key@^3.1.0:
-  version "3.1.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/path-key/-/path-key-3.1.1.tgz"
-  integrity sha1-WB9q3mWMu6ZaDTOA3ndTKVBU83U=
-
-path-type@^4.0.0:
-  version "4.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/path-type/-/path-type-4.0.0.tgz#84ed01c0a7ba380afe09d90a8c180dcd9d03043b"
-  integrity sha1-hO0BwKe6OAr+CdkKjBgNzZ0DBDs=
-
-picomatch@^2.2.3:
-  version "2.3.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/picomatch/-/picomatch-2.3.0.tgz#f1f061de8f6a4bf022892e2d128234fb98302972"
-  integrity sha1-8fBh3o9qS/AiiS4tEoI0+5gwKXI=
-
-prelude-ls@^1.2.1:
-  version "1.2.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/prelude-ls/-/prelude-ls-1.2.1.tgz"
-  integrity sha1-3rxkidem5rDnYRiIzsiAM30xY5Y=
-
-progress@^2.0.0:
-  version "2.0.3"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/progress/-/progress-2.0.3.tgz"
-  integrity sha1-foz42PW48jnBvGi+tOt4Vn1XLvg=
-
-punycode@^2.1.0:
-  version "2.1.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/punycode/-/punycode-2.1.1.tgz"
-  integrity sha1-tYsBCsQMIsVldhbI0sLALHv0eew=
-
-queue-microtask@^1.2.2:
-  version "1.2.3"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
-  integrity sha1-SSkii7xyTfrEPg77BYyve2z7YkM=
-
-regexpp@^3.1.0, regexpp@^3.2.0:
-  version "3.2.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/regexpp/-/regexpp-3.2.0.tgz"
-  integrity sha1-BCWido2PI7rXDKS5BGH6LxIT4bI=
-
-resolve-from@^4.0.0:
-  version "4.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/resolve-from/-/resolve-from-4.0.0.tgz"
-  integrity sha1-SrzYUq0y3Xuqv+m0DgCjbbXzkuY=
-
-reusify@^1.0.4:
-  version "1.0.4"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
-  integrity sha1-kNo4Kx4SbvwCFG6QhFqI2xKSXXY=
-
-rimraf@^3.0.2:
-  version "3.0.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/rimraf/-/rimraf-3.0.2.tgz"
-  integrity sha1-8aVAK6YiCtUswSgrrBrjqkn9Bho=
-  dependencies:
-    glob "^7.1.3"
-
-run-parallel@^1.1.9:
-  version "1.2.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/run-parallel/-/run-parallel-1.2.0.tgz#66d1368da7bdf921eb9d95bd1a9229e7f21a43ee"
-  integrity sha1-ZtE2jae9+SHrnZW9GpIp5/IaQ+4=
-  dependencies:
-    queue-microtask "^1.2.2"
-
 safe-buffer@^5.0.1:
   version "5.2.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/safe-buffer/-/safe-buffer-5.2.1.tgz"
-  integrity sha1-Hq+fqb2x/dTsdfWPnNtOa3gn7sY=
+  resolved "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
+  integrity sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==
 
 semver@^5.6.0:
   version "5.7.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/semver/-/semver-5.7.1.tgz"
-  integrity sha1-qVT5Ma66UI0we78Gnv8MAclhFvc=
-
-semver@^7.2.1, semver@^7.3.5:
-  version "7.3.5"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/semver/-/semver-7.3.5.tgz"
-  integrity sha1-C2Ich5NI2JmOSw5L6Us/EuYBjvc=
-  dependencies:
-    lru-cache "^6.0.0"
-
-shebang-command@^2.0.0:
-  version "2.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/shebang-command/-/shebang-command-2.0.0.tgz"
-  integrity sha1-zNCvT4g1+9wmW4JGGq8MNmY/NOo=
-  dependencies:
-    shebang-regex "^3.0.0"
-
-shebang-regex@^3.0.0:
-  version "3.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/shebang-regex/-/shebang-regex-3.0.0.tgz"
-  integrity sha1-rhbxZE2HPsrYQ7AwexQzYtTEIXI=
-
-slash@^3.0.0:
-  version "3.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
-  integrity sha1-ZTm+hwwWWtvVJAIg2+Nh8bxNRjQ=
-
-sprintf-js@~1.0.2:
-  version "1.0.3"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/sprintf-js/-/sprintf-js-1.0.3.tgz"
-  integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
-
-strip-ansi@^6.0.0:
-  version "6.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/strip-ansi/-/strip-ansi-6.0.1.tgz"
-  integrity sha1-nibGPTD1NEPpSJSVshBdN7Z6hdk=
-  dependencies:
-    ansi-regex "^5.0.1"
-
-strip-json-comments@^3.1.0, strip-json-comments@^3.1.1:
-  version "3.1.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/strip-json-comments/-/strip-json-comments-3.1.1.tgz"
-  integrity sha1-MfEoGzgyYwQ0gxwxDAHMzajL4AY=
-
-supports-color@^7.1.0:
-  version "7.2.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/supports-color/-/supports-color-7.2.0.tgz"
-  integrity sha1-G33NyzK4E4gBs+R4umpRyqiWSNo=
-  dependencies:
-    has-flag "^4.0.0"
-
-text-table@^0.2.0:
-  version "0.2.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/text-table/-/text-table-0.2.0.tgz"
-  integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
-
-to-regex-range@^5.0.1:
-  version "5.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/to-regex-range/-/to-regex-range-5.0.1.tgz#1648c44aae7c8d988a326018ed72f5b4dd0392e4"
-  integrity sha1-FkjESq58jZiKMmAY7XL1tN0DkuQ=
-  dependencies:
-    is-number "^7.0.0"
+  resolved "https://registry.npmjs.org/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
+  integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
 
 tr46@~0.0.3:
   version "0.0.3"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/tr46/-/tr46-0.0.3.tgz"
+  resolved "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
   integrity sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=
 
-tslib@^1.8.1:
-  version "1.14.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
-  integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
-
-tsutils@^3.21.0:
-  version "3.21.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/tsutils/-/tsutils-3.21.0.tgz#b48717d394cea6c1e096983eed58e9d61715b623"
-  integrity sha1-tIcX05TOpsHglpg+7Vjp1hcVtiM=
-  dependencies:
-    tslib "^1.8.1"
-
-type-check@^0.4.0, type-check@~0.4.0:
-  version "0.4.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/type-check/-/type-check-0.4.0.tgz"
-  integrity sha1-B7ggO/pwVsBlcFDjzNLDdzC6uPE=
-  dependencies:
-    prelude-ls "^1.2.1"
-
-type-fest@^0.20.2:
-  version "0.20.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/type-fest/-/type-fest-0.20.2.tgz"
-  integrity sha1-G/IH9LKPkVg2ZstfvTJ4hzAc1fQ=
-
 typescript@^4.4.3:
-  version "4.4.3"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/typescript/-/typescript-4.4.3.tgz"
-  integrity sha1-vcVAfKorEJ79T4L+EwZW+XeikyQ=
+  version "4.4.4"
+  resolved "https://registry.npmjs.org/typescript/-/typescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
+  integrity sha512-DqGhF5IKoBl8WNf8C1gu8q0xZSInh9j1kJJMqT3a94w1JzVaBU4EXOSMrz9yDqMT0xt3selp83fuFMQ0uzv6qA==
 
 universal-github-app-jwt@^1.0.1:
   version "1.1.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/universal-github-app-jwt/-/universal-github-app-jwt-1.1.0.tgz"
-  integrity sha1-CrqodhAc3x0+TFRr4naIQcDBtRQ=
+  resolved "https://registry.npmjs.org/universal-github-app-jwt/-/universal-github-app-jwt-1.1.0.tgz#0abaa876101cdf1d3e4c546be2768841c0c1b514"
+  integrity sha512-3b+ocAjjz4JTyqaOT+NNBd5BtTuvJTxWElIoeHSVelUV9J3Jp7avmQTdLKCaoqi/5Ox2o/q+VK19TJ233rVXVQ==
   dependencies:
     "@types/jsonwebtoken" "^8.3.3"
     jsonwebtoken "^8.5.1"
 
 universal-user-agent@^6.0.0:
   version "6.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/universal-user-agent/-/universal-user-agent-6.0.0.tgz"
-  integrity sha1-M4H4UDslHA2c0hvB3pOeyd9UgO4=
-
-uri-js@^4.2.2:
-  version "4.4.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/uri-js/-/uri-js-4.4.1.tgz"
-  integrity sha1-mxpSWVIlhZ5V9mnZKPiMbFfyp34=
-  dependencies:
-    punycode "^2.1.0"
-
-v8-compile-cache@^2.0.3:
-  version "2.3.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz"
-  integrity sha1-LeGWGMZtwkfc+2+ZM4A12CRaLO4=
+  resolved "https://registry.npmjs.org/universal-user-agent/-/universal-user-agent-6.0.0.tgz#3381f8503b251c0d9cd21bc1de939ec9df5480ee"
+  integrity sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==
 
 webidl-conversions@^3.0.0:
   version "3.0.1"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/webidl-conversions/-/webidl-conversions-3.0.1.tgz"
+  resolved "https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-3.0.1.tgz#24534275e2a7bc6be7bc86611cc16ae0a5654871"
   integrity sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE=
 
 whatwg-url@^5.0.0:
   version "5.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/whatwg-url/-/whatwg-url-5.0.0.tgz"
+  resolved "https://registry.npmjs.org/whatwg-url/-/whatwg-url-5.0.0.tgz#966454e8765462e37644d3626f6742ce8b70965d"
   integrity sha1-lmRU6HZUYuN2RNNib2dCzotwll0=
   dependencies:
     tr46 "~0.0.3"
     webidl-conversions "^3.0.0"
 
-which@^2.0.1:
-  version "2.0.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/which/-/which-2.0.2.tgz"
-  integrity sha1-fGqN0KY2oDJ+ELWckobu6T8/UbE=
-  dependencies:
-    isexe "^2.0.0"
-
-word-wrap@^1.2.3:
-  version "1.2.3"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/word-wrap/-/word-wrap-1.2.3.tgz"
-  integrity sha1-YQY29rH3A4kb00dxzLF/uTtHB5w=
-
 wrappy@1:
   version "1.0.2"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/wrappy/-/wrappy-1.0.2.tgz"
+  resolved "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 
 yallist@^4.0.0:
   version "4.0.0"
-  resolved "https://inditex.jfrog.io/inditex/api/npm/node-public/yallist/-/yallist-4.0.0.tgz"
-  integrity sha1-m7knkNnA7/7GO+c1GeEaNQGaOnI=
+  resolved "https://registry.npmjs.org/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
+  integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
