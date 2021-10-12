@@ -1,14 +1,12 @@
 import { Octokit } from "octokit";
+import { Parser } from "./parser";
 import { gitHubConnection } from "../connections/github";
 
-export class GitHubParser {
-  private _owner: string;
-  private _repo: string;
-  private _connection: Octokit;
+export class GitHubParser extends Parser {
+  protected _connection: Octokit;
 
   constructor(owner: string, repo: string, token: string) {
-    this._owner = owner;
-    this._repo = repo;
+    super(owner, repo, token);
     this._connection = gitHubConnection(token);
   }
 
@@ -19,11 +17,3 @@ export class GitHubParser {
     });
   }
 }
-
-export const getPullRequests = async (
-  connection: Octokit,
-  owner: string,
-  repo: string
-) => {
-  await connection.rest.pulls.list({ owner, repo });
-};
