@@ -1,7 +1,10 @@
 ---
 name: Bug Report
 about: Use this template to report a bug
+title: ''
 labels: type/bug
+assignees: ''
+
 ---
 
 **Describe the bug**
