@@ -10,10 +10,13 @@
   "author": "Adrian Insua Yañez",
   "license": "ISC",
   "devDependencies": {
+    "graphql": "15.6.1",
+    "graphql-import-node": "0.0.4",
     "ts-node": "10.3.0",
     "typescript": "^4.4.3"
   },
   "dependencies": {
+    "@octokit/graphql": "4.8.0",
     "dotenv": "10.0.0",
     "log4js": "6.3.0",
     "octokit": "^1.7.0"

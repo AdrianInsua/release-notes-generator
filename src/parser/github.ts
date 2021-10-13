@@ -1,9 +1,24 @@
-import { Octokit } from "octokit";
 import { Parser } from "./parser";
+import {
+  graphql,
+  GraphQlQueryResponseData,
+} from "@octokit/graphql/dist-types/types";
 import { gitHubConnection } from "../connections/github";
+import prQuery from "./queries/pull_requests.graphql";
+
+interface PullRequest {
+  title: string;
+  bodyText: string;
+  createdAt: string;
+}
+
+interface Edge {
+  cursor: string;
+  node: PullRequest;
+}
 
 export class GitHubParser extends Parser {
-  protected _connection!: Octokit;
+  protected _connection!: graphql;
 
   constructor() {
     super();
@@ -13,12 +28,28 @@ export class GitHubParser extends Parser {
     this._connection = gitHubConnection(this._token);
   }
 
-  getPullRequests(): Promise<any> {
-    return this._connection.rest.pulls.list({
-      owner: this._owner,
-      repo: this._repo,
-      state: "closed",
-    });
+  async getPullRequests(): Promise<any[]> {
+    let cursor = null;
+    const response: any[] = [];
+    const query = prQuery.loc!.source.body;
+    const queryString = `repo:${this._owner}/${this._repo} is:merged is:pr`;
+
+    do {
+      const data = (await this._connection(query, {
+        queryString,
+        cursor,
+      })) as GraphQlQueryResponseData;
+      const edges = data.search?.edges;
+
+      cursor = null;
+
+      edges.forEach((edge: Edge) => {
+        cursor = edge.cursor;
+        response.push(edge.node);
+      });
+    } while (cursor);
+
+    return response;
   }
 
   protected _setRepositoryProperties() {

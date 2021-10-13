@@ -11,7 +11,7 @@ export abstract class Parser {
   }
 
   abstract connect(): void;
-  abstract getPullRequests(): Promise<any>;
+  abstract getPullRequests(): Promise<any[]>;
 
   protected abstract _setRepositoryProperties(): void;
 }

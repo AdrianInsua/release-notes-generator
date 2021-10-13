@@ -1,3 +1,4 @@
+import "graphql-import-node";
 import { GitHubParser } from "./parser/github";
 import { Parser } from "./parser/parser";
 import dotenv from "dotenv";
