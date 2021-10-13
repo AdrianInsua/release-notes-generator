@@ -37,7 +37,6 @@ export class GitHubParser extends Parser {
     const query = prQuery.loc!.source.body;
     const created = since ? `created:>${since}` : '';
     const queryString = `repo:${this._owner}/${this._repo} is:merged is:pr ${ created }`;
-    console.log(queryString);
     const response: PullRequest[] = await this._paginatedResponse<PullRequest>(query, { queryString });
 
     return response;
