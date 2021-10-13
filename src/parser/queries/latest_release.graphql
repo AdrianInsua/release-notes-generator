@@ -1,0 +1,8 @@
+query LatestRelease($owner: String!, $name: String!) {
+  repository(owner: $owner, name: $name) {
+     latestRelease {
+       tagName
+       createdAt
+     }
+  }
+}

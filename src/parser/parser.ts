@@ -1,5 +1,6 @@
 import { graphql } from "@octokit/graphql/dist-types/types";
 import { PullRequest } from "./models/pullRequest";
+import { Release } from "./models/release";
 
 export abstract class Parser {
   protected _owner!: string;
@@ -12,7 +13,8 @@ export abstract class Parser {
   }
 
   abstract connect(): void;
-  abstract getPullRequests(): Promise<PullRequest[]>;
+  abstract getLatestRelease(): Promise<Release>;
+  abstract getPullRequests(since?: string): Promise<PullRequest[]>;
 
   protected abstract _setRepositoryProperties(): void;
 }
