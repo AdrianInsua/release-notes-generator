@@ -5,11 +5,16 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "ts-node ./src",
+    "lint": "eslint **/**.ts --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Adrian Insua Yañez",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "16.10.4",
+    "@typescript-eslint/eslint-plugin": "5.0.0",
+    "@typescript-eslint/parser": "5.0.0",
+    "eslint": "8.0.0",
     "graphql": "15.6.1",
     "graphql-import-node": "0.0.4",
     "ts-node": "10.3.0",
@@ -18,7 +23,6 @@
   "dependencies": {
     "@octokit/graphql": "4.8.0",
     "dotenv": "10.0.0",
-    "log4js": "6.3.0",
-    "octokit": "^1.7.0"
+    "log4js": "6.3.0"
   }
 }

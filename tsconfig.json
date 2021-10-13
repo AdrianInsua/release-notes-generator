@@ -8,10 +8,6 @@
     "rootDir": "./",
     "moduleResolution": "node",
     "baseUrl": "./src",
-    "paths": {
-      "connections/*": ["/connections/*"],
-      "parser/*": ["/parser/*"]
-    },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
 

@@ -4,13 +4,8 @@ import {
   GraphQlQueryResponseData,
 } from "@octokit/graphql/dist-types/types";
 import { gitHubConnection } from "../connections/github";
+import { PullRequest } from "./models/pullRequest";
 import prQuery from "./queries/pull_requests.graphql";
-
-interface PullRequest {
-  title: string;
-  bodyText: string;
-  createdAt: string;
-}
 
 interface Edge {
   cursor: string;
@@ -24,13 +19,13 @@ export class GitHubParser extends Parser {
     super();
   }
 
-  connect() {
+  connect(): void {
     this._connection = gitHubConnection(this._token);
   }
 
-  async getPullRequests(): Promise<any[]> {
+  async getPullRequests(): Promise<PullRequest[]> {
     let cursor = null;
-    const response: any[] = [];
+    const response: PullRequest[] = [];
     const query = prQuery.loc!.source.body;
     const queryString = `repo:${this._owner}/${this._repo} is:merged is:pr`;
 
@@ -52,7 +47,7 @@ export class GitHubParser extends Parser {
     return response;
   }
 
-  protected _setRepositoryProperties() {
+  protected _setRepositoryProperties(): void {
     const token = process.env.TOKEN!;
     const repository = process.env.GITHUB_REPOSITORY;
     const [owner, repo] = repository?.split("/") || [];
