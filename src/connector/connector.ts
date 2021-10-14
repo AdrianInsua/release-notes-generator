@@ -1,4 +1,3 @@
-import { graphql } from "@octokit/graphql/dist-types/types";
 import { Octokit } from "octokit";
 import { PullRequest } from "./models/pullRequest";
 import { Release } from "./models/release";
@@ -7,7 +6,7 @@ export abstract class Connector {
   protected _owner!: string;
   protected _repo!: string;
   protected _token!: string;
-  protected _connection!: graphql | Octokit;
+  protected _connection!: Octokit;
 
   constructor() {
     this._setRepositoryProperties();
