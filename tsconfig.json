@@ -5,9 +5,15 @@
 
     /* Modules */
     "module": "commonjs",
-    "rootDir": "./",
     "moduleResolution": "node",
-    "baseUrl": "./src",
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "connections/*": ["./src/connections/*"],
+      "connector/*": ["./src/connector/*"],
+      "generator/*": ["./src/generator/*"]
+    },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
 
@@ -15,6 +21,8 @@
     "strict": true,
 
     /* Modules */
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "types": [ "node" ]
+  },
+  "include": [ "./src/**/*" ]
 }
