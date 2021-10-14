@@ -1,8 +1,6 @@
 import "graphql-import-node";
-import { GitHubParser } from "./parser/github";
-import { Parser } from "./parser/parser";
-import {Release} from "./parser/models/release";
-import {PullRequest} from "./parser/models/pullRequest";
+import { GitHubConnector } from "./connector/github";
+import { GithubGenerator } from "./generator/github";
 import dotenv from "dotenv";
 import log4js from "log4js";
 
@@ -14,16 +12,15 @@ log4js.configure({
 
 const logger = log4js.getLogger("MAIN");
 
-const parser: Parser = new GitHubParser();
-
-parser.connect();
-
 async function main() {
-  const latestRelease: Release = await parser.getLatestRelease();
-  console.log(latestRelease)
-  const pullRequests: PullRequest[] = await parser.getPullRequests(latestRelease.createdAt);
+  const connector: GitHubConnector = new GitHubConnector();
+  const generator: GithubGenerator = new GithubGenerator(connector);
 
-  logger.info(pullRequests);
+  logger.debug("Starting pull requests parsing...");
+
+  await generator.generateReleaseNotes();
+
+  logger.debug("Release notes done!");
 }
 
 main();
