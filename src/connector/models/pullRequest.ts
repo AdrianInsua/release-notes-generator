@@ -1,5 +1,5 @@
 export interface PullRequest {
   title: string;
-  bodyText: string;
+  body: string;
   createdAt: string;
 }
