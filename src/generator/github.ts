@@ -1,38 +1,28 @@
-import { GitHubConnector } from "connector/github";
-import { PullRequest } from "connector/models/pullRequest";
-import { Generator } from "./generator";
-import { promises as fs } from "fs";
-import path from "path";
-
-const composeText = (pr: PullRequest) =>
-  `### ${pr.title} \n##### ${pr.createdAt}\n\n${pr.body}\n`;
+import { GitHubConnector } from 'connector/github';
+import { PullRequest } from 'connector/models/pullRequest';
+import { Configuration } from 'configuration/configuration';
+import { Generator } from './generator';
+import { format } from 'date-fns';
 
 export class GithubGenerator extends Generator {
-  constructor(parser: GitHubConnector) {
-    super(parser);
-  }
+    constructor(connector: GitHubConnector, configuration: Configuration) {
+        super(connector, configuration);
+    }
 
-  protected async _parsePullRequests(
-    pullRequests: PullRequest[]
-  ): Promise<string> {
-    const oldFile = await this._loadMarkdown();
-    const notes = pullRequests.map(composeText);
-    const markdown = [`# RELEASE NOTES\n `, ...notes, oldFile].join("\n");
+    protected _parsePullRequests(pullRequests: PullRequest[]): string {
+        const oldFile = this._loadMarkdown();
+        const notes = pullRequests.map(this._composeText);
+        const title = `# ${this._configuration.title}\n`;
+        const markdown = [title, ...notes, oldFile].join('\n');
 
-    return markdown;
-  }
+        return markdown;
+    }
 
-  protected async _loadMarkdown(): Promise<string> {
-    const file = await fs.readFile(path.join("./RELEASE-NOTES.md"));
+    private _composeText = (pr: PullRequest) => {
+        const decoration = this._configuration.decoration!;
+        const icon = pr.labels.find((label: string) => decoration[label]) || '';
+        const date = format(new Date(pr.createdAt), 'yyyy-MM-dd');
 
-    return file.toString();
-  }
-
-  protected _storeMarkdown(markdown: string): void {
-    fs.writeFile(path.join("./RELEASE-NOTES.md"), markdown);
-  }
-
-  protected _publishReleaseNotes(): void {
-    this._parser.publishChanges();
-  }
+        return `## ${decoration[icon]}${pr.title} \n###### ${date}\n\n${pr.body}\n`;
+    };
 }

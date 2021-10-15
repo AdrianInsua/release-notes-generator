@@ -1,4 +1,4 @@
-import { Octokit } from "octokit";
+import { Octokit } from 'octokit';
 
 /* Method definitions */
 
@@ -14,5 +14,5 @@ export function gitHubConnection(auth: string): Octokit;
 export function gitHubConnection(auth: string, baseUrl: string): Octokit;
 
 export function gitHubConnection(auth: string, baseUrl?: string): Octokit {
-  return new Octokit({ auth, baseUrl });
+    return new Octokit({ auth, baseUrl });
 }

@@ -1,4 +1,4 @@
-# :rocket release-notes-generator
+# :rocket: RNG
 
 **RELEASE NOTES GENERATOR** automates the creation of a customized release note.
 
@@ -26,10 +26,108 @@ Currently we are only supporting **GITHUB**.
 ## Documentation
 
 - Usage
-	- [Installation](#Installation)
+	- [Installation](#installation)
 	- [Configuration](#configuration)
-	- [Cli commands](#Cli)
+	- [Cli commands](#cli)
 - Examples
-	- [Configuration](#Configuration example)
-	- [PullRequest](#PullRequest)
-	- [Output]("Output")
+	- [Configuration](#configuration-example)
+	- [PullRequest](#pull-request)
+	- [Output](#output)
+
+## Usage
+
+### Installation
+
+```bash
+npm i @adrianiy/relase-notes-generator
+```
+
+### Configuration
+
+Relase notes generator can be configured in a variety of ways. You can pass options directly to **rng** using cli commands, or create a configuration file in your `<root>` folder.
+
+#### Configuration file
+
+We support `.yml` and `.json` formats with these options
+
+| Options | Default | Description |
+|---------|---------|-------------|
+| token | `GITHUB_TOKEN` | Authorization token. This will allow **rng** to access your repo! |
+| out | '.' | Base path where `RELEASE-NOTES` will be generated |
+| name | `RELEASE-NOTES` | Output file name |
+| labels | [ 'release-note' ] | Only PRs with these labels will be used in generation process |
+| split | `false` | If `true` one file will be generated per iteration, and will be stored under a `release_notes` folder in `out` directory |
+| commit | `true` | If `true` the output file will be commited to repo |
+| message | `chore: update RELEASE-NOTES` | Commit message |
+| branch | `main` | Branch where output will be uploaded |
+| title | `RELEASE NOTES` | Title used in output markdown |
+| decoration | [Decoration object](#decoration-object) | Icon decoration for each issue type |
+
+##### Decoration object 
+
+This object of `key:value` have as key the issue type and value desired decotaion
+
+```js
+// default value
+decoration: {
+	enhancement: ':zap: ',
+	bug: ':bug: ',
+	refactor: ':abacus: ',
+	release: ':rocket: ',
+	style: ':nailcare: ',
+	documentation: ':book: ',
+},
+```
+
+For a pr tagged with `enhancement` label this will generate:
+
+```markdown
+## :zap: Issue title
+```
+
+#### CLI
+
+:construction: under construction
+
+## Examples
+
+### Configuration example
+
+This is our test configuarion `.yml`
+
+```yml
+# releasenotes.yml
+
+token: TOKEN
+name: RELEASE_NOTES_TEST
+commit: false
+
+```
+
+### Pull request
+
+This is going to depend on your configuration file, by default we'll look for Pr's labeled with `release-note` like [this](https://github.com/adrianiy/release-notes-generator/pull/12).
+
+### Output
+
+This is an output example of `RELEASE-NOTES.md`
+
+> # RELEASE NOTES
+>
+> ## :rocket: Mock testing issue 
+> ###### 2021-10-13
+>
+> ### Test Issue
+>
+> This issue is used by release-notes-generator for test purposes
+
+```markdown
+# RELEASE NOTES
+
+## :rocket: Mock testing issue 
+###### 2021-10-13
+
+### Test Issue
+
+This issue is used by release-notes-generator for test purposes
+```

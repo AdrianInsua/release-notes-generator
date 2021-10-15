@@ -7,6 +7,11 @@ query PRQuery($queryString: String!, $cursor: String) {
         ... on PullRequest {
           title
           body
+          labels(first: 100) {
+            nodes {
+              name
+            }
+          }
           createdAt
         }
       }

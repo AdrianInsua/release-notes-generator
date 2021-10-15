@@ -1,4 +1,4 @@
 export interface Release {
-  createdAt: string;
-  tagName: string;
+    createdAt: string;
+    tagName: string;
 }
