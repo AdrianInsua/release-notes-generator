@@ -5,3 +5,6 @@ dist
 
 # config files
 .env
+
+# test files
+RELEASE_NOTES_TEST.md

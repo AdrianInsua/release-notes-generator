@@ -31,9 +31,13 @@ export abstract class Generator {
     }
 
     protected _loadMarkdown(): string {
-        const file = fs.readFileSync(path.join(`${this._configuarion.out}/${this._configuarion.name}.md`), 'utf8');
+        try {
+            const file = fs.readFileSync(path.join(`${this._configuarion.out}/${this._configuarion.name}.md`), 'utf8');
 
-        return file.toString();
+            return file.toString();
+        } catch (_) {
+            return '';
+        }
     }
 
     protected _storeMarkdown(markdown: string): void {
