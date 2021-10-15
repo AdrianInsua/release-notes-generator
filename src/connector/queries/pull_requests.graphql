@@ -6,7 +6,7 @@ query PRQuery($queryString: String!, $cursor: String) {
       node {
         ... on PullRequest {
           title
-          bodyText
+          body
           createdAt
         }
       }

@@ -1,20 +1,20 @@
-import { graphql } from "@octokit/graphql/dist-types/types";
+import { Octokit } from "octokit";
 import { PullRequest } from "./models/pullRequest";
 import { Release } from "./models/release";
 
-export abstract class Parser {
+export abstract class Connector {
   protected _owner!: string;
   protected _repo!: string;
   protected _token!: string;
-  protected _connection!: graphql;
+  protected _connection!: Octokit;
 
   constructor() {
     this._setRepositoryProperties();
   }
 
-  abstract connect(): void;
   abstract getLatestRelease(): Promise<Release>;
   abstract getPullRequests(since?: string): Promise<PullRequest[]>;
+  abstract publishChanges(): void;
 
   protected abstract _setRepositoryProperties(): void;
 }
