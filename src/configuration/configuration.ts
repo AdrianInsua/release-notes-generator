@@ -16,6 +16,8 @@ export interface Configuration {
     // Split Release-Notes on file per Relase
     // This option will create a folder in `out` dir.
     split?: boolean;
+    // Should we commit changes?
+    commit?: boolean;
 }
 
 const defaultConfiguration: Configuration = {
@@ -23,19 +25,22 @@ const defaultConfiguration: Configuration = {
     out: './',
     name: 'RELEASE_NOTES',
     labels: ['release-note'],
+    commit: true,
 };
 
-const searchExistenFileExt = (fileName: string): string | undefined => {
+const searchExistentFileExt = (fileName: string): string | undefined => {
     return FILE_EXT.find((ext: string) => fs.existsSync(path.join(`${fileName}${ext}`)));
 };
 
 const loadFile = (fileName: string, ext: string): Record<string, unknown> => {
-    const file = path.join(`${fileName}${ext}`);
+    const filePath = path.join(`${fileName}${ext}`);
+    const file = fs.readFileSync(filePath, 'utf8');
+
     switch (ext) {
-        case 'yaml':
+        case '.yml':
             return yaml.parse(file);
-        case 'json':
-            return JSON.parse(fs.readFileSync(file, 'utf8'));
+        case '.json':
+            return JSON.parse(file);
         default:
             return {};
     }
@@ -43,7 +48,7 @@ const loadFile = (fileName: string, ext: string): Record<string, unknown> => {
 
 export const getConfiguration = (): Configuration => {
     const fileName = '.releasenotes';
-    const ext = searchExistenFileExt(fileName);
+    const ext = searchExistentFileExt(fileName);
     const config = loadFile(fileName, ext!);
 
     return { ...defaultConfiguration, ...config };
