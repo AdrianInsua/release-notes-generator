@@ -57,7 +57,6 @@ export abstract class Generator {
     }
 
     protected _storeMarkdown(markdown: string): void {
-        console.log(markdown);
         fs.writeFileSync(path.join(this._filePath), markdown);
     }
 
