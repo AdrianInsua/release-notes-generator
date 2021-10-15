@@ -2,6 +2,7 @@ import { Connector } from 'connector/connector';
 import { PullRequest } from 'connector/models/pullRequest';
 import { Release } from 'connector/models/release';
 import { Configuration } from 'configuration/configuration';
+import { format } from 'date-fns';
 import fs from 'fs';
 import path from 'path';
 
@@ -26,9 +27,15 @@ export abstract class Generator {
     }
 
     protected _setFilePath(): void {
-        const { out, name } = this._configuration;
+        const { out, name, split } = this._configuration;
+        const outDir = split ? `${out}/release-notes` : out;
+        const fileName = split ? `${name}-${format(new Date(), 'yyyy-MM-ddHHmmss')}` : name;
 
-        this._filePath = `${out}/${name}.md`;
+        if (!fs.existsSync(outDir!)) {
+            fs.mkdirSync(outDir!);
+        }
+
+        this._filePath = `${outDir}/${fileName}.md`;
     }
 
     protected async _getPullRequestList(): Promise<PullRequest[]> {
@@ -50,12 +57,13 @@ export abstract class Generator {
     }
 
     protected _storeMarkdown(markdown: string): void {
+        console.log(markdown);
         fs.writeFileSync(path.join(this._filePath), markdown);
     }
 
     protected async _publishReleaseNotes(): Promise<void> {
         if (this._configuration.commit) {
-            await this._connector.publishChanges();
+            await this._connector.publishChanges(this._filePath);
         }
     }
 

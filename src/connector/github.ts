@@ -52,8 +52,8 @@ export class GitHubConnector extends Connector {
         return response.map(this._parsePullRequest);
     }
 
-    async publishChanges(): Promise<void> {
-        const filePath = `${this._configuration.out}/${this._configuration.name}.md`.replace('./', '');
+    async publishChanges(file: string): Promise<void> {
+        const filePath = file.replace('./', '');
         const sha = await this._getSha(filePath);
 
         await this._publishCommit(filePath, sha);
@@ -61,7 +61,7 @@ export class GitHubConnector extends Connector {
 
     protected _setRepositoryProperties(): void {
         const { token: configToken } = this._configuration;
-        const token = process.env[configToken]!;
+        const token = process.env[configToken!]!;
         const repository = process.env.GITHUB_REPOSITORY;
         const [owner, repo] = repository?.split('/') || [];
 
