@@ -15,6 +15,7 @@ const logger = log4js.getLogger('MAIN');
 
 async function main() {
     const configuration: Configuration = getConfiguration();
+    logger.info(configuration);
     const connector: GitHubConnector = new GitHubConnector(configuration);
     const generator: GithubGenerator = new GithubGenerator(connector, configuration);
 

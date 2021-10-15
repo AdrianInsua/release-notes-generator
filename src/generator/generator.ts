@@ -2,6 +2,8 @@ import { Connector } from 'connector/connector';
 import { PullRequest } from 'connector/models/pullRequest';
 import { Release } from 'connector/models/release';
 import { Configuration } from 'configuration/configuration';
+import fs from 'fs';
+import path from 'path';
 
 export abstract class Generator {
     protected _parser!: Connector;
@@ -15,7 +17,7 @@ export abstract class Generator {
 
     async generateReleaseNotes(): Promise<void> {
         const list = await this._getPullRequestList();
-        const markdown = await this._parsePullRequests(list);
+        const markdown = this._parsePullRequests(list);
 
         this._storeMarkdown(markdown);
         this._publishReleaseNotes();
@@ -28,8 +30,21 @@ export abstract class Generator {
         return pullRequestsList;
     }
 
-    protected abstract _parsePullRequests(pullRequests: PullRequest[]): Promise<string>;
-    protected abstract _loadMarkdown(): Promise<string>;
-    protected abstract _storeMarkdown(markdown: string): void;
-    protected abstract _publishReleaseNotes(): void;
+    protected _loadMarkdown(): string {
+        const file = fs.readFileSync(path.join(`${this._configuarion.out}/${this._configuarion.name}.md`), 'utf8');
+
+        return file.toString();
+    }
+
+    protected _storeMarkdown(markdown: string): void {
+        fs.writeFileSync(path.join(`${this._configuarion.out}/${this._configuarion.name}.md`), markdown);
+    }
+
+    protected _publishReleaseNotes(): void {
+        if (this._configuarion.commit) {
+            this._parser.publishChanges();
+        }
+    }
+
+    protected abstract _parsePullRequests(pullRequests: PullRequest[]): string;
 }

@@ -7,7 +7,7 @@ import { Release } from './models/release';
 import { gitHubConnection } from './../connections/github';
 import prQuery from './queries/pull_requests.graphql';
 import releaseQuery from './queries/latest_release.graphql';
-import { promises as fs } from 'fs';
+import fs from 'fs';
 import path from 'path';
 
 interface Edge<T> {
@@ -63,6 +63,7 @@ export class GitHubConnector extends Connector {
         const token = process.env[configToken]!;
         const repository = process.env.GITHUB_REPOSITORY;
         const [owner, repo] = repository?.split('/') || [];
+        console.log(owner, repo);
 
         this._token = token;
         this._owner = owner;
@@ -102,9 +103,7 @@ export class GitHubConnector extends Connector {
     }
 
     private async _publishCommit(filePath: string, sha?: string): Promise<number> {
-        const content = await fs.readFile(path.join(filePath), {
-            encoding: 'base64',
-        });
+        const content = fs.readFileSync(path.join(filePath), 'base64');
         const result = await this._connection.rest.repos.createOrUpdateFileContents({
             owner: this._owner,
             repo: this._repo,
