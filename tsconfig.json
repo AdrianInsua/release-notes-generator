@@ -12,7 +12,8 @@
     "paths": {
       "connections/*": ["./src/connections/*"],
       "connector/*": ["./src/connector/*"],
-      "generator/*": ["./src/generator/*"]
+      "generator/*": ["./src/generator/*"],
+      "configuration/*": ["./src/configuration/*"]
     },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

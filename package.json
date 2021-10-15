@@ -23,6 +23,7 @@
   "dependencies": {
     "dotenv": "10.0.0",
     "log4js": "6.3.0",
-    "octokit": "^1.7.0"
+    "octokit": "^1.7.0",
+    "yaml": "^1.10.2"
   }
 }
