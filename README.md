@@ -30,14 +30,67 @@ Currently we are only supporting **GITHUB**.
 	- [Configuration](#configuration)
 	- [Cli commands](#cli)
 - Examples
-	- [Configuration](#configExample)
-	- [PullRequest](#pullRequest)
-	- [Output]("#output")
+	- [Configuration](#configuration-example)
+	- [PullRequest](#pull-request)
+	- [Output](#output)
 
+## Usage
+
+### Installation
+
+```bash
+npm i @adrianiy/relase-notes-generator
+```
+
+### Configuration
+
+Relase notes generator can be configured in a variety of ways. You can pass options directly to **rng** using cli commands, or create a configuration file in your `<root>` folder.
+
+#### Configuration file
+
+We support `.yml` and `.json` formats with these options
+
+| Options | Default | Description |
+|---------|---------|-------------|
+| token | `GITHUB_TOKEN` | Authorization token. This will allow **rng** to access your repo! |
+| out | '.' | Base path where `RELEASE-NOTES` will be generated |
+| name | `RELEASE-NOTES` | Output file name |
+| labels | [ 'release-note' ] | Only PRs with these labels will be used in generation process |
+| split | `false` | If `true` one file will be generated per iteration, and will be stored under a `release_notes` folder in `out` directory |
+| commit | `true` | If `true` the output file will be commited to repo |
+| message | `chore: update RELEASE-NOTES` | Commit message |
+| title | `RELEASE NOTES` | Title used in output markdown |
+| decoration | [Decoration object](#decoration-object) | Icon decoration for each issue type |
+
+##### Decoration object 
+
+This object of `key:value` have as key the issue type and value desired decotaion
+
+```js
+// default value
+decoration: {
+	enhancement: ':zap: ',
+	bug: ':bug: ',
+	refactor: ':abacus: ',
+	release: ':rocket: ',
+	style: ':nailcare: ',
+	documentation: ':book: ',
+},
+```
+
+For a pr tagged with `enhancement` label this will generate:
+
+```markdown
+## :zap: Issue title
+```
+
+#### CLI
+
+:construction: under construction
 
 ## Examples
 
-### Configuration
+### Configuration example
 
 This is our test configuarion `.yml`
 

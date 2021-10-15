@@ -6,7 +6,7 @@ const FILE_EXT = ['.yml', '.json'];
 
 export interface Configuration {
     // GITHUB authorization token
-    token: string;
+    token?: string;
     // Output path
     out?: string;
     // Output fileName
@@ -18,6 +18,8 @@ export interface Configuration {
     split?: boolean;
     // Should we commit changes?
     commit?: boolean;
+    // Commit message
+    message?: string;
     // Markdown title
     title?: string;
     // Notes decoration according to type
@@ -30,6 +32,7 @@ const defaultConfiguration: Configuration = {
     name: 'RELEASE-NOTES',
     labels: ['release-note'],
     commit: true,
+    message: 'chore: update RELEASE-NOTES',
     title: 'RELEASE NOTES',
     decoration: {
         enhancement: ':zap: ',

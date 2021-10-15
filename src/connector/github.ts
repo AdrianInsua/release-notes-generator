@@ -114,12 +114,11 @@ export class GitHubConnector extends Connector {
 
     private async _publishCommit(filePath: string, sha?: string): Promise<number> {
         const content = fs.readFileSync(path.join(filePath), { encoding: 'base64' });
-        console.log(content, filePath, sha);
         const result = await this._connection.rest.repos.createOrUpdateFileContents({
             owner: this._owner,
             repo: this._repo,
             path: filePath,
-            message: `Chore: update RELEASE-NOTES`,
+            message: this._configuration.message!,
             content,
             sha,
         });
