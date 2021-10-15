@@ -20,6 +20,8 @@ export interface Configuration {
     commit?: boolean;
     // Commit message
     message?: string;
+    // Branch where output will be uploaded
+    branch?: string;
     // Markdown title
     title?: string;
     // Notes decoration according to type
@@ -33,6 +35,7 @@ const defaultConfiguration: Configuration = {
     labels: ['release-note'],
     commit: true,
     message: 'chore: update RELEASE-NOTES',
+    branch: 'main',
     title: 'RELEASE NOTES',
     decoration: {
         enhancement: ':zap: ',

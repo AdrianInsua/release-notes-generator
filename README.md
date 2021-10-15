@@ -59,6 +59,7 @@ We support `.yml` and `.json` formats with these options
 | split | `false` | If `true` one file will be generated per iteration, and will be stored under a `release_notes` folder in `out` directory |
 | commit | `true` | If `true` the output file will be commited to repo |
 | message | `chore: update RELEASE-NOTES` | Commit message |
+| branch | `main` | Branch where output will be uploaded |
 | title | `RELEASE NOTES` | Title used in output markdown |
 | decoration | [Decoration object](#decoration-object) | Icon decoration for each issue type |
 
