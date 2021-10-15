@@ -30,6 +30,6 @@ Currently we are only supporting **GITHUB**.
 	- [Configuration](#configuration)
 	- [Cli commands](#Cli)
 - Examples
-	- [Configuration](#Configuration example)
+	- [Configuration](#ConfigExample)
 	- [PullRequest](#PullRequest)
 	- [Output]("Output")
