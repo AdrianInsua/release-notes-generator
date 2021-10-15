@@ -43,9 +43,10 @@ export class GitHubConnector extends Connector {
     }
 
     async getPullRequests(since?: string): Promise<PullRequest[]> {
+        const labels = this._getLabelFilter();
         const query = prQuery.loc!.source.body;
         const created = since ? `created:>${since}` : '';
-        const queryString = `repo:${this._owner}/${this._repo} is:open is:pr ${created}`;
+        const queryString = `repo:${this._owner}/${this._repo} is:open is:pr ${labels} ${created}`;
         const response: PullRequest[] = await this._paginatedResponse<PullRequest>(query, { queryString });
 
         return response;
@@ -68,6 +69,10 @@ export class GitHubConnector extends Connector {
         this._token = token;
         this._owner = owner;
         this._repo = repo;
+    }
+
+    private _getLabelFilter(): string {
+        return this._configuration.labels?.map((value: string) => `label:${value}`).join(' ') || '';
     }
 
     private async _paginatedResponse<T>(query: string, params: Record<string, unknown>, response: T[] = []): Promise<T[]> {

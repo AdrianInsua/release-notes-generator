@@ -33,8 +33,9 @@ export abstract class Generator {
     protected _loadMarkdown(): string {
         try {
             const file = fs.readFileSync(path.join(`${this._configuarion.out}/${this._configuarion.name}.md`), 'utf8');
+            const title = `# ${this._configuarion.title}\n`;
 
-            return file.toString();
+            return file.toString().replace(title, '');
         } catch (_) {
             return '';
         }

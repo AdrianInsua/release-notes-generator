@@ -18,6 +18,8 @@ export interface Configuration {
     split?: boolean;
     // Should we commit changes?
     commit?: boolean;
+    // Markdown title
+    title?: string;
 }
 
 const defaultConfiguration: Configuration = {
@@ -26,6 +28,7 @@ const defaultConfiguration: Configuration = {
     name: 'RELEASE_NOTES',
     labels: ['release-note'],
     commit: true,
+    title: 'RELEASE NOTES',
 };
 
 const searchExistentFileExt = (fileName: string): string | undefined => {

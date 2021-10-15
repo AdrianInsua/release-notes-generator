@@ -13,7 +13,8 @@ export class GithubGenerator extends Generator {
     protected _parsePullRequests(pullRequests: PullRequest[]): string {
         const oldFile = this._loadMarkdown();
         const notes = pullRequests.map(composeText);
-        const markdown = [`# RELEASE NOTES\n `, ...notes, oldFile].join('\n');
+        const title = `# ${this._configuarion.title}\n`;
+        const markdown = [title, ...notes, oldFile].join('\n');
 
         return markdown;
     }
