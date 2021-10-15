@@ -1,4 +1,4 @@
-# 🚀 release-notes-generator
+# :rng: RNG
 
 **RELEASE NOTES GENERATOR** automates the creation of a customized release note.
 
