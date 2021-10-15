@@ -1,4 +1,4 @@
-# :rng: RNG
+# :rocket: RNG
 
 **RELEASE NOTES GENERATOR** automates the creation of a customized release note.
 
