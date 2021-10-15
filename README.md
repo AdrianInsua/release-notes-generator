@@ -1,4 +1,4 @@
-# :rocket release-notes-generator
+# 🚀 release-notes-generator
 
 **RELEASE NOTES GENERATOR** automates the creation of a customized release note.
 
