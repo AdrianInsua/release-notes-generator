@@ -17,7 +17,7 @@ export abstract class Connector {
 
     abstract getLatestRelease(): Promise<Release>;
     abstract getPullRequests(since?: string): Promise<PullRequest[]>;
-    abstract publishChanges(): void;
+    abstract publishChanges(): Promise<void>;
 
     protected abstract _setRepositoryProperties(): void;
 }

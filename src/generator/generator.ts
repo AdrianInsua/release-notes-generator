@@ -6,13 +6,15 @@ import fs from 'fs';
 import path from 'path';
 
 export abstract class Generator {
-    protected _parser!: Connector;
+    protected _connector!: Connector;
     protected _prList!: PullRequest[];
-    protected _configuarion!: Configuration;
+    protected _configuration!: Configuration;
+    protected _filePath!: string;
 
-    constructor(parser: Connector, configuration: Configuration) {
-        this._parser = parser;
-        this._configuarion = configuration;
+    constructor(connector: Connector, configuration: Configuration) {
+        this._connector = connector;
+        this._configuration = configuration;
+        this._setFilePath();
     }
 
     async generateReleaseNotes(): Promise<void> {
@@ -20,20 +22,26 @@ export abstract class Generator {
         const markdown = this._parsePullRequests(list);
 
         this._storeMarkdown(markdown);
-        this._publishReleaseNotes();
+        await this._publishReleaseNotes();
+    }
+
+    protected _setFilePath(): void {
+        const { out, name } = this._configuration;
+
+        this._filePath = `${out}/${name}.md`;
     }
 
     protected async _getPullRequestList(): Promise<PullRequest[]> {
-        const latestRelease: Release = await this._parser.getLatestRelease();
-        const pullRequestsList: PullRequest[] = await this._parser.getPullRequests(latestRelease.createdAt);
+        const latestRelease: Release = await this._connector.getLatestRelease();
+        const pullRequestsList: PullRequest[] = await this._connector.getPullRequests(latestRelease.createdAt);
 
         return pullRequestsList;
     }
 
     protected _loadMarkdown(): string {
         try {
-            const file = fs.readFileSync(path.join(`${this._configuarion.out}/${this._configuarion.name}.md`), 'utf8');
-            const title = `# ${this._configuarion.title}\n`;
+            const file = fs.readFileSync(path.join(this._filePath), 'utf8');
+            const title = `# ${this._configuration.title}\n`;
 
             return file.toString().replace(title, '');
         } catch (_) {
@@ -42,12 +50,12 @@ export abstract class Generator {
     }
 
     protected _storeMarkdown(markdown: string): void {
-        fs.writeFileSync(path.join(`${this._configuarion.out}/${this._configuarion.name}.md`), markdown);
+        fs.writeFileSync(path.join(this._filePath), markdown);
     }
 
-    protected _publishReleaseNotes(): void {
-        if (this._configuarion.commit) {
-            this._parser.publishChanges();
+    protected async _publishReleaseNotes(): Promise<void> {
+        if (this._configuration.commit) {
+            await this._connector.publishChanges();
         }
     }
 

@@ -2,7 +2,7 @@ import { Connector } from './connector';
 import { Octokit } from 'octokit';
 import { Configuration } from 'configuration/configuration';
 import { GraphQlQueryResponseData } from '@octokit/graphql/dist-types/types';
-import { PullRequest } from './models/pullRequest';
+import { LabelNode, PullRequest, PullRequestResponse } from './models/pullRequest';
 import { Release } from './models/release';
 import { gitHubConnection } from './../connections/github';
 import prQuery from './queries/pull_requests.graphql';
@@ -47,13 +47,13 @@ export class GitHubConnector extends Connector {
         const query = prQuery.loc!.source.body;
         const created = since ? `created:>${since}` : '';
         const queryString = `repo:${this._owner}/${this._repo} is:open is:pr ${labels} ${created}`;
-        const response: PullRequest[] = await this._paginatedResponse<PullRequest>(query, { queryString });
+        const response: PullRequestResponse[] = await this._paginatedResponse<PullRequestResponse>(query, { queryString });
 
-        return response;
+        return response.map(this._parsePullRequest);
     }
 
     async publishChanges(): Promise<void> {
-        const filePath = 'RELEASE-NOTES.md';
+        const filePath = `${this._configuration.out}/${this._configuration.name}.md`.replace('./', '');
         const sha = await this._getSha(filePath);
 
         await this._publishCommit(filePath, sha);
@@ -64,7 +64,6 @@ export class GitHubConnector extends Connector {
         const token = process.env[configToken]!;
         const repository = process.env.GITHUB_REPOSITORY;
         const [owner, repo] = repository?.split('/') || [];
-        console.log(owner, repo);
 
         this._token = token;
         this._owner = owner;
@@ -73,6 +72,12 @@ export class GitHubConnector extends Connector {
 
     private _getLabelFilter(): string {
         return this._configuration.labels?.map((value: string) => `label:${value}`).join(' ') || '';
+    }
+
+    private _parsePullRequest(pr: PullRequestResponse): PullRequest {
+        const { nodes } = pr.labels;
+
+        return { ...pr, labels: nodes.map((node: LabelNode) => node.name) };
     }
 
     private async _paginatedResponse<T>(query: string, params: Record<string, unknown>, response: T[] = []): Promise<T[]> {
@@ -108,7 +113,8 @@ export class GitHubConnector extends Connector {
     }
 
     private async _publishCommit(filePath: string, sha?: string): Promise<number> {
-        const content = fs.readFileSync(path.join(filePath), 'base64');
+        const content = fs.readFileSync(path.join(filePath), { encoding: 'base64' });
+        console.log(content, filePath, sha);
         const result = await this._connection.rest.repos.createOrUpdateFileContents({
             owner: this._owner,
             repo: this._repo,
