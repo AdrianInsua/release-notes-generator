@@ -1,14 +1,14 @@
 ---
 name: Bug Report
 about: Use this template to report a bug
-title: ''
+title: '🐛 [BUG]'
 labels: type/bug
 assignees: ''
 
 ---
 
-**Describe the bug**
+### Detailed description
+<!--A clear and concise description of what the problem is.-->
 
-<!--A clear and concise description of what the problem is, and what you
-were expecting to happen. Include as much information as you
-deem necessary. Images are always welcome!-->
+### Expected behaviour
+<!--Expected behaviour one the problem is fixed.-->
