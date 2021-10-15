@@ -58,7 +58,7 @@ This is going to depend on your configuration file, by default we'll look for Pr
 
 This is an output example of `RELEASE-NOTES.md`
 
-> # RELEASE NOTESjkkj
+> # RELEASE NOTES
 >
 > ## :rocket: Mock testing issue 
 > ###### 2021-10-13
