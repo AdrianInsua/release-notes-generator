@@ -5,8 +5,10 @@ import { GraphQlQueryResponseData } from '@octokit/graphql/dist-types/types';
 import { LabelNode, PullRequest, PullRequestResponse } from './models/pullRequest';
 import { Release } from './models/release';
 import { gitHubConnection } from './../connections/github';
+import { CliParams } from '../commander/options';
 import prQuery from './queries/pull_requests.graphql';
 import releaseQuery from './queries/latest_release.graphql';
+import log4js from 'log4js';
 import fs from 'fs';
 import path from 'path';
 
@@ -22,16 +24,24 @@ interface ShaResponse {
     };
 }
 
+const logger = log4js.getLogger('CONNECTOR');
+
 export class GitHubConnector extends Connector {
     protected _connection!: Octokit;
 
-    constructor(configuration: Configuration) {
-        super(configuration);
+    constructor(configuration: Configuration, cliParams: CliParams) {
+        super(configuration, cliParams);
+    }
+
+    async connect(): Promise<void> {
+        await super.connect();
 
         this._connection = gitHubConnection(this._token);
     }
 
     async getLatestRelease(): Promise<Release> {
+        this._verbose && logger.info('Getting latest release...');
+
         const query = releaseQuery.loc!.source.body;
 
         const data = (await this._connection.graphql(query, {
@@ -39,10 +49,16 @@ export class GitHubConnector extends Connector {
             name: this._repo,
         })) as GraphQlQueryResponseData;
 
-        return data.repository?.latestRelease;
+        const latestRelease: Release = data.repository?.latestRelease;
+
+        this._verbose && logger.info(`Latest release date is ${latestRelease.createdAt}`);
+
+        return latestRelease;
     }
 
     async getPullRequests(since?: string): Promise<PullRequest[]> {
+        this._verbose && logger.info(`Fetching pull requests since ${since}...`);
+
         const labels = this._getLabelFilter();
         const query = prQuery.loc!.source.body;
         const created = since ? `created:>${since}` : '';
@@ -60,12 +76,8 @@ export class GitHubConnector extends Connector {
     }
 
     protected _setRepositoryProperties(): void {
-        const { token: configToken } = this._configuration;
-        const token = process.env[configToken!]!;
         const repository = process.env.GITHUB_REPOSITORY;
         const [owner, repo] = repository?.split('/') || [];
-
-        this._token = token;
         this._owner = owner;
         this._repo = repo;
     }
@@ -113,6 +125,8 @@ export class GitHubConnector extends Connector {
     }
 
     private async _publishCommit(filePath: string, sha?: string): Promise<number> {
+        this._verbose && logger.info('We are going to commit changes...');
+
         const { branch } = this._configuration;
         const content = fs.readFileSync(path.join(filePath), { encoding: 'base64' });
         const result = await this._connection.rest.repos.createOrUpdateFileContents({

@@ -2,19 +2,28 @@ import { Connector } from 'connector/connector';
 import { PullRequest } from 'connector/models/pullRequest';
 import { Release } from 'connector/models/release';
 import { Configuration } from 'configuration/configuration';
+import { CliParams } from '../commander/options';
 import { format } from 'date-fns';
+import log4js from 'log4js';
 import fs from 'fs';
 import path from 'path';
+import inquirer from 'inquirer';
+
+const logger = log4js.getLogger('GENERATOR');
 
 export abstract class Generator {
     protected _connector!: Connector;
     protected _prList!: PullRequest[];
     protected _configuration!: Configuration;
     protected _filePath!: string;
+    protected _verbose: boolean;
+    protected _interactive: boolean;
 
-    constructor(connector: Connector, configuration: Configuration) {
+    constructor(connector: Connector, configuration: Configuration, cliParams: CliParams) {
         this._connector = connector;
         this._configuration = configuration;
+        this._verbose = cliParams.verbose!;
+        this._interactive = cliParams.interactive!;
         this._setFilePath();
     }
 
@@ -23,7 +32,24 @@ export abstract class Generator {
         const markdown = this._parsePullRequests(list);
 
         this._storeMarkdown(markdown);
-        await this._publishReleaseNotes();
+    }
+
+    async publishReleaseNotes(): Promise<void> {
+        if (this._configuration.publish) {
+            let willPublish = true;
+            if (this._interactive) {
+                const { response } = await inquirer.prompt([
+                    {
+                        name: 'response',
+                        type: 'confirm',
+                        message: 'Do you want to publish your RELEASE-NOTES?',
+                    },
+                ]);
+
+                willPublish = response;
+            }
+            willPublish && (await this._connector.publishChanges(this._filePath));
+        }
     }
 
     protected _setFilePath(): void {
@@ -39,8 +65,12 @@ export abstract class Generator {
     }
 
     protected async _getPullRequestList(): Promise<PullRequest[]> {
+        this._verbose && logger.info('Getting Repo data...');
+
         const latestRelease: Release = await this._connector.getLatestRelease();
         const pullRequestsList: PullRequest[] = await this._connector.getPullRequests(latestRelease.createdAt);
+
+        this._verbose && logger.info(`We've found ${pullRequestsList.length} pull requests to parse!`);
 
         return pullRequestsList;
     }
@@ -57,13 +87,9 @@ export abstract class Generator {
     }
 
     protected _storeMarkdown(markdown: string): void {
-        fs.writeFileSync(path.join(this._filePath), markdown);
-    }
+        this._verbose && logger.info(`Saving generated MD in ${this._filePath}`);
 
-    protected async _publishReleaseNotes(): Promise<void> {
-        if (this._configuration.commit) {
-            await this._connector.publishChanges(this._filePath);
-        }
+        fs.writeFileSync(path.join(this._filePath), markdown);
     }
 
     protected abstract _parsePullRequests(pullRequests: PullRequest[]): string;

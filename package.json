@@ -11,7 +11,9 @@
   "author": "Adrian Insua Yañez",
   "license": "ISC",
   "devDependencies": {
+    "@types/inquirer": "^8.1.3",
     "@types/node": "16.10.4",
+    "@types/yargs": "^17.0.4",
     "@typescript-eslint/eslint-plugin": "4.22.0",
     "@typescript-eslint/parser": "4.22.0",
     "eslint": "7.1.0",
@@ -23,8 +25,10 @@
   "dependencies": {
     "date-fns": "^2.25.0",
     "dotenv": "10.0.0",
+    "inquirer": "^7.3.3",
     "log4js": "6.3.0",
     "octokit": "^1.7.0",
-    "yaml": "^1.10.2"
+    "yaml": "^1.10.2",
+    "yargs": "^17.2.1"
   }
 }

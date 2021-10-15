@@ -8,3 +8,4 @@ dist
 
 # test files
 RELEASE_NOTES_TEST.md
+.releasenotes-test.yml
