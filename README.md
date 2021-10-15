@@ -26,20 +26,46 @@ Currently we are only supporting **GITHUB**.
 ## Documentation
 
 - Usage
-	- [Installation](#Installation)
+	- [Installation](#installation)
 	- [Configuration](#configuration)
-	- [Cli commands](#Cli)
+	- [Cli commands](#cli)
 - Examples
-	- [Configuration](#ConfigExample)
-	- [PullRequest](#PullRequest)
-	- [Output]("Output")
+	- [Configuration](#configExample)
+	- [PullRequest](#pullRequest)
+	- [Output]("#output")
 
 
 ## Examples
 
+### Configuration
+
+This is our test configuarion `.yml`
+
+```yml
+# releasenotes.yml
+
+token: TOKEN
+name: RELEASE_NOTES_TEST
+commit: false
+
+```
+
+### Pull request
+
+This is going to depend on your configuration file, by default we'll look for Pr's labeled with `release-note` like [this](https://github.com/adrianiy/release-notes-generator/pull/12).
+
 ### Output
 
 This is an output example of `RELEASE-NOTES.md`
+
+> # RELEASE NOTESjkkj
+>
+> ## :rocket: Mock testing issue 
+> ###### 2021-10-13
+>
+> ### Test Issue
+>
+> This issue is used by release-notes-generator for test purposes
 
 ```markdown
 # RELEASE NOTES
