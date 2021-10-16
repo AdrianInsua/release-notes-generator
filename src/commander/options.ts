@@ -29,7 +29,7 @@ export const configurationOptions: Record<string, Options> = {
     configuration: {
         alias: 'c',
         type: 'string',
-        description: 'configuration file path',
+        description: 'Configuration file path',
     },
 };
 
