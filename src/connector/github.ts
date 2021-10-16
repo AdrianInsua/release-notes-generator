@@ -75,11 +75,8 @@ export class GitHubConnector extends Connector {
         await this._publishCommit(filePath, sha);
     }
 
-    protected _setRepositoryProperties(): void {
-        const repository = process.env.GITHUB_REPOSITORY;
-        const [owner, repo] = repository?.split('/') || [];
-        this._owner = owner;
-        this._repo = repo;
+    protected _setRepoData(repository: string): void {
+        super._setRepoData(repository || process.env.GITHUB_REPOSITORY!);
     }
 
     private _getLabelFilter(): string {

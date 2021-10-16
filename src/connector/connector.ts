@@ -20,8 +20,11 @@ export abstract class Connector {
         this._customAuth = cliParams.auth!;
         this._verbose = cliParams.verbose!;
         this._interactive = cliParams.interactive!;
-        this._setRepositoryProperties();
     }
+
+    abstract getLatestRelease(): Promise<Release>;
+    abstract getPullRequests(since?: string): Promise<PullRequest[]>;
+    abstract publishChanges(file: string): Promise<void>;
 
     async connect(): Promise<void> {
         if (this._customAuth || this._interactive) {
@@ -30,7 +33,6 @@ export abstract class Connector {
                     name: 'token',
                     message: "Enter your acces token. If empty we'll use env.GITHUB_TOKEN: ",
                     type: 'password',
-                    defatult: '$GITHUB_TOKEN',
                 },
             ]);
 
@@ -44,9 +46,27 @@ export abstract class Connector {
         }
     }
 
-    abstract getLatestRelease(): Promise<Release>;
-    abstract getPullRequests(since?: string): Promise<PullRequest[]>;
-    abstract publishChanges(file: string): Promise<void>;
+    async setRepositoryProperties(): Promise<void> {
+        let { repo } = this._configuration;
 
-    protected abstract _setRepositoryProperties(): void;
+        if (this._interactive) {
+            const { customRepo } = await inquirer.prompt([
+                {
+                    name: 'customRepo',
+                    message: 'Repo name in format user/repo: ',
+                    type: 'input',
+                },
+            ]);
+
+            repo = customRepo;
+        }
+
+        this._setRepoData(repo);
+    }
+
+    protected _setRepoData(repository?: string): void {
+        const [owner, repo] = repository?.split('/') || [];
+        this._owner = owner;
+        this._repo = repo;
+    }
 }

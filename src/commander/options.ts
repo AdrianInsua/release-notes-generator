@@ -13,6 +13,11 @@ export const gitHubOptions: Record<string, Options> = {
         type: 'boolean',
         description: 'Manual creadentials input',
     },
+    repo: {
+        alias: 'r',
+        type: 'string',
+        description: 'Repo in format user/repo',
+    },
     message: {
         alias: 'm',
         type: 'string',

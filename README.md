@@ -53,6 +53,7 @@ We support `.yml` and `.json` formats with these options
 | Options | Default | Description |
 |---------|---------|-------------|
 | token | `GITHUB_TOKEN` | Authorization token. This will allow **rng** to access your repo! |
+| repo | `undefined` | Repository name with `user/repo` format |
 | out | `'.'` | Base path where `RELEASE-NOTES` will be generated |
 | name | `RELEASE-NOTES` | Output file name |
 | labels | `[ 'release-note' ]` | Only PRs with these labels will be used in generation process |
@@ -117,6 +118,7 @@ Opciones:
   -o, --output, --out  Output path                        [cadena de caracteres]
   -n, --name           Output file name                   [cadena de caracteres]
   -a, --auth           Manual creadentials input                      [booleano]
+  -r, --repo           Repo in format user/repo           [cadena de caracteres]
   -m, --message        Commit message                     [cadena de caracteres]
   -p, --publish        Publish output to your repo                    [booleano]
   -v, --verbose        Makes the script verbose                       [booleano]
@@ -135,6 +137,7 @@ Opciones:
       --help           Muestra ayuda                                  [booleano]
   -c, --configuration  Configuration file path            [cadena de caracteres]
   -a, --auth           Manual creadentials input                      [booleano]
+  -r, --repo           Repo in format user/repo           [cadena de caracteres]
   -m, --message        Commit message                     [cadena de caracteres]
   -p, --publish        Publish output to your repo                    [booleano]
   -v, --verbose        Makes the script verbose                       [booleano]
