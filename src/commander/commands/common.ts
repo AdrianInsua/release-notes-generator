@@ -9,6 +9,7 @@ export const getGenerator = async (cliParams: CliParams): Promise<Generator> => 
     const connector = new GitHubConnector(config, cliParams);
     const generator = new GithubGenerator(connector, config, cliParams);
 
+    await connector.setRepositoryProperties();
     await connector.connect();
 
     return generator;

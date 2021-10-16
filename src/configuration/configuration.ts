@@ -8,6 +8,8 @@ const FILE_EXT = ['.yml', '.json'];
 export interface Configuration {
     // GITHUB authorization token
     token?: string;
+    // GITHUB REPO in user/repo format
+    repo?: string;
     // Output path
     out?: string;
     // Output fileName
