@@ -1,13 +1,18 @@
 {
-  "name": "release-notes-generator",
-  "version": "1.0.0",
-  "description": "Github parser to generate release notes using your PRs",
-  "main": "src/index.ts",
+  "name": "@adrian.insua/rng",
+  "version": "0.0.0-development",
+  "description": "Repository parser to generate release notes using your PRs",
+  "main": "src/index.ts", 
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "start": "ts-node ./src",
+    "build": "tsc",
     "lint": "eslint **/**.ts --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "semantic-release": "semantic-release"
   },
   "author": "Adrian Insua Yañez",
   "license": "ISC",
@@ -25,7 +30,8 @@
     "husky": "^7.0.0",
     "ts-node": "10.3.0",
     "tsconfig-paths": "^3.11.0",
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.3",
+    "semantic-release": "^18.0.0"
   },
   "dependencies": {
     "date-fns": "^2.25.0",
@@ -35,5 +41,12 @@
     "octokit": "^1.7.0",
     "yaml": "^1.10.2",
     "yargs": "^17.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adrianiy/release-notes-generator.git"
+  },
+  "bin": {
+    "rng": "./bin/rng.js"
   }
 }
