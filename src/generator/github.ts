@@ -1,7 +1,7 @@
 import { GitHubConnector } from 'connector/github';
 import { PullRequest } from 'connector/models/pullRequest';
 import { Configuration } from 'configuration/configuration';
-import { CliParams } from '../commander/options';
+import { CliParams } from 'commander/options';
 import { Generator } from './generator';
 import { format } from 'date-fns';
 

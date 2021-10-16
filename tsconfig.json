@@ -1,4 +1,7 @@
 {
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  },
   "compilerOptions": {
     /* Language and Environment */
     "target": "es5",
@@ -10,10 +13,11 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
+      "configuration/*": ["./src/configuration/*"],
       "connections/*": ["./src/connections/*"],
       "connector/*": ["./src/connector/*"],
       "generator/*": ["./src/generator/*"],
-      "configuration/*": ["./src/configuration/*"]
+      "commander/*": ["./src/commander/*"]
     },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -24,6 +28,5 @@
     /* Modules */
     "skipLibCheck": true,
     "types": [ "node" ]
-  },
-  "include": [ "./src/**/*" ]
+  }
 }

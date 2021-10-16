@@ -1,7 +1,7 @@
-import { getConfiguration } from '../../configuration/configuration';
-import { GitHubConnector } from '../../connector/github';
-import { GithubGenerator } from '../../generator/github';
-import { Generator } from '../../generator/generator';
+import { getConfiguration } from 'configuration/configuration';
+import { GitHubConnector } from 'connector/github';
+import { GithubGenerator } from 'generator/github';
+import { Generator } from 'generator/generator';
 import { CliParams } from '../options';
 
 export const getGenerator = async (cliParams: CliParams): Promise<Generator> => {

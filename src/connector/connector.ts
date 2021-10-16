@@ -1,6 +1,6 @@
 import { Octokit } from 'octokit';
-import { CliParams } from '../commander/options';
-import { Configuration } from '../configuration/configuration';
+import { CliParams } from 'commander/options';
+import { Configuration } from 'configuration/configuration';
 import { PullRequest } from './models/pullRequest';
 import { Release } from './models/release';
 import inquirer from 'inquirer';

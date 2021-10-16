@@ -2,7 +2,7 @@ import { Connector } from 'connector/connector';
 import { PullRequest } from 'connector/models/pullRequest';
 import { Release } from 'connector/models/release';
 import { Configuration } from 'configuration/configuration';
-import { CliParams } from '../commander/options';
+import { CliParams } from 'commander/options';
 import { format } from 'date-fns';
 import log4js from 'log4js';
 import fs from 'fs';

@@ -1,7 +1,7 @@
+import { CliParams } from 'commander/options';
 import fs from 'fs';
 import path from 'path';
 import yaml from 'yaml';
-import { CliParams } from '../commander/options';
 
 const FILE_EXT = ['.yml', '.json'];
 
