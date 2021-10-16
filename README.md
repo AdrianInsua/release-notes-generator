@@ -28,6 +28,8 @@ Currently we are only supporting **GITHUB** via [@octokit](https://github.com/oc
 - Usage
 	- [Installation](#installation)
 	- [Configuration](#configuration)
+        - [Configuration file](#configuration-file)
+        - [Decoration object](#decoration-object)
     	- [CI Configuration](#ci-configuration)
 	- [Cli commands](#cli)
 - Examples
