@@ -68,7 +68,7 @@ export abstract class Generator {
         this._verbose && logger.info('Getting Repo data...');
 
         const latestRelease: Release = await this._connector.getLatestRelease();
-        const pullRequestsList: PullRequest[] = await this._connector.getPullRequests(latestRelease.createdAt);
+        const pullRequestsList: PullRequest[] = await this._connector.getPullRequests(latestRelease?.createdAt);
 
         this._verbose && logger.info(`We've found ${pullRequestsList.length} pull requests to parse!`);
 

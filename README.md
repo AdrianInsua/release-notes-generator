@@ -11,35 +11,36 @@ This project was born to automate the communication between developers and final
 
 ## How Release Notes are done
 
-- Parse every PR since last RELEASE.
-- Include all PR description's markdown in `RELEASE-NOTE.md`
-- The parsing will use PR's labels for:
-	- Filter wich labels will be used in `RELEASE-NOTES.md`. i.e: `type/releas-note`
-	- Mark Release note section as feature, bug, refactor, etc.
-- If you set `CI` flag all changes will be commited to your repo.
+- Parse every PR **since last RELEASE**.
+- Include PR title and description's markdown in `RELEASE-NOTE.md`
+- The parser will use Pull Request labels for:
+	- **Filter** wich labels will be used in `RELEASE-NOTES.md`. i.e: `type/releas-note`
+	- **Mark** Release note section as feature, bug, refactor, etc.
+- If you set `publish: true` flag all changes will be commited to your repo.
 
 
 ## Supported Repos
 
-Currently we are only supporting **GITHUB**.
+Currently we are only supporting **GITHUB** via [@octokit](https://github.com/octokit/octokit.js).
 
-## Documentation
+# Documentation
 
 - Usage
 	- [Installation](#installation)
 	- [Configuration](#configuration)
+    	- [CI Configuration](#ci-configuration)
 	- [Cli commands](#cli)
 - Examples
 	- [Configuration](#configuration-example)
 	- [PullRequest](#pull-request)
 	- [Output](#output)
 
-## Usage
+# Usage
 
 ### Installation
 
 ```bash
-npm i @adrianiy/relase-notes-generator
+npm i @adrian.insua/relase-notes-generator
 ```
 
 ### Configuration
@@ -55,7 +56,7 @@ We support `.yml` and `.json` formats with these options:
 | Options | Default | Description |
 |---------|---------|-------------|
 | token | `GITHUB_TOKEN` | Authorization token. This will allow **rng** to access your repo! |
-| repo | `undefined` | Repository name with `user/repo` format |
+| repo | `GITHUB_REPOSITORY` | Repository name with `user/repo` format |
 | out | `'.'` | Base path where `RELEASE-NOTES` will be generated |
 | name | `RELEASE-NOTES` | Output file name |
 | labels | `[ 'release-note' ]` | Only PRs with these labels will be used in generation process |
@@ -65,6 +66,7 @@ We support `.yml` and `.json` formats with these options:
 | branch | `main` | Branch where output will be uploaded |
 | title | `RELEASE NOTES` | Title used in output markdown |
 | decoration | [Decoration object](#decoration-object) | Icon decoration for each issue type |
+
 
 ##### Decoration object 
 
@@ -88,9 +90,27 @@ This is the result markdown for a pr tagged with `enhancement` label:
 ## :zap: Issue title
 ```
 
+##### CI Configuration
+
+This configuration depends entirely on your necessities, just keep in mind that PRs are parsed since last release so you'll need to execute **RNG** before new release step.
+
+> GITHUB_TOKEN should have enough permissions if you are trying to update a protected branch!
+
+If you are trying to push to a **protected_branch** you can create a personal access token in your profile with enough permissions and use it in your workflow
+
+1. Create a **personal access token**.
+2. Add it as a secret in your project configuration.
+3. Update your workflow to use it as auth token for **rng**
+
+```yml
+  run: npm run rng
+  env:
+    GITHUB_TOKEN: ${ secrets.ADMIN_TOKEN }
+```
+
 #### CLI
 
-:computer: You can use **RNG** in command-line!
+:computer: You can use **RNG** in command-line with `rng`!
 
 ```bash
 // rng --help
@@ -146,7 +166,9 @@ Opciones:
   -i, --interactive    Executes interactive version of the script     [booleano]
 ```
 
-## Examples
+
+
+# Examples
 
 ### Configuration example
 
@@ -159,6 +181,13 @@ token: TOKEN
 name: RELEASE_NOTES_TEST
 commit: false
 
+```
+
+```
+// .env
+
+TOKEN=<your-repo-token>
+RELEASE_NOTES_TEST=adrianiy/release-notes-generator
 ```
 
 ### Pull request
