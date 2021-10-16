@@ -48,7 +48,9 @@ Relase notes generator can be configured in a variety of ways. You can pass opti
 
 #### Configuration file
 
-We support `.yml` and `.json` formats with these options
+We'll search for a config. file named `.releasenotesrc` by default, you can set a different name using `-c` CLI command.
+
+We support `.yml` and `.json` formats with these options:
 
 | Options | Default | Description |
 |---------|---------|-------------|
