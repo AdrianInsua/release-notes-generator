@@ -11,36 +11,36 @@ This project was born to automate the communication between developers and final
 
 ## How Release Notes are done
 
-- Parse every PR since last RELEASE.
-- Include all PR description's markdown in `RELEASE-NOTE.md`
-- The parsing will use PR's labels for:
-	- Filter wich labels will be used in `RELEASE-NOTES.md`. i.e: `type/releas-note`
-	- Mark Release note section as feature, bug, refactor, etc.
-- If you set `CI` flag all changes will be commited to your repo.
+- Parse every PR **since last RELEASE**.
+- Include PR title and description's markdown in `RELEASE-NOTE.md`
+- The parser will use Pull Request labels for:
+	- **Filter** wich labels will be used in `RELEASE-NOTES.md`. i.e: `type/releas-note`
+	- **Mark** Release note section as feature, bug, refactor, etc.
+- If you set `publish: true` flag all changes will be commited to your repo.
 
 
 ## Supported Repos
 
-Currently we are only supporting **GITHUB**.
+Currently we are only supporting **GITHUB** via [@octokit](https://github.com/octokit/octokit.js).
 
-## Documentation
+# Documentation
 
 - Usage
 	- [Installation](#installation)
 	- [Configuration](#configuration)
-    - [CI Configuration](#ci-configuration)
+    	- [CI Configuration](#ci-configuration)
 	- [Cli commands](#cli)
 - Examples
 	- [Configuration](#configuration-example)
 	- [PullRequest](#pull-request)
 	- [Output](#output)
 
-## Usage
+# Usage
 
 ### Installation
 
 ```bash
-npm i @adrianiy/relase-notes-generator
+npm i @adrian.insua/relase-notes-generator
 ```
 
 ### Configuration
@@ -65,9 +65,6 @@ We support `.yml` and `.json` formats with these options
 | title | `RELEASE NOTES` | Title used in output markdown |
 | decoration | [Decoration object](#decoration-object) | Icon decoration for each issue type |
 
-##### CI Configuration
-
-This configuration depends entirely on your necessities, just keep in mind that PRs are parsed since last release so you'll need to execute **RNG** before new release step.
 
 ##### Decoration object 
 
@@ -91,9 +88,13 @@ This is the result markdown for a pr tagged with `enhancement` label:
 ## :zap: Issue title
 ```
 
+##### CI Configuration
+
+This configuration depends entirely on your necessities, just keep in mind that PRs are parsed since last release so you'll need to execute **RNG** before new release step.
+
 #### CLI
 
-:computer: You can use **RNG** in command-line!
+:computer: You can use **RNG** in command-line with `rng`!
 
 ```bash
 // rng --help
@@ -149,7 +150,9 @@ Opciones:
   -i, --interactive    Executes interactive version of the script     [booleano]
 ```
 
-## Examples
+
+
+# Examples
 
 ### Configuration example
 
@@ -162,6 +165,13 @@ token: TOKEN
 name: RELEASE_NOTES_TEST
 commit: false
 
+```
+
+```
+// .env
+
+TOKEN=<your-repo-token>
+RELEASE_NOTES_TEST=adrianiy/release-notes-generator
 ```
 
 ### Pull request
