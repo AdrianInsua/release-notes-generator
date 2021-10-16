@@ -77,7 +77,7 @@ const loadCustomConfig = (configuration: string): Configuration => {
 };
 
 const loadDefaultConfig = (): Configuration => {
-    const fileName = '.releasenotes';
+    const fileName = '.releasenotesrc';
     const ext = searchExistentFileExt(fileName);
 
     return loadFile(fileName, ext!);
