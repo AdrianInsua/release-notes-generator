@@ -2,3 +2,13 @@
 
 node_modules
 dist
+
+# config files
+.env
+
+# test files
+RELEASE_NOTES_TEST.md
+.releasenotes-test.yml
+
+# build
+lib

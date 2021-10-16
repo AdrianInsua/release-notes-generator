@@ -1,20 +1,57 @@
 {
-  "name": "release-notes-generator",
-  "version": "1.0.0",
-  "description": "Github parser to generate release notes using your PRs",
-  "main": "src/index.js",
+  "name": "@adrian.insua/rng",
+  "version": "0.0.0-development",
+  "description": "Repository parser to generate release notes using your PRs",
+  "main": "src/index.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ts-node ./src",
+    "build": "rimraf ./lib && tsc && tsc-alias && npm run package",
+    "package": "cpy **/*.graphql ./../lib --cwd=src --parents",
+    "rng": "node lib gen",
+    "lint": "eslint **/**.ts --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install",
+    "semantic-release": "semantic-release"
   },
   "author": "Adrian Insua Yañez",
   "license": "ISC",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@typescript-eslint/parser": "^5.0.0",
-    "eslint": "^8.0.0",
+    "@commitlint/cli": "^13.2.1",
+    "@commitlint/config-conventional": "^13.2.0",
+    "@types/inquirer": "^8.1.3",
+    "@types/node": "16.10.4",
+    "@types/yargs": "^17.0.4",
+    "@typescript-eslint/eslint-plugin": "4.22.0",
+    "@typescript-eslint/parser": "4.22.0",
+    "cpy": "^8.1.2",
+    "eslint": "7.1.0",
+    "graphql": "15.6.1",
+    "graphql-import-node": "0.0.4",
+    "husky": "^7.0.0",
+    "rimraf": "^2.6.3",
+    "semantic-release": "^18.0.0",
+    "ts-node": "10.3.0",
+    "tsc-alias": "^1.3.10",
+    "tsconfig-paths": "^3.11.0",
     "typescript": "^4.4.3"
   },
   "dependencies": {
-    "octokit": "^1.7.0"
+    "date-fns": "^2.25.0",
+    "dotenv": "10.0.0",
+    "inquirer": "^7.3.3",
+    "log4js": "6.3.0",
+    "octokit": "^1.7.0",
+    "yaml": "^1.10.2",
+    "yargs": "^17.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adrianiy/release-notes-generator.git"
+  },
+  "bin": {
+    "rng": "./bin/rng.js"
   }
 }

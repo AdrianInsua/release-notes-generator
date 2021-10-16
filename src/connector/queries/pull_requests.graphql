@@ -1,0 +1,20 @@
+query PRQuery($queryString: String!, $cursor: String) {
+    search(query: $queryString, type: ISSUE, first: 100, after: $cursor) {
+    issueCount
+    edges {
+      cursor
+      node {
+        ... on PullRequest {
+          title
+          body
+          labels(first: 100) {
+            nodes {
+              name
+            }
+          }
+          createdAt
+        }
+      }
+    }
+  }
+}
