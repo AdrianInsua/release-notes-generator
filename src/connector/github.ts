@@ -31,6 +31,10 @@ export class GitHubConnector extends Connector {
 
     constructor(configuration: Configuration, cliParams: CliParams) {
         super(configuration, cliParams);
+        this._defaultOptions = {
+            token: 'GITHUB_TOKEN',
+            repo: 'GITHUB_REPOSITORY',
+        };
     }
 
     async connect(): Promise<void> {

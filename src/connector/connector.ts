@@ -5,12 +5,18 @@ import { PullRequest } from './models/pullRequest';
 import { Release } from './models/release';
 import inquirer from 'inquirer';
 
+interface DefaultInquirerOptions {
+    token: string;
+    repo: string;
+}
+
 export abstract class Connector {
     protected _owner!: string;
     protected _repo!: string;
     protected _token!: string;
     protected _connection!: Octokit;
     protected _configuration!: Configuration;
+    protected _defaultOptions!: DefaultInquirerOptions;
     protected _customAuth: boolean;
     protected _verbose: boolean;
     protected _interactive: boolean;
@@ -31,7 +37,7 @@ export abstract class Connector {
             const { token } = await inquirer.prompt([
                 {
                     name: 'token',
-                    message: "Enter your acces token. If empty we'll use env.GITHUB_TOKEN: ",
+                    message: `Enter your acces token. If empty we'll use env (${this._defaultOptions.token}): `,
                     type: 'password',
                 },
             ]);
@@ -54,11 +60,14 @@ export abstract class Connector {
                 {
                     name: 'customRepo',
                     message: 'Repo name in format user/repo: ',
+                    default: this._defaultOptions.repo,
                     type: 'input',
                 },
             ]);
 
-            repo = customRepo;
+            if (customRepo !== this._defaultOptions.repo) {
+                repo = customRepo;
+            }
         }
 
         this._setRepoData(repo);
