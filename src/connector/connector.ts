@@ -47,6 +47,7 @@ export abstract class Connector {
         if (!this._token) {
             const { token: configToken } = this._configuration;
             const token = process.env[configToken!]!;
+            console.log(configToken, token);
 
             this._token = token;
         }
