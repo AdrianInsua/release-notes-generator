@@ -28,6 +28,7 @@ Currently we are only supporting **GITHUB**.
 - Usage
 	- [Installation](#installation)
 	- [Configuration](#configuration)
+    - [CI Configuration](#ci-configuration)
 	- [Cli commands](#cli)
 - Examples
 	- [Configuration](#configuration-example)
@@ -53,7 +54,7 @@ We support `.yml` and `.json` formats with these options
 | Options | Default | Description |
 |---------|---------|-------------|
 | token | `GITHUB_TOKEN` | Authorization token. This will allow **rng** to access your repo! |
-| repo | `undefined` | Repository name with `user/repo` format |
+| repo | `GITHUB_REPOSITORY` | Repository name with `user/repo` format |
 | out | `'.'` | Base path where `RELEASE-NOTES` will be generated |
 | name | `RELEASE-NOTES` | Output file name |
 | labels | `[ 'release-note' ]` | Only PRs with these labels will be used in generation process |
@@ -63,6 +64,10 @@ We support `.yml` and `.json` formats with these options
 | branch | `main` | Branch where output will be uploaded |
 | title | `RELEASE NOTES` | Title used in output markdown |
 | decoration | [Decoration object](#decoration-object) | Icon decoration for each issue type |
+
+##### CI Configuration
+
+This configuration depends entirely on your necessities, just keep in mind that PRs are parsed since last release so you'll need to execute **RNG** before new release step.
 
 ##### Decoration object 
 
