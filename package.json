@@ -1,5 +1,5 @@
 {
-  "name": "@adrian.insua/rng",
+  "name": "@adrian.insua/release-notes-generator",
   "version": "0.0.0-development",
   "description": "Repository parser to generate release notes using your PRs",
   "main": "src/index.ts",
