@@ -115,6 +115,7 @@ export class GitHubConnector extends Connector {
                 owner: this._owner,
                 repo: this._repo,
                 path: filePath,
+                ref: this._configuration.branch!,
             })) as ShaResponse;
 
             const sha = result.data?.sha;
