@@ -12,7 +12,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "outDir": "./build",
+    "outDir": "./lib",
     "paths": {
       "configuration/*": ["./src/configuration/*"],
       "connections/*": ["./src/connections/*"],
