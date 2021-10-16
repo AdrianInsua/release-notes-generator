@@ -1,12 +1,13 @@
 import { GitHubConnector } from 'connector/github';
 import { PullRequest } from 'connector/models/pullRequest';
 import { Configuration } from 'configuration/configuration';
+import { CliParams } from 'commander/options';
 import { Generator } from './generator';
 import { format } from 'date-fns';
 
 export class GithubGenerator extends Generator {
-    constructor(connector: GitHubConnector, configuration: Configuration) {
-        super(connector, configuration);
+    constructor(connector: GitHubConnector, configuration: Configuration, cliParams: CliParams) {
+        super(connector, configuration, cliParams);
     }
 
     protected _parsePullRequests(pullRequests: PullRequest[]): string {

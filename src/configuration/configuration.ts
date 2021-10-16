@@ -1,3 +1,4 @@
+import { CliParams } from 'commander/options';
 import fs from 'fs';
 import path from 'path';
 import yaml from 'yaml';
@@ -16,8 +17,8 @@ export interface Configuration {
     // Split Release-Notes on file per Relase
     // This option will create a folder in `out` dir.
     split?: boolean;
-    // Should we commit changes?
-    commit?: boolean;
+    // Should we publish changes?
+    publish?: boolean;
     // Commit message
     message?: string;
     // Branch where output will be uploaded
@@ -33,7 +34,7 @@ const defaultConfiguration: Configuration = {
     out: '.',
     name: 'RELEASE-NOTES',
     labels: ['release-note'],
-    commit: true,
+    publish: false,
     message: 'chore: update RELEASE-NOTES',
     branch: 'main',
     title: 'RELEASE NOTES',
@@ -65,11 +66,26 @@ const loadFile = (fileName: string, ext: string): Configuration => {
     }
 };
 
-export const getConfiguration = (): Configuration => {
+const loadCustomConfig = (configuration: string): Configuration => {
+    const extIndex = configuration.lastIndexOf('.');
+    const fileName = configuration.substr(0, extIndex);
+    const ext = configuration.substr(extIndex);
+
+    return loadFile(fileName, ext!);
+};
+
+const loadDefaultConfig = (): Configuration => {
     const fileName = '.releasenotes';
     const ext = searchExistentFileExt(fileName);
-    const config = loadFile(fileName, ext!);
-    const decoration = { ...defaultConfiguration.decoration, ...config.decoration };
 
-    return { ...defaultConfiguration, ...config, decoration };
+    return loadFile(fileName, ext!);
+};
+
+export const getConfiguration = (cliConfig: CliParams = {}): Configuration => {
+    const { configuration } = cliConfig;
+
+    const config = configuration ? loadCustomConfig(configuration) : loadDefaultConfig();
+    const decoration = { ...defaultConfiguration.decoration, ...config?.decoration };
+
+    return { ...defaultConfiguration, ...config, ...cliConfig, decoration };
 };
