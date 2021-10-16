@@ -55,7 +55,7 @@ export class GitHubConnector extends Connector {
 
         const latestRelease: Release = data.repository?.latestRelease;
 
-        this._verbose && logger.info(`Latest release date is ${latestRelease.createdAt}`);
+        this._verbose && logger.info(`Latest release date is ${latestRelease?.createdAt}`);
 
         return latestRelease;
     }
@@ -109,12 +109,13 @@ export class GitHubConnector extends Connector {
         return this._paginatedResponse<T>(query, params, response);
     }
 
-    private async _getSha(path: string): Promise<string | undefined> {
+    private async _getSha(filePath: string): Promise<string | undefined> {
         try {
             const result = (await this._connection.rest.repos.getContent({
                 owner: this._owner,
                 repo: this._repo,
-                path,
+                path: filePath,
+                ref: this._configuration.branch!,
             })) as ShaResponse;
 
             const sha = result.data?.sha;

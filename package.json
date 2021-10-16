@@ -1,5 +1,5 @@
 {
-    "name": "@adrian.insua/rng",
+    "name": "@adrian.insua/release-notes-generator",
     "version": "0.0.0-development",
     "description": "Repository parser to generate release notes using your PRs",
     "main": "src/index.ts",
@@ -22,6 +22,7 @@
         "@commitlint/cli": "^13.2.1",
         "@commitlint/config-conventional": "^13.2.0",
         "@semantic-release/changelog": "^6.0.0",
+        "@semantic-release/git": "^10.0.0",
         "@types/inquirer": "^8.1.3",
         "@types/node": "16.10.4",
         "@types/yargs": "^17.0.4",
@@ -41,6 +42,7 @@
         "typescript": "^4.4.3"
     },
     "dependencies": {
+        "child_process": "^1.0.2",
         "date-fns": "^2.25.0",
         "dotenv": "10.0.0",
         "inquirer": "^7.3.3",
