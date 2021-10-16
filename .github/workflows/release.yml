@@ -14,9 +14,10 @@ jobs:
           node-version: 16
       - run: npm ci
       - run: npm run build
-      - run: |
-          npm run rng
-          npx semantic-release
+      - run: npm run rng
+        env:
+          GITHUB_TOKEN: ${{ secrets.ADMIN_TOKEN }}
+      - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
