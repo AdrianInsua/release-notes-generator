@@ -7,7 +7,7 @@ export interface CliParams {
     verbose?: boolean;
 }
 
-export const gitHubOptions: Record<string, Options> = {
+export const repoOptions: Record<string, Options> = {
     auth: {
         alias: 'a',
         type: 'boolean',
@@ -52,6 +52,10 @@ export const outputOptions: Record<string, Options> = {
 };
 
 export const commonOptions: Record<string, Options> = {
+    assets: {
+        type: 'string',
+        description: 'File to upload in publish process',
+    },
     verbose: {
         alias: 'v',
         type: 'boolean',

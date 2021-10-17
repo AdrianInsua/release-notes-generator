@@ -31,6 +31,8 @@ export abstract class Generator {
         const list = await this._getPullRequestList();
         const markdown = this._parsePullRequests(list);
 
+        await this._labelPullRequests(list);
+
         this._storeMarkdown(markdown);
     }
 
@@ -49,6 +51,27 @@ export abstract class Generator {
                 willPublish = response;
             }
             willPublish && (await this._connector.publishChanges(this._filePath));
+        }
+    }
+
+    async publishAssets(): Promise<void> {
+        const { publish, assets } = this._configuration;
+
+        if (publish && assets?.length) {
+            let willPublish = true;
+            if (this._interactive) {
+                const { response } = await inquirer.prompt([
+                    {
+                        name: 'response',
+                        type: 'confirm',
+                        message: 'Do you want to publish your asset files?',
+                    },
+                ]);
+
+                willPublish = response;
+            }
+
+            willPublish && (await this._connector.publishAssets(assets));
         }
     }
 
@@ -75,10 +98,31 @@ export abstract class Generator {
         return pullRequestsList;
     }
 
+    protected async _labelPullRequests(pullRequests: PullRequest[]): Promise<void> {
+        if (this._configuration.publish) {
+            let willPublish = true;
+            if (this._interactive) {
+                const { response } = await inquirer.prompt([
+                    {
+                        name: 'response',
+                        type: 'confirm',
+                        message: 'Do you want to label pull requests with in-release-note label?',
+                    },
+                ]);
+
+                willPublish = response;
+            }
+
+            if (willPublish) {
+                await Promise.all(pullRequests.map(this._connector.updatePullRequest));
+            }
+        }
+    }
+
     protected _loadMarkdown(): string {
         try {
             const file = fs.readFileSync(path.join(this._filePath), 'utf8');
-            const title = `# ${this._configuration.title}\n`;
+            const title = `# ${this._configuration.title}`;
 
             return file.toString().replace(title, '');
         } catch (_) {

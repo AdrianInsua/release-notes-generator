@@ -72,11 +72,30 @@ export class GitHubConnector extends Connector {
         return response.map(this._parsePullRequest);
     }
 
-    async publishChanges(file: string): Promise<void> {
+    updatePullRequest = async (pullRequest: PullRequest): Promise<void> => {
+        await this._connection.rest.issues.addLabels({
+            owner: this._owner,
+            repo: this._repo,
+            issue_number: pullRequest.number,
+            labels: ['in-release-note'],
+        });
+    };
+
+    async publishChanges(file: string, message?: string): Promise<void> {
         const filePath = file.replace('./', '');
         const sha = await this._getSha(filePath);
 
-        await this._publishCommit(filePath, sha);
+        await this._publishCommit(filePath, sha, message);
+    }
+
+    async publishAssets(files: string[]): Promise<void> {
+        await Promise.all(files.map(file => this.publishChanges(file, 'chore: asset file upload [skip ci]')));
+    }
+
+    async renderMarkdown(data: string): Promise<string> {
+        const markdown = await this._connection.rest.markdown.renderRaw({ data });
+
+        return markdown.data;
     }
 
     protected _setRepoData(repository: string): void {
@@ -84,7 +103,12 @@ export class GitHubConnector extends Connector {
     }
 
     private _getLabelFilter(): string {
-        return this._configuration.labels?.map((value: string) => `label:${value}`).join(' ') || '';
+        const { labels, ignoredLabels } = this._configuration;
+
+        const labelFilter = labels?.map((value: string) => `label:${value}`).join(' ') || '';
+        const ignoredLabelsFilter = ignoredLabels?.map((value: string) => `-label:${value}`).join(' ') || '';
+
+        return `${labelFilter} ${ignoredLabelsFilter}`;
     }
 
     private _parsePullRequest(pr: PullRequestResponse): PullRequest {
@@ -126,7 +150,7 @@ export class GitHubConnector extends Connector {
         }
     }
 
-    private async _publishCommit(filePath: string, sha?: string): Promise<number> {
+    private async _publishCommit(filePath: string, sha?: string, message: string = this._configuration.message!): Promise<number> {
         this._verbose && logger.info('We are going to commit changes...');
 
         const { branch } = this._configuration;
@@ -135,7 +159,7 @@ export class GitHubConnector extends Connector {
             owner: this._owner,
             repo: this._repo,
             path: filePath,
-            message: this._configuration.message!,
+            message,
             content,
             sha,
             branch,

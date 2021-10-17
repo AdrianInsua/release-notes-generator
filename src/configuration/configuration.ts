@@ -5,6 +5,10 @@ import yaml from 'yaml';
 
 const FILE_EXT = ['.yml', '.json'];
 
+export interface Webhook {
+    url?: string;
+}
+
 export interface Configuration {
     // GITHUB authorization token
     token?: string;
@@ -16,6 +20,8 @@ export interface Configuration {
     name?: string;
     // Only PRs with this labels will be included in MD
     labels?: string[];
+    // PRs with these labels will be ignores
+    ignoredLabels: string[];
     // Split Release-Notes on file per Relase
     // This option will create a folder in `out` dir.
     split?: boolean;
@@ -23,12 +29,16 @@ export interface Configuration {
     publish?: boolean;
     // Commit message
     message?: string;
+    // This assets will be updloaded too in publish process
+    assets?: string[];
     // Branch where output will be uploaded
     branch?: string;
     // Markdown title
     title?: string;
     // Notes decoration according to type
     decoration?: Record<string, string>;
+    // Webhooks lis
+    webhooks?: Record<string, Webhook>;
 }
 
 const defaultConfiguration: Configuration = {
@@ -36,9 +46,12 @@ const defaultConfiguration: Configuration = {
     out: '.',
     name: 'RELEASE-NOTES',
     labels: ['release-note'],
+    ignoredLabels: ['in-release-note'],
     publish: false,
     message: 'chore: update RELEASE-NOTES',
     branch: 'main',
+    assets: [],
+    webhooks: {},
     title: 'RELEASE NOTES',
     decoration: {
         enhancement: ':zap: ',

@@ -16,12 +16,15 @@ This project was born to automate the communication between developers and final
 - The parser will use Pull Request labels for:
 	- **Filter** wich labels will be used in `RELEASE-NOTES.md`. i.e: `type/releas-note`
 	- **Mark** Release note section as feature, bug, refactor, etc.
-- If you set `publish: true` flag all changes will be commited to your repo.
+- If you set `publish: true` 
+    - Flag all changes will be commited to your repo.
+    - Tag pull requests with `in-release-note` label.
+- Execute plugins, like TEAMS webhooks
 
 
 ## Supported Repos
 
-Currently we are only supporting **GITHUB** via [@octokit](https://github.com/octokit/octokit.js).
+Currently we are only supporting **GITHUB** via [@octokit](https://github.com/octokit/octokit.js) and TEAMS notifications using webhooks.
 
 # Documentation
 
@@ -62,12 +65,25 @@ We support `.yml` and `.json` formats with these options:
 | out | `'.'` | Base path where `RELEASE-NOTES` will be generated |
 | name | `RELEASE-NOTES` | Output file name |
 | labels | `[ 'release-note' ]` | Only PRs with these labels will be used in generation process |
+| ignoredLabels | `[ 'in-release-note' ]` | PRs with these labels will be ignored |
 | split | `false` | If `true` one file will be generated per iteration, and will be stored under a `release_notes` folder in `out` directory |
 | publish | `false` | If `true` the output file will be commited to repo |
 | message | `chore: update RELEASE-NOTES` | Commit message |
 | branch | `main` | Branch where output will be uploaded |
 | title | `RELEASE NOTES` | Title used in output markdown |
 | decoration | [Decoration object](#decoration-object) | Icon decoration for each issue type |
+| webhooks | `{}` | List of [webhooks](#webhooks) to execute |
+
+
+##### Webhooks
+
+Notificate your partners via [TEAMS webhook integration!](https://docs.microsoft.com/es-es/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook)
+
+```yml
+webhooks:
+  teams:
+    url: # <your webhook url>
+```
 
 
 ##### Decoration object 
@@ -145,6 +161,7 @@ Opciones:
   -r, --repo           Repo in format user/repo           [cadena de caracteres]
   -m, --message        Commit message                     [cadena de caracteres]
   -p, --publish        Publish output to your repo                    [booleano]
+      --assets         File to upload in publish process  [cadena de caracteres]
   -v, --verbose        Makes the script verbose                       [booleano]
   -i, --interactive    Executes interactive version of the script     [booleano]
 ```
@@ -164,6 +181,7 @@ Opciones:
   -r, --repo           Repo in format user/repo           [cadena de caracteres]
   -m, --message        Commit message                     [cadena de caracteres]
   -p, --publish        Publish output to your repo                    [booleano]
+      --assets         File to upload in publish process  [cadena de caracteres]
   -v, --verbose        Makes the script verbose                       [booleano]
   -i, --interactive    Executes interactive version of the script     [booleano]
 ```
