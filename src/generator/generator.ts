@@ -122,7 +122,7 @@ export abstract class Generator {
     protected _loadMarkdown(): string {
         try {
             const file = fs.readFileSync(path.join(this._filePath), 'utf8');
-            const title = `# ${this._configuration.title}\n`;
+            const title = `# ${this._configuration.title}`;
 
             return file.toString().replace(title, '');
         } catch (_) {

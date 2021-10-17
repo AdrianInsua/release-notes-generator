@@ -5,6 +5,10 @@ import yaml from 'yaml';
 
 const FILE_EXT = ['.yml', '.json'];
 
+export interface Webhook {
+    url?: string;
+}
+
 export interface Configuration {
     // GITHUB authorization token
     token?: string;
@@ -33,6 +37,8 @@ export interface Configuration {
     title?: string;
     // Notes decoration according to type
     decoration?: Record<string, string>;
+    // Webhooks lis
+    webhooks?: Record<string, Webhook>;
 }
 
 const defaultConfiguration: Configuration = {
@@ -45,6 +51,7 @@ const defaultConfiguration: Configuration = {
     message: 'chore: update RELEASE-NOTES',
     branch: 'main',
     assets: [],
+    webhooks: {},
     title: 'RELEASE NOTES',
     decoration: {
         enhancement: ':zap: ',

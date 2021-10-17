@@ -18,7 +18,8 @@
       "connections/*": ["./src/connections/*"],
       "connector/*": ["./src/connector/*"],
       "generator/*": ["./src/generator/*"],
-      "commander/*": ["./src/commander/*"]
+      "commander/*": ["./src/commander/*"],
+      "plugins/*": ["./src/plugins/*"]
     },
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

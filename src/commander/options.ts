@@ -7,7 +7,7 @@ export interface CliParams {
     verbose?: boolean;
 }
 
-export const gitHubOptions: Record<string, Options> = {
+export const repoOptions: Record<string, Options> = {
     auth: {
         alias: 'a',
         type: 'boolean',
