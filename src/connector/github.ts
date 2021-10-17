@@ -66,7 +66,7 @@ export class GitHubConnector extends Connector {
         const labels = this._getLabelFilter();
         const query = prQuery.loc!.source.body;
         const created = since ? `created:>${since}` : '';
-        const queryString = `repo:${this._owner}/${this._repo} is:open is:pr ${labels} ${created}`;
+        const queryString = `repo:${this._owner}/${this._repo} is:closed is:pr ${labels} ${created}`;
         const response: PullRequestResponse[] = await this._paginatedResponse<PullRequestResponse>(query, { queryString });
 
         return response.map(this._parsePullRequest);
@@ -81,11 +81,15 @@ export class GitHubConnector extends Connector {
         });
     };
 
-    async publishChanges(file: string): Promise<void> {
+    async publishChanges(file: string, message?: string): Promise<void> {
         const filePath = file.replace('./', '');
         const sha = await this._getSha(filePath);
 
-        await this._publishCommit(filePath, sha);
+        await this._publishCommit(filePath, sha, message);
+    }
+
+    async publishAssets(files: string[]): Promise<void> {
+        await Promise.all(files.map(file => this.publishChanges(file, 'chore: asset file upload [skip ci]')));
     }
 
     protected _setRepoData(repository: string): void {
@@ -140,7 +144,7 @@ export class GitHubConnector extends Connector {
         }
     }
 
-    private async _publishCommit(filePath: string, sha?: string): Promise<number> {
+    private async _publishCommit(filePath: string, sha?: string, message: string = this._configuration.message!): Promise<number> {
         this._verbose && logger.info('We are going to commit changes...');
 
         const { branch } = this._configuration;
@@ -149,7 +153,7 @@ export class GitHubConnector extends Connector {
             owner: this._owner,
             repo: this._repo,
             path: filePath,
-            message: this._configuration.message!,
+            message,
             content,
             sha,
             branch,

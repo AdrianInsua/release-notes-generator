@@ -54,6 +54,27 @@ export abstract class Generator {
         }
     }
 
+    async publishAssets(): Promise<void> {
+        const { publish, assets } = this._configuration;
+
+        if (publish && assets?.length) {
+            let willPublish = true;
+            if (this._interactive) {
+                const { response } = await inquirer.prompt([
+                    {
+                        name: 'response',
+                        type: 'confirm',
+                        message: 'Do you want to publish your asset files?',
+                    },
+                ]);
+
+                willPublish = response;
+            }
+
+            willPublish && (await this._connector.publishAssets(assets));
+        }
+    }
+
     protected _setFilePath(): void {
         const { out, name, split } = this._configuration;
         const outDir = split ? `${out}/release-notes` : out;

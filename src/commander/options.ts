@@ -52,6 +52,10 @@ export const outputOptions: Record<string, Options> = {
 };
 
 export const commonOptions: Record<string, Options> = {
+    assets: {
+        type: 'string',
+        description: 'File to upload in publish process',
+    },
     verbose: {
         alias: 'v',
         type: 'boolean',

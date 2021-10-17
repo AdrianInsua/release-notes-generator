@@ -19,5 +19,7 @@ export const generate: yargs.CommandModule = {
         await generator.generateReleaseNotes();
 
         await generator.publishReleaseNotes();
+
+        await generator.publishAssets();
     },
 };
