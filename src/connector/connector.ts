@@ -30,8 +30,9 @@ export abstract class Connector {
 
     abstract getLatestRelease(): Promise<Release>;
     abstract getPullRequests(since?: string): Promise<PullRequest[]>;
-    abstract publishChanges(file: string): Promise<void>;
     abstract updatePullRequest(pullRequest: PullRequest): Promise<void>;
+    abstract publishChanges(file: string, message?: string): Promise<void>;
+    abstract publishAssets(files: string[]): Promise<void>;
 
     async connect(): Promise<void> {
         if (this._customAuth || this._interactive) {

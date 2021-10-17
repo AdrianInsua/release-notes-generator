@@ -25,6 +25,8 @@ export interface Configuration {
     publish?: boolean;
     // Commit message
     message?: string;
+    // This assets will be updloaded too in publish process
+    assets?: string[];
     // Branch where output will be uploaded
     branch?: string;
     // Markdown title
@@ -42,6 +44,7 @@ const defaultConfiguration: Configuration = {
     publish: false,
     message: 'chore: update RELEASE-NOTES',
     branch: 'main',
+    assets: [],
     title: 'RELEASE NOTES',
     decoration: {
         enhancement: ':zap: ',

@@ -16,5 +16,7 @@ export const publish: yargs.CommandModule = {
         const generator = await getGenerator(command as CliParams);
 
         await generator.publishReleaseNotes();
+
+        await generator.publishAssets();
     },
 };
