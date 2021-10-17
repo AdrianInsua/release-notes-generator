@@ -92,6 +92,12 @@ export class GitHubConnector extends Connector {
         await Promise.all(files.map(file => this.publishChanges(file, 'chore: asset file upload [skip ci]')));
     }
 
+    async renderMarkdown(data: string): Promise<string> {
+        const markdown = await this._connection.rest.markdown.renderRaw({ data });
+
+        return markdown.data;
+    }
+
     protected _setRepoData(repository: string): void {
         super._setRepoData(repository || process.env.GITHUB_REPOSITORY!);
     }

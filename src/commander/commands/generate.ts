@@ -1,4 +1,4 @@
-import { configurationOptions, outputOptions, gitHubOptions, commonOptions, CliParams } from '../options';
+import { configurationOptions, outputOptions, repoOptions, commonOptions, CliParams } from '../options';
 import { getGenerator } from './common';
 import yargs from 'yargs';
 
@@ -10,16 +10,18 @@ export const generate: yargs.CommandModule = {
         command.options({
             ...configurationOptions,
             ...outputOptions,
-            ...gitHubOptions,
+            ...repoOptions,
             ...commonOptions,
         }),
     handler: async command => {
-        const generator = await getGenerator(command as CliParams);
+        const { generator, pluginLoader } = await getGenerator(command as CliParams);
 
         await generator.generateReleaseNotes();
 
         await generator.publishReleaseNotes();
 
         await generator.publishAssets();
+
+        await pluginLoader.executePlugins();
     },
 };
