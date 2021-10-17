@@ -1,5 +1,22 @@
 # RELEASE NOTES
 
+## :zap: feat: add ignored labels option 
+###### 2021-10-17
+
+### Changes
+<!-- Specify changes you've done in your PR, be as specific as you can! :) -->
+
+- Added ignored labels option
+
+```yml
+ingoredLabels:
+     - in-release-note
+```
+
+
+
+
+
 ## :rocket: Release 1.0.0 
 ###### 2021-10-16
 
