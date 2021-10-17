@@ -21,7 +21,7 @@ export interface Configuration {
     // Only PRs with this labels will be included in MD
     labels?: string[];
     // PRs with these labels will be ignores
-    ignoredLabels: string[];
+    ignoredLabels?: string[];
     // Split Release-Notes on file per Relase
     // This option will create a folder in `out` dir.
     split?: boolean;
