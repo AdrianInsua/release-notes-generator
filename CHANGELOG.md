@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/adrianiy/release-notes-generator/compare/v1.0.0...v1.1.0) (2021-10-17)
+
+
+### Features
+
+* Add assets publishment method ([#30](https://github.com/adrianiy/release-notes-generator/issues/30)) ([7abe703](https://github.com/adrianiy/release-notes-generator/commit/7abe7035c5b2ebc15a255bd571b75472131abef7))
+* add ignored labels option ([#29](https://github.com/adrianiy/release-notes-generator/issues/29)) ([9887eef](https://github.com/adrianiy/release-notes-generator/commit/9887eef42df8c363e1139043efe9e0d872ace496))
+
 # 1.0.0 (2021-10-16)
 
 
