@@ -1,3 +1,5 @@
+# RELEASE NOTES
+
 ## :rocket: Release 1.0.0 
 ###### 2021-10-16
 
