@@ -47,7 +47,7 @@ Currently we are only supporting **GITHUB** via [@octokit](https://github.com/oc
 ### Installation
 
 ```bash
-npm i -D "@adrian.insua/relase-notes-generator"
+npm i -D @adrian-insua/relase-notes-generator
 ```
 
 ### Configuration
