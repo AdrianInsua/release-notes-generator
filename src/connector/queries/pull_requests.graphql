@@ -5,6 +5,7 @@ query PRQuery($queryString: String!, $cursor: String) {
       cursor
       node {
         ... on PullRequest {
+          number
           title
           body
           labels(first: 100) {

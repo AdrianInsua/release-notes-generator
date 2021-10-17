@@ -31,13 +31,14 @@ export abstract class Connector {
     abstract getLatestRelease(): Promise<Release>;
     abstract getPullRequests(since?: string): Promise<PullRequest[]>;
     abstract publishChanges(file: string): Promise<void>;
+    abstract updatePullRequest(pullRequest: PullRequest): Promise<void>;
 
     async connect(): Promise<void> {
         if (this._customAuth || this._interactive) {
             const { token } = await inquirer.prompt([
                 {
                     name: 'token',
-                    message: `Enter your acces token. If empty we'll use env (${this._defaultOptions.token}): `,
+                    message: `Enter your acces token. If empty we'll use env (${this._defaultOptions.token}) or config. token: `,
                     type: 'password',
                 },
             ]);

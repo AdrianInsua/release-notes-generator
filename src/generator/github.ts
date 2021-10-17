@@ -24,6 +24,6 @@ export class GithubGenerator extends Generator {
         const icon = pr.labels.find((label: string) => decoration[label]) || '';
         const date = format(new Date(pr.createdAt), 'yyyy-MM-dd');
 
-        return `## ${decoration[icon]}${pr.title} \n###### ${date}\n\n${pr.body}\n`;
+        return `## ${decoration[icon] || ''}${pr.title} \n###### ${date}\n\n${pr.body}\n`;
     };
 }
