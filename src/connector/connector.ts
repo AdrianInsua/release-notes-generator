@@ -1,9 +1,9 @@
 import { Octokit } from 'octokit';
 import { CliParams } from 'commander/options';
+import { requireRepo, requireToken } from 'commander/inquirer';
 import { Configuration } from 'configuration/configuration';
 import { PullRequest } from './models/pullRequest';
 import { Release } from './models/release';
-import inquirer from 'inquirer';
 
 interface DefaultInquirerOptions {
     token: string;
@@ -37,15 +37,7 @@ export abstract class Connector {
 
     async connect(): Promise<void> {
         if (this._customAuth || this._interactive) {
-            const { token } = await inquirer.prompt([
-                {
-                    name: 'token',
-                    message: `Enter your acces token. If empty we'll use env (${this._defaultOptions.token}) or config. token: `,
-                    type: 'password',
-                },
-            ]);
-
-            this._token = token;
+            this._token = await requireToken(this._defaultOptions.token);
         }
         if (!this._token) {
             const { token: configToken } = this._configuration;
@@ -59,14 +51,7 @@ export abstract class Connector {
         let { repo } = this._configuration;
 
         if (this._interactive) {
-            const { customRepo } = await inquirer.prompt([
-                {
-                    name: 'customRepo',
-                    message: 'Repo name in format user/repo: ',
-                    default: this._defaultOptions.repo,
-                    type: 'input',
-                },
-            ]);
+            const customRepo = await requireRepo(this._defaultOptions.repo);
 
             if (customRepo !== this._defaultOptions.repo) {
                 repo = customRepo;
