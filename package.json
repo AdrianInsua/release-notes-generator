@@ -11,7 +11,7 @@
         "build": "rimraf ./lib && tsc && tsc-alias && npm run package",
         "package": "cpy **/*.graphql ./../lib --cwd=src --parents",
         "rng": "node lib gen",
-        "upload": "node lib pub",
+        "upload": "node lib pub -p",
         "lint": "eslint **/**.ts --fix",
         "test": "echo \"Error: no test specified\" && exit 1",
         "prepare": "husky install",

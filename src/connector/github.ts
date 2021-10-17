@@ -73,6 +73,8 @@ export class GitHubConnector extends Connector {
     }
 
     updatePullRequest = async (pullRequest: PullRequest): Promise<void> => {
+        this._verbose && logger.info(`Labeling pull request ${pullRequest.number} with in-release-note`);
+
         await this._connection.rest.issues.addLabels({
             owner: this._owner,
             repo: this._repo,
