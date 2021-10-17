@@ -63,7 +63,7 @@ We support `.yml` and `.json` formats with these options:
 | Options | Default | Description |
 |---------|---------|-------------|
 | token | `GITHUB_TOKEN` | Authorization token. This will allow **rng** to access your repo! |
-| repo | `GITHUB_REPOSITORY` | Repository name with `user/repo` format |
+| repo | `GITHUB_REPOSITORY` | Environment variable with repository name with `user/repo` format |
 | out | `'.'` | Base path where `RELEASE-NOTES` will be generated |
 | name | `RELEASE-NOTES` | Output file name |
 | labels | `[ 'release-note' ]` | Only PRs with these labels will be used in generation process |
@@ -197,7 +197,7 @@ Opciones:
 This is our test configuarion `.yml`
 
 ```yml
-# releasenotes.yml
+# releasenotesrc.yml
 
 token: TOKEN
 name: RELEASE_NOTES_TEST
