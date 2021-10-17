@@ -84,7 +84,12 @@ export class GitHubConnector extends Connector {
     }
 
     private _getLabelFilter(): string {
-        return this._configuration.labels?.map((value: string) => `label:${value}`).join(' ') || '';
+        const { labels, ignoredLabels } = this._configuration;
+
+        const labelFilter = labels?.map((value: string) => `label:${value}`).join(' ') || '';
+        const ignoredLabelsFilter = ignoredLabels?.map((value: string) => `-label:${value}`).join(' ') || '';
+
+        return `${labelFilter} ${ignoredLabelsFilter}`;
     }
 
     private _parsePullRequest(pr: PullRequestResponse): PullRequest {
