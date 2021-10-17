@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/adrianiy/release-notes-generator/compare/v1.1.1...v1.1.2) (2021-10-17)
+
+
+### Bug Fixes
+
+* fix release files to publish lib/ ([04c0dbe](https://github.com/adrianiy/release-notes-generator/commit/04c0dbec6b119c6defafc43c9fb675e35130d776))
+
 # [1.1.0](https://github.com/adrianiy/release-notes-generator/compare/v1.0.0...v1.1.0) (2021-10-17)
 
 
