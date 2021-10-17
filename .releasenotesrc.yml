@@ -5,3 +5,6 @@ ignored-labels:
 assets:
   - CHANGELOG.md
   - package.json
+decoration:
+  type/feature: ':zap: '
+  type/bug: ':bug: '
