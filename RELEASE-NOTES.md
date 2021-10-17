@@ -1,5 +1,17 @@
 # RELEASE NOTES
 
+## :rocket: Release 1.1.3 
+###### 2021-10-17
+
+We need graphql-import-node to be installed in production
+
+So we moved it from `devDependencies` to `dependencies`
+
+
+
+
+
+
 
 
 ## :rocket: Release 1.1.0 
