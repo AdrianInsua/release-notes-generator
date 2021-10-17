@@ -1,1 +1,4 @@
 message: "chore: update RELEASE-NOTES [skip ci]"
+assets:
+  - CHANGELOG.md
+  - package.json
