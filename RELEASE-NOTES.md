@@ -1,5 +1,61 @@
 # RELEASE NOTES
 
+## :rocket: Release 1.1.0 
+###### 2021-10-17
+
+This release will add some powerfull options like an asset pusher #27  and TEAMS notificator #15 
+
+
+
+## :zap: Add teams webhook 
+###### 2021-10-17
+
+### Changes
+<!-- Specify changes you've done in your PR, be as specific as you can! :) -->
+
+We are supporting teams notification!! 🥳 🥳 
+
+First [configure webhooks](https://docs.microsoft.com/es-es/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook) in your TEAMS channel
+
+Then edit your `releasenotesrc`
+
+```yml
+webhooks:
+  teams:
+    url: # <your webhook url>
+```
+
+## :zap: Add assets publishment method 
+###### 2021-10-17
+
+### Changes
+<!-- Specify changes you've done in your PR, be as specific as you can! :) -->
+
+Now publishment method can publish any file you specify under `assets` property.
+
+```yaml
+assets:
+    - CHANGELOG.md
+    - package.json
+```
+
+This is usefull por CI workflows that require to update multiple files like increasing package version or updating changelog.
+
+## :zap: Add ignored labels option 
+###### 2021-10-17
+
+### Changes
+<!-- Specify changes you've done in your PR, be as specific as you can! :) -->
+
+- Added ignored labels option
+
+```yml
+ingoredLabels:
+     - in-release-note
+```
+
+
+
 
 
 ## :rocket: Release 1.0.0 
