@@ -31,6 +31,8 @@ export abstract class Generator {
         const list = await this._getPullRequestList();
         const markdown = this._parsePullRequests(list);
 
+        await this._labelPullRequests(list);
+
         this._storeMarkdown(markdown);
     }
 
@@ -73,6 +75,27 @@ export abstract class Generator {
         this._verbose && logger.info(`We've found ${pullRequestsList.length} pull requests to parse!`);
 
         return pullRequestsList;
+    }
+
+    protected async _labelPullRequests(pullRequests: PullRequest[]): Promise<void> {
+        if (this._configuration.publish) {
+            let willPublish = true;
+            if (this._interactive) {
+                const { response } = await inquirer.prompt([
+                    {
+                        name: 'response',
+                        type: 'confirm',
+                        message: 'Do you want to label pull requests with in-release-note label?',
+                    },
+                ]);
+
+                willPublish = response;
+            }
+
+            if (willPublish) {
+                await Promise.all(pullRequests.map(this._connector.updatePullRequest));
+            }
+        }
     }
 
     protected _loadMarkdown(): string {

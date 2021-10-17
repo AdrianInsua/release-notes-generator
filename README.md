@@ -16,7 +16,9 @@ This project was born to automate the communication between developers and final
 - The parser will use Pull Request labels for:
 	- **Filter** wich labels will be used in `RELEASE-NOTES.md`. i.e: `type/releas-note`
 	- **Mark** Release note section as feature, bug, refactor, etc.
-- If you set `publish: true` flag all changes will be commited to your repo.
+- If you set `publish: true` 
+    - Flag all changes will be commited to your repo.
+    - Tag pull requests with `in-release-note` label.
 
 
 ## Supported Repos
@@ -62,6 +64,7 @@ We support `.yml` and `.json` formats with these options:
 | out | `'.'` | Base path where `RELEASE-NOTES` will be generated |
 | name | `RELEASE-NOTES` | Output file name |
 | labels | `[ 'release-note' ]` | Only PRs with these labels will be used in generation process |
+| ignoredLabels | `[ 'in-release-note' ]` | PRs with these labels will be ignored |
 | split | `false` | If `true` one file will be generated per iteration, and will be stored under a `release_notes` folder in `out` directory |
 | publish | `false` | If `true` the output file will be commited to repo |
 | message | `chore: update RELEASE-NOTES` | Commit message |

@@ -16,6 +16,8 @@ export interface Configuration {
     name?: string;
     // Only PRs with this labels will be included in MD
     labels?: string[];
+    // PRs with these labels will be ignores
+    ignoredLabels: string[];
     // Split Release-Notes on file per Relase
     // This option will create a folder in `out` dir.
     split?: boolean;
@@ -36,6 +38,7 @@ const defaultConfiguration: Configuration = {
     out: '.',
     name: 'RELEASE-NOTES',
     labels: ['release-note'],
+    ignoredLabels: ['in-release-note'],
     publish: false,
     message: 'chore: update RELEASE-NOTES',
     branch: 'main',

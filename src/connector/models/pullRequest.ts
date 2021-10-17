@@ -4,15 +4,13 @@ export interface LabelNode {
 export interface Labels {
     nodes: LabelNode[];
 }
-export interface PullRequestResponse {
+export interface PullRequest {
+    number: number;
     title: string;
     body: string;
-    labels: Labels;
+    labels: string[] | any;
     createdAt: string;
 }
-export interface PullRequest {
-    title: string;
-    body: string;
-    labels: string[];
-    createdAt: string;
+export interface PullRequestResponse extends PullRequest {
+    labels: Labels;
 }
