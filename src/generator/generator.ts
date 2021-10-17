@@ -3,11 +3,11 @@ import { PullRequest } from 'connector/models/pullRequest';
 import { Release } from 'connector/models/release';
 import { Configuration } from 'configuration/configuration';
 import { CliParams } from 'commander/options';
+import { confirmPublish, confirmPublishAssets, confirmPullRequestLabeling } from 'commander/inquirer';
 import { format } from 'date-fns';
 import log4js from 'log4js';
 import fs from 'fs';
 import path from 'path';
-import inquirer from 'inquirer';
 
 const logger = log4js.getLogger('GENERATOR');
 
@@ -38,18 +38,7 @@ export abstract class Generator {
 
     async publishReleaseNotes(): Promise<void> {
         if (this._configuration.publish) {
-            let willPublish = true;
-            if (this._interactive) {
-                const { response } = await inquirer.prompt([
-                    {
-                        name: 'response',
-                        type: 'confirm',
-                        message: 'Do you want to publish your RELEASE-NOTES?',
-                    },
-                ]);
-
-                willPublish = response;
-            }
+            const willPublish = !this._interactive || (await confirmPublish());
             willPublish && (await this._connector.publishChanges(this._filePath));
         }
     }
@@ -58,18 +47,7 @@ export abstract class Generator {
         const { publish, assets } = this._configuration;
 
         if (publish && assets?.length) {
-            let willPublish = true;
-            if (this._interactive) {
-                const { response } = await inquirer.prompt([
-                    {
-                        name: 'response',
-                        type: 'confirm',
-                        message: 'Do you want to publish your asset files?',
-                    },
-                ]);
-
-                willPublish = response;
-            }
+            const willPublish = !this._interactive || (await confirmPublishAssets());
 
             willPublish && (await this._connector.publishAssets(assets));
         }
@@ -99,18 +77,7 @@ export abstract class Generator {
     }
 
     protected async _labelPullRequests(pullRequests: PullRequest[]): Promise<void> {
-        let willPublish = true;
-        if (this._interactive) {
-            const { response } = await inquirer.prompt([
-                {
-                    name: 'response',
-                    type: 'confirm',
-                    message: 'Do you want to label pull requests with in-release-note label?',
-                },
-            ]);
-
-            willPublish = response;
-        }
+        const willPublish = !this._interactive || (await confirmPullRequestLabeling());
 
         willPublish && (await Promise.all(pullRequests.map(this._connector.updatePullRequest)));
     }
