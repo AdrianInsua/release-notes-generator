@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/adrianiy/release-notes-generator/compare/v1.1.2...v1.1.3) (2021-10-17)
+
+
+### Bug Fixes
+
+* change graphql-import-node to deps ([1c61415](https://github.com/adrianiy/release-notes-generator/commit/1c61415b370894dc10921fc13e3bda7d5dcce38f))
+
 ## [1.1.2](https://github.com/adrianiy/release-notes-generator/compare/v1.1.1...v1.1.2) (2021-10-17)
 
 
