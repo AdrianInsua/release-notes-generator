@@ -1,4 +1,7 @@
 message: "chore: update RELEASE-NOTES [skip ci]"
+ignored-labels:
+  - in-release-note
+  - released
 assets:
   - CHANGELOG.md
   - package.json
