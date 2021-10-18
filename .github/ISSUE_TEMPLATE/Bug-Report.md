@@ -1,7 +1,7 @@
 ---
 name: Bug Report
 about: Use this template to report a bug
-title: '🐛 [BUG]'
+title: ":bug: [BUG]"
 labels: type/bug
 assignees: ''
 

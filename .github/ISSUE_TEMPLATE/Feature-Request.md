@@ -1,8 +1,8 @@
 ---
 name: Feature request
 about: Suggest an idea/feature for this project
-title: '⚡ [FEAT] '
-labels: 'type/feature'
+title: ":sparkles: [FEAT] "
+labels: type/feature
 assignees: ''
 
 ---
@@ -12,4 +12,4 @@ assignees: ''
 
 ### Acceptance criteria
 <!-- A check list of tasks to be done to assume the issue addressed -->
-- [ ] 
+- [ ]
