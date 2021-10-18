@@ -71,6 +71,7 @@ We support `.yml` and `.json` formats with these options:
 | split | `false` | If `true` one file will be generated per iteration, and will be stored under a `release_notes` folder in `out` directory |
 | publish | `false` | If `true` the output file will be commited to repo |
 | message | `chore: update RELEASE-NOTES` | Commit message |
+| filter | `is:closed` | Filter applied on pull request query |
 | branch | `main` | Branch where output will be uploaded |
 | title | `RELEASE NOTES` | Title used in output markdown |
 | decoration | [Decoration object](#decoration-object) | Icon decoration for each issue type |
@@ -161,6 +162,8 @@ Opciones:
   -n, --name           Output file name                   [cadena de caracteres]
   -a, --auth           Manual creadentials input                      [booleano]
   -r, --repo           Repo in format user/repo           [cadena de caracteres]
+  -f, --filter         Filter to apply in Pull request query
+                                                          [cadena de caracteres]
   -m, --message        Commit message                     [cadena de caracteres]
   -p, --publish        Publish output to your repo                    [booleano]
       --assets         File to upload in publish process  [cadena de caracteres]
