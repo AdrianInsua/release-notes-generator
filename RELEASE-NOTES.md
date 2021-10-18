@@ -1,5 +1,17 @@
 # RELEASE NOTES
 
+## :rocket: Release 1.3.0 
+###### 2021-10-18
+
+### Changes
+<!-- Specify changes you've done in your PR, be as specific as you can! :) -->
+
+- Improve teams activity cards styles
+- Check for `webhooks` existence instead of publish flag to execute webhooks
+
+
+
+
 ## :rocket: Release 1.2.0 
 ###### 2021-10-18
 
