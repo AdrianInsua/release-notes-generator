@@ -8,7 +8,7 @@ export interface PullRequest {
     number: number;
     title: string;
     body: string;
-    labels: string[] | any;
+    labels: string[] | unknown;
     createdAt: string;
 }
 export interface PullRequestResponse extends PullRequest {

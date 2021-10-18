@@ -1,4 +1,15 @@
 message: "chore: update RELEASE-NOTES [skip ci]"
+gpgKey: '-----BEGIN PGP SIGNATURE-----\n' +
+        '\n' +
+        'wsBcBAABCAAQBQJhbKWsCRBK7hj4Ov3rIwAAZTgIAJGBve+y1S97vg6LaAdOhG+A\n' +
+        '65XvO4aNLLS6roVK8HcFZWJJpIgNxJThZCcaXcQAWnTQIayG6ZuD8UfifOubDRlm\n' +
+        '3Esc35H8Rc2X69rFA/fARDgtdrraygQ5gj6PR7WDidin8nkdazt6bkufsJT6ErqC\n' +
+        'ghNveEpl8PuMOSZyDI+bRE+REJBhka9wL6RPJ6hDYvIvWPkxLIA43/FE8F98N40q\n' +
+        'TIW0dBRg0Gys2wH5JmdrS3H7g4uwG+b05X4q4CgV/MqgZ4BUtzOzBN2SzlVWDA98\n' +
+        '+NB/wr8YWITXIOjYCwUXeGtahXHukFAkYgK/Q+pMVQ+YIP9zePBV20Si7GeEw7c=\n' +
+        '=aZ+N\n' +
+        '-----END PGP SIGNATURE-----\n',
+
 ignored-labels:
   - in-release-note
   - released

@@ -29,6 +29,8 @@ export interface Configuration {
     publish?: boolean;
     // Commit message
     message?: string;
+    // PGP signature key
+    gpgKey?: string;
     // This assets will be updloaded too in publish process
     assets?: string[];
     // Branch where output will be uploaded

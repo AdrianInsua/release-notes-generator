@@ -23,6 +23,11 @@ export const repoOptions: Record<string, Options> = {
         type: 'string',
         description: 'Commit message',
     },
+    sign: {
+        alias: 's',
+        type: 'boolean',
+        description: 'Sign commit messages',
+    },
     publish: {
         alias: 'p',
         type: 'boolean',

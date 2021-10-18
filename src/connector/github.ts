@@ -10,18 +10,33 @@ import prQuery from './queries/pull_requests.graphql';
 import releaseQuery from './queries/latest_release.graphql';
 import log4js from 'log4js';
 import fs from 'fs';
-import path from 'path';
+
+interface RepoData {
+    repo: string;
+    owner: string;
+}
 
 interface Edge<T> {
     cursor: string;
     node: T;
 }
 
+interface Sha {
+    sha?: string;
+    content?: string;
+}
+
+interface TreeNode extends Sha {
+    path: string;
+    mode: '100644' | '100755' | '040000' | '160000' | '120000' | undefined;
+}
+
+interface ShaResponseData extends Sha {
+    [key: string]: unknown;
+}
+
 interface ShaResponse {
-    data: {
-        [key: string]: unknown;
-        sha: string;
-    };
+    data: ShaResponseData;
 }
 
 const logger = log4js.getLogger('CONNECTOR');
@@ -83,15 +98,21 @@ export class GitHubConnector extends Connector {
         });
     };
 
-    async publishChanges(file: string, message?: string): Promise<void> {
-        const filePath = file.replace('./', '');
-        const sha = await this._getSha(filePath);
+    async publishAssets(files: string[], message = 'chore: asset file upload [skip ci]'): Promise<void> {
+        const { branch, gpgKey } = this._configuration;
+        const ref = `heads/${branch}`;
+        const tree: TreeNode[] = await Promise.all(files.map(this._createTreeNode));
+        const repoData = { repo: this._repo, owner: this._owner };
+        const gitHubRef = await this._getRef(repoData, ref);
+        console.log(gpgKey);
+        const gitHubTree = await this._getTree(repoData, tree, gitHubRef);
+        const commit = await this._createCommit(repoData, message, gpgKey!, gitHubTree, gitHubRef);
 
-        await this._publishCommit(filePath, sha, message);
+        await this._updateRef(repoData, ref, commit);
     }
 
-    async publishAssets(files: string[]): Promise<void> {
-        await Promise.all(files.map(file => this.publishChanges(file, 'chore: asset file upload [skip ci]')));
+    async publishChanges(file: string, message?: string): Promise<void> {
+        await this.publishAssets([file], message);
     }
 
     async renderMarkdown(data: string): Promise<string> {
@@ -135,38 +156,67 @@ export class GitHubConnector extends Connector {
         return this._paginatedResponse<T>(query, params, response);
     }
 
-    private async _getSha(filePath: string): Promise<string | undefined> {
+    private async _getSha(filePath: string): Promise<Sha> {
         try {
-            const result = (await this._connection.rest.repos.getContent({
+            const content = fs.readFileSync(filePath, { encoding: 'base64' });
+            const result = (await this._connection.rest.git.createBlob({
                 owner: this._owner,
                 repo: this._repo,
-                path: filePath,
-                ref: this._configuration.branch!,
+                content,
             })) as ShaResponse;
 
             const sha = result.data?.sha;
 
-            return sha;
+            return { sha, content };
         } catch (_) {
-            return undefined;
+            return { sha: undefined };
         }
     }
 
-    private async _publishCommit(filePath: string, sha?: string, message: string = this._configuration.message!): Promise<number> {
-        this._verbose && logger.info('We are going to commit changes...');
+    private _createTreeNode = async (path: string): Promise<TreeNode> => {
+        const { content } = await this._getSha(path);
+        const mode = '100644' as const;
 
-        const { branch } = this._configuration;
-        const content = fs.readFileSync(path.join(filePath), { encoding: 'base64' });
-        const result = await this._connection.rest.repos.createOrUpdateFileContents({
-            owner: this._owner,
-            repo: this._repo,
-            path: filePath,
-            message,
-            content,
-            sha,
-            branch,
+        return { content, path, mode };
+    };
+
+    async _getRef(repoData: RepoData, ref: string): Promise<string> {
+        const githubRef = await this._connection.rest.git.getRef({ ...repoData, ref });
+
+        return githubRef.data.object.sha;
+    }
+
+    async _getTree(repoData: RepoData, tree: TreeNode[], base_tree: string): Promise<string> {
+        const gitHubTree = await this._connection.rest.git.createTree({
+            ...repoData,
+            type: 'blob' as const,
+            tree,
+            base_tree,
         });
 
-        return result.status;
+        return gitHubTree.data.sha;
+    }
+
+    async _createCommit(repoData: RepoData, message: string, signature: string, tree: string, parents: string): Promise<string> {
+        signature = signature.split('\n').join('\\n');
+        console.log(signature);
+        const commit = await this._connection.rest.git.createCommit({
+            ...repoData,
+            message,
+            tree,
+            signature,
+            verfied: true,
+            parents: [parents],
+        });
+
+        return commit.data.sha;
+    }
+
+    async _updateRef(repoData: RepoData, ref: string, sha: string): Promise<void> {
+        await this._connection.rest.git.updateRef({
+            ...repoData,
+            ref,
+            sha,
+        });
     }
 }
