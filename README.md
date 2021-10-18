@@ -2,6 +2,8 @@
 [![GitHub license][license-image]][repo-link]
 [![Version][version-image]][repo-version-link]
 
+# :rocket: RELEASE NOTES GENERATOR (RNG)
+
 **RELEASE NOTES GENERATOR** automates the creation of a customized release note.
 
 This is not a changelog generator, it will not generate simple changelog notes about what changes
