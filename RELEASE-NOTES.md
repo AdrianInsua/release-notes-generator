@@ -1,5 +1,21 @@
 # RELEASE NOTES
 
+## :rocket: Release 1.2.0 
+###### 2021-10-18
+
+### Changes
+<!-- Specify changes you've done in your PR, be as specific as you can! :) -->
+
+#### ✨ `filter` option is now available in configuration!
+
+With this option you can add any filter you like in pull request query
+
+```yml
+filter: 'is:closed'
+```
+
+
+
 ## :rocket: Release 1.1.3 
 ###### 2021-10-17
 

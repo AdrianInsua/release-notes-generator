@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/adrianiy/release-notes-generator/compare/v1.1.3...v1.2.0) (2021-10-18)
+
+
+### Features
+
+* add query filter option ([#47](https://github.com/adrianiy/release-notes-generator/issues/47)) ([f9fb644](https://github.com/adrianiy/release-notes-generator/commit/f9fb6447a14972e844804000691b1feca34cb3aa))
+
 ## [1.1.3](https://github.com/adrianiy/release-notes-generator/compare/v1.1.2...v1.1.3) (2021-10-17)
 
 
