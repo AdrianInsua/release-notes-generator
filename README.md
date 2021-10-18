@@ -1,4 +1,6 @@
-# :rocket: RELEASE NOTES GENERATOR (RNG)
+[![Build & Test][build-badge]][build-link]
+[![GitHub license][license-image]][repo-link]
+[![Version][version-image]][repo-version-link]
 
 **RELEASE NOTES GENERATOR** automates the creation of a customized release note.
 
@@ -242,3 +244,10 @@ This is an output example of `RELEASE-NOTES.md`
 
 This issue is used by release-notes-generator for test purposes
 ```
+
+[build-badge]: https://github.com/adrianiy/release-notes-generator/workflows/Build%20&%20Test/badge.svg
+[build-link]: https://github.com/adrianiy/release-notes-generator/actions?query=workflow%3A"Build+%26+Test"
+[license-image]: https://badgen.net/github/license/adrianiy/release-notes-generator
+[version-image]: https://badgen.net/github/release/adrianiy/release-notes-generator/stable
+[repo-link]: https://github.com/adrianiy/release-notes-generator
+[repo-version-link]: https://github.com/adrianiy/release-notes-generator/releases
