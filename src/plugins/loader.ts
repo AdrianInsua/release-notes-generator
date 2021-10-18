@@ -26,7 +26,7 @@ export class PluginLoader {
     }
 
     async executePlugins(): Promise<void> {
-        if (this._configuration.publish) {
+        if (this._configuration.webhooks) {
             let willExecute = true;
             if (this._interactive) {
                 const { response } = await inquirer.prompt([
