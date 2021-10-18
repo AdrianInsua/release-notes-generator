@@ -18,6 +18,11 @@ export const repoOptions: Record<string, Options> = {
         type: 'string',
         description: 'Repo in format user/repo',
     },
+    filter: {
+        alias: 'f',
+        type: 'string',
+        description: 'Filter to apply in Pull request query',
+    },
     message: {
         alias: 'm',
         type: 'string',
