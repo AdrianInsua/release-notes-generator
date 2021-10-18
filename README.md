@@ -1,3 +1,7 @@
+[![Build & Test][build-badge]][build-link]
+[![GitHub license][license-image]][repo-link]
+[![Version][version-image]][repo-version-link]
+
 # :rocket: RELEASE NOTES GENERATOR (RNG)
 
 **RELEASE NOTES GENERATOR** automates the creation of a customized release note.
@@ -86,7 +90,20 @@ Notificate your partners via [TEAMS webhook integration!](https://docs.microsoft
 webhooks:
   teams:
     url: # <your webhook url>
+    activityTitle: "Release notification!"
+    activitySubtitle: "Generated with [@adrian.insua/release-notes-generator](https://github.com/adrianiy/release-notes-generator)"
+    activityImage: "<image url>"
+    actions:
+      - "@type": "OpenUri"
+        name: "View Changes"
+        targets:
+          - os: default
+            uri: "https://github.com/inditex/adrianiy/blob/develop/CHANGELOG.md"
 ```
+
+> Only url parameter is mandatory!
+
+> [Microsoft Docs for activity cards](https://docs.microsoft.com/es-es/microsoftteams/platform/task-modules-and-cards/cards/cards-format?tabs=adaptive-md%2Cconnector-html#format-cards-with-html)
 
 
 ##### Decoration object 
@@ -242,3 +259,10 @@ This is an output example of `RELEASE-NOTES.md`
 
 This issue is used by release-notes-generator for test purposes
 ```
+
+[build-badge]: https://github.com/adrianiy/release-notes-generator/workflows/Build%20&%20Test/badge.svg
+[build-link]: https://github.com/adrianiy/release-notes-generator/actions?query=workflow%3A"Build+%26+Test"
+[license-image]: https://badgen.net/github/license/adrianiy/release-notes-generator
+[version-image]: https://badgen.net/github/release/adrianiy/release-notes-generator/stable
+[repo-link]: https://github.com/adrianiy/release-notes-generator
+[repo-version-link]: https://github.com/adrianiy/release-notes-generator/releases

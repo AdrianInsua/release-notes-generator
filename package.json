@@ -16,7 +16,7 @@
         "rng": "node lib gen -v",
         "upload": "node lib pub -p -v",
         "lint": "eslint **/**.ts --fix",
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "echo \"no test specified\" && exit 0",
         "prepare": "husky install",
         "semantic-release": "semantic-release"
     },

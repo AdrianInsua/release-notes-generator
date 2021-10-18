@@ -7,6 +7,10 @@ const FILE_EXT = ['.yml', '.json'];
 
 export interface Webhook {
     url?: string;
+    activityTitle?: string;
+    activitySubtitle?: string;
+    activityImage?: string;
+    actions?: unknown[];
 }
 
 export interface Configuration {
@@ -18,6 +22,8 @@ export interface Configuration {
     out?: string;
     // Output fileName
     name?: string;
+    // File sufix for splitted content
+    suffix?: Date;
     // Only PRs with this labels will be included in MD
     labels?: string[];
     // PRs with these labels will be ignores
@@ -104,6 +110,7 @@ export const getConfiguration = (cliConfig: CliParams = {}): Configuration => {
 
     const config = configuration ? loadCustomConfig(configuration) : loadDefaultConfig();
     const decoration = { ...defaultConfiguration.decoration, ...config?.decoration };
+    const suffix = new Date();
 
-    return { ...defaultConfiguration, ...config, ...cliConfig, decoration };
+    return { ...defaultConfiguration, ...config, ...cliConfig, decoration, suffix };
 };
