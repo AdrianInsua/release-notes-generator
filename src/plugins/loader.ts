@@ -53,7 +53,7 @@ export class PluginLoader {
             .map((key: string) => {
                 switch (key) {
                     case 'teams':
-                        return new TeamsWebhook(webhooks?.[key]?.url, this._connector, this._verbose);
+                        return new TeamsWebhook(webhooks?.[key]!, this._connector, this._verbose);
                     default:
                         return null;
                 }
@@ -62,9 +62,9 @@ export class PluginLoader {
     }
 
     private _setFilePath(): void {
-        const { out, name, split } = this._configuration;
+        const { out, name, split, suffix } = this._configuration;
         const outDir = split ? `${out}/release-notes` : out;
-        const fileName = split ? `${name}-${format(new Date(), 'yyyy-MM-ddHHmmss')}` : name;
+        const fileName = split ? `${name}-${format(suffix!, 'yyyy-MM-ddHHmmss')}` : name;
 
         if (!fs.existsSync(outDir!)) {
             fs.mkdirSync(outDir!);

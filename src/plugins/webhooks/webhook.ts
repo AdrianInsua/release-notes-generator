@@ -1,13 +1,14 @@
+import { Webhook as IWebhook } from 'configuration/configuration';
 import { Connector } from 'connector/connector';
 
 export abstract class Webhook {
     protected _connector: Connector;
-    protected _url: string;
+    protected _webhook: IWebhook;
     protected _verbose: boolean;
 
-    constructor(url?: string, connector?: Connector, verbose?: boolean) {
+    constructor(webhook?: IWebhook, connector?: Connector, verbose?: boolean) {
+        this._webhook = webhook!;
         this._connector = connector!;
-        this._url = url!;
         this._verbose = verbose!;
     }
 

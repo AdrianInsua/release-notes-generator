@@ -54,9 +54,9 @@ export abstract class Generator {
     }
 
     protected _setFilePath(): void {
-        const { out, name, split } = this._configuration;
+        const { out, name, split, suffix } = this._configuration;
         const outDir = split ? `${out}/release-notes` : out;
-        const fileName = split ? `${name}-${format(new Date(), 'yyyy-MM-ddHHmmss')}` : name;
+        const fileName = split ? `${name}-${format(suffix!, 'yyyy-MM-ddHHmmss')}` : name;
 
         if (!fs.existsSync(outDir!)) {
             fs.mkdirSync(outDir!);

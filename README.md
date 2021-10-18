@@ -90,7 +90,20 @@ Notificate your partners via [TEAMS webhook integration!](https://docs.microsoft
 webhooks:
   teams:
     url: # <your webhook url>
+    activityTitle: "Release notification!"
+    activitySubtitle: "Generated with [@adrian.insua/release-notes-generator](https://github.com/adrianiy/release-notes-generator)"
+    activityImage: "<image url>"
+    actions:
+      - "@type": "OpenUri"
+        name: "View Changes"
+        targets:
+          - os: default
+            uri: "https://github.com/inditex/adrianiy/blob/develop/CHANGELOG.md"
 ```
+
+> Only url parameter is mandatory!
+
+> [Microsoft Docs for activity cards](https://docs.microsoft.com/es-es/microsoftteams/platform/task-modules-and-cards/cards/cards-format?tabs=adaptive-md%2Cconnector-html#format-cards-with-html)
 
 
 ##### Decoration object 
