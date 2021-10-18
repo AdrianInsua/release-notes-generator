@@ -22,6 +22,8 @@ export interface Configuration {
     labels?: string[];
     // PRs with these labels will be ignores
     ignoredLabels?: string[];
+    // PR query filter
+    filter?: string;
     // Split Release-Notes on file per Relase
     // This option will create a folder in `out` dir.
     split?: boolean;
@@ -50,6 +52,7 @@ const defaultConfiguration: Configuration = {
     publish: false,
     message: 'chore: update RELEASE-NOTES',
     branch: 'main',
+    filter: 'is:closed',
     assets: [],
     webhooks: {},
     title: 'RELEASE NOTES',
