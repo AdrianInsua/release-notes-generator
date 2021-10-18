@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/adrianiy/release-notes-generator/compare/v1.2.0...v1.3.0) (2021-10-18)
+
+
+### Bug Fixes
+
+* test webhooks instead of publish flag ([2b696be](https://github.com/adrianiy/release-notes-generator/commit/2b696be2a801c00e0fd6b929e8c491e22ee97816))
+
+
+### Features
+
+* improve render of teams activity cards ([bd0d951](https://github.com/adrianiy/release-notes-generator/commit/bd0d951ff577808d0792e90c4ce72166c47debf7))
+
 # [1.2.0](https://github.com/adrianiy/release-notes-generator/compare/v1.1.3...v1.2.0) (2021-10-18)
 
 
