@@ -4,6 +4,9 @@ import { requireRepo, requireToken } from 'commander/inquirer';
 import { Configuration } from 'configuration/configuration';
 import { PullRequest } from './models/pullRequest';
 import { Release } from './models/release';
+import log4js from 'log4js';
+
+const logger = log4js.getLogger('CONNECTOR');
 
 interface DefaultInquirerOptions {
     token: string;
@@ -62,8 +65,11 @@ export abstract class Connector {
     }
 
     protected _setRepoData(repository?: string): void {
+        const { token: configToken } = this._configuration;
         const [owner, repo] = repository?.split('/') || [];
         this._owner = owner;
         this._repo = repo;
+
+        this._verbose && logger.info(`Using ${configToken} as token, ${this._owner} as owner and ${this._repo} as repo`);
     }
 }
