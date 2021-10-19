@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/adrianiy/release-notes-generator/compare/v1.3.1...v1.4.0) (2021-10-19)
+
+
+### Features
+
+* add since option to change start date filter ([#54](https://github.com/adrianiy/release-notes-generator/issues/54)) ([9cf88dc](https://github.com/adrianiy/release-notes-generator/commit/9cf88dcd94c5147758fdea49827effdd8df86304))
+
 ## [1.3.1](https://github.com/adrianiy/release-notes-generator/compare/v1.3.0...v1.3.1) (2021-10-19)
 
 
