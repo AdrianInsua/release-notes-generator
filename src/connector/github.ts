@@ -44,6 +44,10 @@ export class GitHubConnector extends Connector {
     }
 
     async getLatestRelease(): Promise<Release> {
+        if (this._configuration.since) {
+            return { createdAt: this._configuration.since, tagName: 'mock' };
+        }
+
         this._verbose && logger.info('Getting latest release...');
 
         const query = releaseQuery.loc!.source.body;

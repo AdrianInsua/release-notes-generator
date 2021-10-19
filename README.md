@@ -172,20 +172,20 @@ There are two available commands `generate` and `publish`.
 Generates Release Note markdown
 
 Opciones:
-      --version        Muestra número de versión                      [booleano]
-      --help           Muestra ayuda                                  [booleano]
-  -c, --configuration  Configuration file path            [cadena de caracteres]
-  -o, --output, --out  Output path                        [cadena de caracteres]
-  -n, --name           Output file name                   [cadena de caracteres]
-  -a, --auth           Manual creadentials input                      [booleano]
-  -r, --repo           Repo in format user/repo           [cadena de caracteres]
-  -f, --filter         Filter to apply in Pull request query
-                                                          [cadena de caracteres]
-  -m, --message        Commit message                     [cadena de caracteres]
-  -p, --publish        Publish output to your repo                    [booleano]
-      --assets         File to upload in publish process  [cadena de caracteres]
-  -v, --verbose        Makes the script verbose                       [booleano]
-  -i, --interactive    Executes interactive version of the script     [booleano]
+      --version        Show version number                             [boolean]
+      --help           Show help                                       [boolean]
+  -c, --configuration  Configuration file path                          [string]
+  -o, --output, --out  Output path                                      [string]
+  -n, --name           Output file name                                 [string]
+  -a, --auth           Manual creadentials input                       [boolean]
+  -r, --repo           Repo in format user/repo                         [string]
+  -f, --filter         Filter to apply in Pull request query            [string]
+  -s, --since          Start date in pull request filter query          [string]
+  -m, --message        Commit message                                   [string]
+  -p, --publish        Publish output to your repo                     [boolean]
+      --assets         File to upload in publish process                [string]
+  -v, --verbose        Makes the script verbose                        [boolean]
+  -i, --interactive    Executes interactive version of the script      [boolean]
 ```
 
 ###### Publish
