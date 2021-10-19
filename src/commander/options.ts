@@ -23,6 +23,11 @@ export const repoOptions: Record<string, Options> = {
         type: 'string',
         description: 'Filter to apply in Pull request query',
     },
+    since: {
+        alias: 's',
+        type: 'string',
+        description: 'Start date in pull request filter query',
+    },
     message: {
         alias: 'm',
         type: 'string',
