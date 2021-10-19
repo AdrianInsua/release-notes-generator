@@ -1,5 +1,23 @@
 # RELEASE NOTES
 
+## :rocket: Release 1.4.0 
+###### 2021-10-19
+
+
+
+## :zap: Add since option to change start date filter 
+###### 2021-10-19
+
+### Changes
+<!-- Specify changes you've done in your PR, be as specific as you can! :) -->
+
+- Added `since` option to modify start date filter in pull requests query
+
+
+
+
+
+
 
 
 ## :rocket: Release 1.3.0 
