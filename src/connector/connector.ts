@@ -62,8 +62,11 @@ export abstract class Connector {
     }
 
     protected _setRepoData(repository?: string): void {
+        const { token: configToken } = this._configuration;
         const [owner, repo] = repository?.split('/') || [];
         this._owner = owner;
         this._repo = repo;
+
+        this._verbose && logger.info(`Using ${configToken} as token, ${this._owner} as owner and ${this._repo} as repo`);
     }
 }
