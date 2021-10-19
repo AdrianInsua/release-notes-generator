@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/adrianiy/release-notes-generator/compare/v1.3.0...v1.3.1) (2021-10-19)
+
+
+### Bug Fixes
+
+* fix lint errors ([8c4019e](https://github.com/adrianiy/release-notes-generator/commit/8c4019e9c03598ae4714b07f023c54c5274a3285))
+
 # [1.3.0](https://github.com/adrianiy/release-notes-generator/compare/v1.2.0...v1.3.0) (2021-10-18)
 
 
