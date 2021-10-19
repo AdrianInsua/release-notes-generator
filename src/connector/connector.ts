@@ -4,6 +4,9 @@ import { requireRepo, requireToken } from 'commander/inquirer';
 import { Configuration } from 'configuration/configuration';
 import { PullRequest } from './models/pullRequest';
 import { Release } from './models/release';
+import log4js from 'log4js';
+
+const logger = log4js.getLogger('CONNECTOR');
 
 interface DefaultInquirerOptions {
     token: string;
