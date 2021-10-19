@@ -53,7 +53,7 @@ export class PluginLoader {
             .map((key: string) => {
                 switch (key) {
                     case 'teams':
-                        return new TeamsWebhook(webhooks?.[key]!, this._connector, this._verbose);
+                        return new TeamsWebhook(webhooks?.[key], this._connector, this._verbose);
                     default:
                         return null;
                 }
