@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/adrianiy/release-notes-generator/compare/v1.4.0...v1.5.0) (2021-10-19)
+
+
+### Features
+
+* log repo data ([b7a7767](https://github.com/adrianiy/release-notes-generator/commit/b7a7767be6462e64e9cfc170b3d81cfa5b1aae9b))
+
 # [1.4.0](https://github.com/adrianiy/release-notes-generator/compare/v1.3.1...v1.4.0) (2021-10-19)
 
 
