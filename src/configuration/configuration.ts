@@ -32,6 +32,8 @@ export interface Configuration {
     filter?: string;
     // Start date in pull request filter query
     since?: string;
+    // Use last n releases
+    useLast?: number;
     // Split Release-Notes on file per Relase
     // This option will create a folder in `out` dir.
     split?: boolean;
@@ -65,12 +67,12 @@ const defaultConfiguration: Configuration = {
     webhooks: {},
     title: 'RELEASE NOTES',
     decoration: {
-        enhancement: ':zap: ',
-        bug: ':bug: ',
-        refactor: ':abacus: ',
-        release: ':rocket: ',
-        style: ':nailcare: ',
-        documentation: ':book: ',
+        enhancement: '## :zap: ',
+        bug: '## :bug: ',
+        refactor: '## :abacus: ',
+        release: '# :rocket: ',
+        style: '## :nailcare: ',
+        documentation: '## :book: ',
     },
 };
 
