@@ -3,11 +3,12 @@ import { Octokit } from 'octokit';
 import { Configuration } from 'configuration/configuration';
 import { GraphQlQueryResponseData } from '@octokit/graphql/dist-types/types';
 import { LabelNode, PullRequest, PullRequestResponse } from './models/pullRequest';
-import { Release } from './models/release';
+import { Release, ReleaseNode } from './models/release';
 import { gitHubConnection } from 'connections/github';
 import { CliParams } from 'commander/options';
 import prQuery from './queries/pull_requests.graphql';
 import releaseQuery from './queries/latest_release.graphql';
+import lastNReleasesQuery from './queries/last_n_releases.graphql';
 import log4js from 'log4js';
 import fs from 'fs';
 import path from 'path';
@@ -48,6 +49,11 @@ export class GitHubConnector extends Connector {
             return { createdAt: this._configuration.since, tagName: 'mock' };
         }
 
+        console.log(this._configuration.useLast);
+        if (this._configuration.useLast) {
+            return await this._getLatestNReleases();
+        }
+
         this._verbose && logger.info('Getting latest release...');
 
         const query = releaseQuery.loc!.source.body;
@@ -59,7 +65,7 @@ export class GitHubConnector extends Connector {
 
         const latestRelease: Release = data.repository?.latestRelease;
 
-        this._verbose && logger.info(`Latest release date is ${latestRelease?.createdAt}`);
+        this._verbose && logger.info(`Latest release ${latestRelease?.tagName} date is ${latestRelease?.createdAt}`);
 
         return latestRelease;
     }
@@ -106,6 +112,28 @@ export class GitHubConnector extends Connector {
 
     protected _setRepoData(repository: string): void {
         super._setRepoData(repository || process.env.GITHUB_REPOSITORY!);
+    }
+
+    private async _getLatestNReleases(): Promise<Release> {
+        this._verbose && logger.info(`Getting latest ${this._configuration.useLast} releases...`);
+
+        const query = lastNReleasesQuery.loc!.source.body;
+
+        const data = (await this._connection.graphql(query, {
+            owner: this._owner,
+            name: this._repo,
+            last: this._configuration.useLast,
+        })) as GraphQlQueryResponseData;
+
+        const releases: ReleaseNode = data.repository?.releases;
+
+        this._verbose && logger.info(`We've found ${releases.nodes.length} releases!`);
+
+        const latestRelease: Release = releases.nodes[0];
+
+        this._verbose && logger.info(`Latest release ${latestRelease?.tagName} date is ${latestRelease?.createdAt}`);
+
+        return latestRelease;
     }
 
     private _getLabelFilter(): string {
