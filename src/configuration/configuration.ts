@@ -65,12 +65,12 @@ const defaultConfiguration: Configuration = {
     webhooks: {},
     title: 'RELEASE NOTES',
     decoration: {
-        enhancement: ':zap: ',
-        bug: ':bug: ',
-        refactor: ':abacus: ',
-        release: ':rocket: ',
-        style: ':nailcare: ',
-        documentation: ':book: ',
+        enhancement: '## :zap: ',
+        bug: '## :bug: ',
+        refactor: '## :abacus: ',
+        release: '# :rocket: ',
+        style: '## :nailcare: ',
+        documentation: '## :book: ',
     },
 };
 
