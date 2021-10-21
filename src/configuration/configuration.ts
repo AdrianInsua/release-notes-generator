@@ -32,6 +32,8 @@ export interface Configuration {
     filter?: string;
     // Start date in pull request filter query
     since?: string;
+    // Use last n releases
+    useLast?: number;
     // Split Release-Notes on file per Relase
     // This option will create a folder in `out` dir.
     split?: boolean;
