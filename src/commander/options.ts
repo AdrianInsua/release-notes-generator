@@ -28,6 +28,11 @@ export const repoOptions: Record<string, Options> = {
         type: 'string',
         description: 'Start date in pull request filter query',
     },
+    use: {
+        alias: ['u', 'useLast'],
+        type: 'number',
+        description: 'Uses last n releases',
+    },
     message: {
         alias: 'm',
         type: 'string',
