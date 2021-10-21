@@ -1,0 +1,8 @@
+query SkipRelease($owner: String!, $name: String!, $skip: Number!) {
+  repository(owner: $owner, name: $name) {
+     releases(last: $skip) {
+       tagName
+       createdAt
+     }
+  }
+}
