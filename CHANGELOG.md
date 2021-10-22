@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/adrianiy/release-notes-generator/compare/v1.5.0...v1.6.0) (2021-10-22)
+
+
+### Bug Fixes
+
+* **generator:** move section decoration to config ([#60](https://github.com/adrianiy/release-notes-generator/issues/60)) ([dc326d3](https://github.com/adrianiy/release-notes-generator/commit/dc326d38f4e54cdbcc8e4758b286ecd3a621c152))
+
+
+### Features
+
+* Use last n releases ([#62](https://github.com/adrianiy/release-notes-generator/issues/62)) ([45eee85](https://github.com/adrianiy/release-notes-generator/commit/45eee8523986e7d08a7ea034522718709a454289))
+
 # [1.5.0](https://github.com/adrianiy/release-notes-generator/compare/v1.4.0...v1.5.0) (2021-10-19)
 
 
