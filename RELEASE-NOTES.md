@@ -12,7 +12,7 @@
 ### Changes
 <!-- Specify changes you've done in your PR, be as specific as you can! :) -->
 
-New option to precess las `N` releases is available!! 🥳 
+New option to process las `N` releases is available!! 🥳 
 
 ```yml
 useLast: 2
