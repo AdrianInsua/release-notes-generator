@@ -40,6 +40,50 @@ To solve this we move section decorators `#` to configuration object, this allow
 
 
 
+
+
+
+
+# :rocket: Release 1.6.0 
+###### 2021-10-21
+
+
+
+## :zap: Use last n releases 
+###### 2021-10-21
+
+### Changes
+<!-- Specify changes you've done in your PR, be as specific as you can! :) -->
+
+New option to precess las `N` releases is available!! 🥳 
+
+```yml
+useLast: 2
+```
+
+Will use the creation date of the 2nd latest release to process pull requests
+
+
+
+
+
+## :bug: Move section decoration to config 
+###### 2021-10-21
+
+### Changes
+<!-- Specify changes you've done in your PR, be as specific as you can! :) -->
+
+Release sections have not the required relevance as they are decorated with `##` as any other issue.
+
+To solve this we move section decorators `#` to configuration object, this allow users to configure as many `#` as they want.
+
+
+
+
+
+
+
+
 ## :rocket: Release 1.4.0 
 ###### 2021-10-19
 
