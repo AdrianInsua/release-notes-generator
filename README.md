@@ -2,6 +2,10 @@
 [![GitHub license][license-image]][repo-link]
 [![Version][version-image]][repo-version-link]
 
+<p align="center">
+  <img alt="RNG" src="./assets/RNG.svg">
+</p>
+
 # :rocket: RELEASE NOTES GENERATOR (RNG)
 
 **RELEASE NOTES GENERATOR** automates the creation of a customized release note.
