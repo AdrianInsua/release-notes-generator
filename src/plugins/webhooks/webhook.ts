@@ -1,4 +1,4 @@
-import { Webhook as IWebhook } from 'configuration/configuration';
+import { Customization, Webhook as IWebhook } from 'configuration/configuration';
 import { Connector } from 'connector/connector';
 
 export abstract class Webhook {
@@ -12,5 +12,5 @@ export abstract class Webhook {
         this._verbose = verbose!;
     }
 
-    abstract execute(filePath: string): Promise<void>;
+    abstract execute(filePath: string, customization: Customization): Promise<void>;
 }
