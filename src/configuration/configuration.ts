@@ -86,13 +86,13 @@ const defaultConfiguration: Configuration = {
     },
     notification: {
         style: {
-            h1: { 'font-size': '3rem' },
+            h1: { 'font-size': '3rem', 'margin-top': '2rem' },
             h2: { 'font-size': '2rem', 'margin-top': '3rem' },
-            h3: { 'font-size': '1.8rem' },
+            h3: { 'font-size': '1.8rem', 'margin': '2rem 0' },
             h6: { 'font-size': '.9em', 'opacity': '.7' },
             p: { 'font-size': '1.4rem' },
             li: { 'margin-bottom': '8px' },
-            pre: { margin: '8px 0' },
+            pre: { 'margin-bottom': '.7rem' },
         },
     },
 };
