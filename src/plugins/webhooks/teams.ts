@@ -1,4 +1,4 @@
-import { Webhook as IWebhook } from 'configuration/configuration';
+import { Customization, Webhook as IWebhook } from 'configuration/configuration';
 import { Connector } from 'connector/connector';
 import { Webhook } from './webhook';
 import assert from 'assert';
@@ -14,15 +14,12 @@ export class TeamsWebhook extends Webhook {
         assert(webhook?.url !== undefined, 'An url must be configured in temas webhook');
     }
 
-    async execute(filePath: string): Promise<void> {
+    async execute(filePath: string, customization?: Customization): Promise<void> {
         const text = fs.readFileSync(filePath, 'utf8');
 
         const html = await this._connector.renderMarkdown(text);
 
-        const activityText = html
-            .replace(/<li>/g, '<li style="margin-bottom: 8px">')
-            .replace(/<h6>/g, '<h6 style="opacity: .7; font-size: .9em">')
-            .replace(/<pre>/g, '<pre style="margin: 8px 0">');
+        const activityText = this._customizeHtml(html, customization);
 
         this._verbose && logger.info('Publishing notification using teams webhook...');
 
@@ -43,5 +40,27 @@ export class TeamsWebhook extends Webhook {
                 ],
             }),
         );
+    }
+
+    private _customizeHtml(html: string, customization?: Customization): string {
+        if (customization) {
+            return Object.entries(customization).reduce((acc, curr) => {
+                const [tag, styleObj] = curr;
+                const regexp = new RegExp(`<${tag}>`, 'g');
+                const style = this._getStyleString(styleObj);
+
+                return acc.replace(regexp, `<${tag} style=${JSON.stringify(style)}>`);
+            }, html);
+        } else {
+            return html;
+        }
+    }
+
+    private _getStyleString(styleObject: Record<string, string>): string {
+        return Object.entries(styleObject).reduce((acc, curr) => {
+            const [property, value] = curr;
+
+            return `${acc}; ${property}: ${value}`;
+        }, '');
     }
 }

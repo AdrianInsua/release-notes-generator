@@ -1,5 +1,44 @@
 # RELEASE NOTES
 
+# :rocket: Release 1.7.0 
+###### 2021-10-30
+
+We have a new BRAND LOGO 🥳
+
+---
+
+
+
+## :zap: Feat/customize notifications 
+###### 2021-10-30
+
+### Changes
+<!-- Specify changes you've done in your PR, be as specific as you can! :) -->
+
+💅 Now you can customize your notifications!!
+
+To do this you can configure a set of tag styles using `notification.style` configuration property like this
+
+```yml
+notification:
+  style:
+    h1:
+      font-size: 3rem
+      margin-top: 2rem
+    h2:
+      font-size: 2rem
+      margin-top: 3rem 
+```
+
+### Issues
+<!-- Link related issue after close using # notation. `Close #123`-->
+
+Close #67 
+
+
+
+
+
 
 # :rocket: Release 1.6.0 
 ###### 2021-10-21

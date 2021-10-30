@@ -6,7 +6,7 @@
   <img alt="RNG" src="./assets/RNG.svg">
 </p>
 
-# :rocket: RELEASE NOTES GENERATOR (RNG)
+<center><h1 align="center">:rocket: RELEASE NOTES GENERATOR :rocket:</h1></center>
 
 **RELEASE NOTES GENERATOR** automates the creation of a customized release note.
 
@@ -85,6 +85,7 @@ We support `.yml` and `.json` formats with these options:
 | title | `RELEASE NOTES` | Title used in output markdown |
 | decoration | [Decoration object](#decoration-object) | Icon decoration for each issue type |
 | webhooks | `{}` | List of [webhooks](#webhooks) to execute |
+| notification | [Notification customization](#customized-notification) | Object that allows you to customize your webhook notification |
 
 
 ##### Webhooks
@@ -133,6 +134,37 @@ This is the result markdown for a pr tagged with `enhancement` label:
 ## :zap: Issue title
 ```
 
+##### Customized notification
+
+You can customize your webhook notification using `notification.style` attribute.
+
+This is an object where each key is a htm tag like `<div>` with a style object as value.
+
+By default we modify some classes to make notification more readable, we encourage yo to use this yml example as a base for your customizations
+
+```yml
+notification:
+  style:
+    h1:
+      font-size: 3rem
+      margin-top: 2rem
+    h2:
+      font-size: 2rem
+      margin-top: 3rem 
+    h3:
+      font-size: 1.8rem
+      margin: 2rem 0
+    h6:
+      font-size: .9em
+      opacity: .7
+    p:
+      font-size: 1.4rem
+    li:
+      margin-bottom: 8px
+    pre: 
+      margin-bottom: .7rem
+```
+
 ##### CI Configuration
 
 This configuration depends entirely on your necessities, just keep in mind that PRs are parsed since last release so you'll need to execute **RNG** before new release step.
@@ -159,8 +191,8 @@ If you are trying to push to a **protected_branch** you can create a personal ac
 // rng --help
 
 Comandos:
-  bin.js generate  Generates Release Note markdown                  [alias: gen]
-  bin.js publish   Pubish Release Note in your repo                 [alias: pub]
+  rng generate  Generates Release Note markdown                  [alias: gen]
+  rng publish   Pubish Release Note in your repo                 [alias: pub]
 
 Opciones:
   --version  Muestra número de versión                                [booleano]

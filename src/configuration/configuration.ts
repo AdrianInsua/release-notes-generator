@@ -13,6 +13,14 @@ export interface Webhook {
     actions?: unknown[];
 }
 
+export interface Customization {
+    [key: string]: Record<string, string>;
+}
+
+export interface Notification {
+    style: Customization;
+}
+
 export interface Configuration {
     // GITHUB authorization token
     token?: string;
@@ -51,6 +59,8 @@ export interface Configuration {
     decoration?: Record<string, string>;
     // Webhooks lis
     webhooks?: Record<string, Webhook>;
+    // Notification configuration
+    notification?: Notification;
 }
 
 const defaultConfiguration: Configuration = {
@@ -73,6 +83,17 @@ const defaultConfiguration: Configuration = {
         release: '# :rocket: ',
         style: '## :nailcare: ',
         documentation: '## :book: ',
+    },
+    notification: {
+        style: {
+            h1: { 'font-size': '3rem', 'margin-top': '2rem' },
+            h2: { 'font-size': '2rem', 'margin-top': '3rem' },
+            h3: { 'font-size': '1.8rem', 'margin': '2rem 0' },
+            h6: { 'font-size': '.9em', 'opacity': '.7' },
+            p: { 'font-size': '1.4rem' },
+            li: { 'margin-bottom': '8px' },
+            pre: { 'margin-bottom': '.7rem' },
+        },
     },
 };
 
