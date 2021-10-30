@@ -1,4 +1,21 @@
 
+- [Configuration](#configuraion)
+  - [token](#token)
+  - [repo](#repo)
+  - [out](#out)
+  - [name](#name)
+  - [labels](#labels)
+  - [ignoredLabels](#ignoredLabels)
+  - [split](#split)
+  - [publish](#publish)
+  - [message](#message)
+  - [filter](#filter)
+  - [branch](#branch)
+  - [useLast](#useLast)
+  - [title](#title)
+  - [decoration](#decoration)
+  - [webhooks](#webhooks)
+  - [notification](#notification)
 # Configuration
 
 Relase notes generator can be configured in a variety of ways. You can pass options directly to **rng** using cli commands, or create a configuration file in your `<root>` folder.
@@ -9,22 +26,6 @@ We'll search for a config. file named `.releasenotesrc` by default, you can set 
 
 We support `.yml` and `.json` formats with these options:
 
-- [token](#token)
-- [repo](#repo)
-- [out](#out)
-- [name](#name)
-- [labels](#labels)
-- [ignoredLabels](#ignoredLabels)
-- [split](#split)
-- [publish](#publish)
-- [message](#message)
-- [filter](#filter)
-- [branch](#branch)
-- [useLast](#useLast)
-- [title](#title)
-- [decoration](#decoration)
-- [webhooks](#webhooks)
-- [notification](#notification)
 
 ### TOKEN
 ##### Default value `GITHUB_TOKEN`

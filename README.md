@@ -45,7 +45,7 @@ Currently we are only supporting **GITHUB** via [@octokit](https://github.com/oc
 # Documentation
 
 - [Installation](#installation)
-- [Configuration](#configuration)
+- [Configuration](/src/configuration#readme)
     - [Configuration file](#configuration-file)
     - [Decoration object](#decoration-object)
     - [CI Configuration](#ci-configuration)
