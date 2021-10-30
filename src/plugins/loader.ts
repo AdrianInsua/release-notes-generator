@@ -41,7 +41,7 @@ export class PluginLoader {
             }
             willExecute &&
                 this._webhooks?.map((webhook: Webhook) => {
-                    webhook.execute(this._filePath);
+                    webhook.execute(this._filePath, this._configuration.notification!.style);
                 });
         }
     }
