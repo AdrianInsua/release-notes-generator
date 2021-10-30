@@ -4,7 +4,6 @@ import { Release } from 'connector/models/release';
 import { Configuration } from 'configuration/configuration';
 import { CliParams } from 'commander/options';
 import { confirmPublish, confirmPublishAssets, confirmPullRequestLabeling } from 'commander/inquirer';
-import { format } from 'date-fns';
 import log4js from 'log4js';
 import fs from 'fs';
 import path from 'path';
@@ -24,7 +23,6 @@ export abstract class Generator {
         this._configuration = configuration;
         this._verbose = cliParams.verbose!;
         this._interactive = cliParams.interactive!;
-        this._setFilePath();
     }
 
     async generateReleaseNotes(): Promise<void> {
@@ -56,7 +54,7 @@ export abstract class Generator {
     protected _setFilePath(): void {
         const { out, name, split, suffix } = this._configuration;
         const outDir = split ? `${out}/release-notes` : out;
-        const fileName = split ? `${name}-${format(suffix!, 'yyyy-MM-ddHHmmss')}` : name;
+        const fileName = split ? `${name}-${suffix}` : name;
 
         if (!fs.existsSync(outDir!)) {
             fs.mkdirSync(outDir!);
@@ -68,8 +66,10 @@ export abstract class Generator {
     protected async _getPullRequestList(): Promise<PullRequest[]> {
         this._verbose && logger.info('Getting Repo data...');
 
-        const latestRelease: Release = await this._connector.getLatestRelease();
-        const pullRequestsList: PullRequest[] = await this._connector.getPullRequests(latestRelease?.createdAt);
+        const latestRelease: Release[] = await this._connector.getLatestRelease();
+        const pullRequestsList: PullRequest[] = await this._connector.getPullRequests(latestRelease?.[0]?.createdAt);
+        this._configuration.suffix = latestRelease.slice(-1)[0].tagName;
+        this._setFilePath();
 
         this._verbose && logger.info(`We've found ${pullRequestsList.length} pull requests to parse!`);
 
