@@ -1,6 +1,6 @@
 message: "chore: update RELEASE-NOTES [skip ci]"
 split: true
-out: ./notes
+out: ./
 ignored-labels:
   - in-release-note
   - released
