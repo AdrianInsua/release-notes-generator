@@ -44,12 +44,11 @@ export class GitHubConnector extends Connector {
         this._connection = gitHubConnection(this._token);
     }
 
-    async getLatestRelease(): Promise<Release> {
+    async getLatestRelease(): Promise<Release[]> {
         if (this._configuration.since) {
-            return { createdAt: this._configuration.since, tagName: 'mock' };
+            return [{ createdAt: this._configuration.since, tagName: 'mock' }];
         }
 
-        console.log(this._configuration.useLast);
         if (this._configuration.useLast) {
             return await this._getLatestNReleases();
         }
@@ -67,7 +66,7 @@ export class GitHubConnector extends Connector {
 
         this._verbose && logger.info(`Latest release ${latestRelease?.tagName} date is ${latestRelease?.createdAt}`);
 
-        return latestRelease;
+        return [latestRelease];
     }
 
     async getPullRequests(since?: string): Promise<PullRequest[]> {
@@ -114,7 +113,7 @@ export class GitHubConnector extends Connector {
         super._setRepoData(repository || process.env.GITHUB_REPOSITORY!);
     }
 
-    private async _getLatestNReleases(): Promise<Release> {
+    private async _getLatestNReleases(): Promise<Release[]> {
         this._verbose && logger.info(`Getting latest ${this._configuration.useLast} releases...`);
 
         const query = lastNReleasesQuery.loc!.source.body;
@@ -133,7 +132,7 @@ export class GitHubConnector extends Connector {
 
         this._verbose && logger.info(`Latest release ${latestRelease?.tagName} date is ${latestRelease?.createdAt}`);
 
-        return latestRelease;
+        return releases.nodes;
     }
 
     private _getLabelFilter(): string {

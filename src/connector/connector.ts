@@ -31,7 +31,7 @@ export abstract class Connector {
         this._interactive = cliParams.interactive!;
     }
 
-    abstract getLatestRelease(): Promise<Release>;
+    abstract getLatestRelease(): Promise<Release[]>;
     abstract getPullRequests(since?: string): Promise<PullRequest[]>;
     abstract updatePullRequest(pullRequest: PullRequest): Promise<void>;
     abstract publishChanges(file: string, message?: string): Promise<void>;

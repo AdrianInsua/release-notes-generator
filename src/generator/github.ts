@@ -3,7 +3,6 @@ import { PullRequest } from 'connector/models/pullRequest';
 import { Configuration } from 'configuration/configuration';
 import { CliParams } from 'commander/options';
 import { Generator } from './generator';
-import { format } from 'date-fns';
 
 export class GithubGenerator extends Generator {
     constructor(connector: GitHubConnector, configuration: Configuration, cliParams: CliParams) {
@@ -11,7 +10,7 @@ export class GithubGenerator extends Generator {
     }
 
     protected _parsePullRequests(pullRequests: PullRequest[]): string {
-        const oldFile = this._loadMarkdown();
+        const oldFile = this._configuration.split ? '' : this._loadMarkdown();
         const notes = pullRequests.map(this._composeText);
         const title = `# ${this._configuration.title}\n`;
         const markdown = [title, ...notes, oldFile].join('\n');
@@ -22,7 +21,7 @@ export class GithubGenerator extends Generator {
     private _composeText = (pr: PullRequest) => {
         const decoration = this._configuration.decoration!;
         const decorationMatch = pr.labels.find((label: string) => decoration[label]) || '';
-        const date = format(new Date(pr.createdAt), 'yyyy-MM-dd');
+        const date = new Date(pr.createdAt).toISOString().split('T')[0];
 
         return `${decoration[decorationMatch] || ''}${pr.title} \n###### ${date}\n\n${pr.body}\n`;
     };

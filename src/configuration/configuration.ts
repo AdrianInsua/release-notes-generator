@@ -31,7 +31,7 @@ export interface Configuration {
     // Output fileName
     name?: string;
     // File sufix for splitted content
-    suffix?: Date;
+    suffix?: string;
     // Only PRs with this labels will be included in MD
     labels?: string[];
     // PRs with these labels will be ignores
@@ -70,6 +70,7 @@ const defaultConfiguration: Configuration = {
     labels: ['release-note'],
     ignoredLabels: ['in-release-note'],
     publish: false,
+    useLast: 2,
     message: 'chore: update RELEASE-NOTES',
     branch: 'main',
     filter: 'is:closed',
@@ -135,7 +136,6 @@ export const getConfiguration = (cliConfig: CliParams = {}): Configuration => {
 
     const config = configuration ? loadCustomConfig(configuration) : loadDefaultConfig();
     const decoration = { ...defaultConfiguration.decoration, ...config?.decoration };
-    const suffix = new Date();
 
-    return { ...defaultConfiguration, ...config, ...cliConfig, decoration, suffix };
+    return { ...defaultConfiguration, ...config, ...cliConfig, decoration };
 };
