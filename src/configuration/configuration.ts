@@ -12,8 +12,13 @@ export interface Webhook {
     activityImage?: string;
     actions?: unknown[];
 }
+
+export interface Customization {
+    [key: string]: Record<string, string>;
+}
+
 export interface Notification {
-    style: Record<string, Record<string, string>>;
+    style: Customization;
 }
 
 export interface Configuration {
@@ -84,7 +89,10 @@ const defaultConfiguration: Configuration = {
             h1: { 'font-size': '3rem' },
             h2: { 'font-size': '2rem', 'margin-top': '3rem' },
             h3: { 'font-size': '1.8rem' },
+            h6: { 'font-size': '.9em', 'opacity': '.7' },
             p: { 'font-size': '1.4rem' },
+            li: { 'margin-bottom': '8px' },
+            pre: { margin: '8px 0' },
         },
     },
 };
