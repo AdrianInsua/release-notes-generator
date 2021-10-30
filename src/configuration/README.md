@@ -201,21 +201,3 @@ notification:
       margin-bottom: .7rem
 ```
 
-#### CI Configuration
-
-This configuration depends entirely on your necessities, just keep in mind that PRs are parsed since last release so you'll need to execute **RNG** before new release step.
-
-> GITHUB_TOKEN should have enough permissions if you are trying to update a protected branch!
-
-If you are trying to push to a **protected_branch** you can create a personal access token in your profile with enough permissions and use it in your workflow
-
-1. Create a **personal access token**.
-2. Add it as a secret in your project configuration.
-3. Update your workflow to use it as auth token for **rng**
-
-```yml
-  run: npm run rng
-  env:
-    GITHUB_TOKEN: ${ secrets.ADMIN_TOKEN }
-```
-
