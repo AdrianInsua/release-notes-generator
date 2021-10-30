@@ -18,8 +18,8 @@ a deeply description of the changes published in the release.
 
 This project was born to automate the communication between developers and final users.
 
-
-## How Release Notes are done
+<details>
+	<summary>How Release Notes are done</summary>
 
 - Parse every PR **since last RELEASE**.
 - Include PR title and description's markdown in `RELEASE-NOTE.md`
@@ -30,39 +30,46 @@ This project was born to automate the communication between developers and final
     - Flag all changes will be commited to your repo.
     - Tag pull requests with `in-release-note` label.
 - Execute plugins, like TEAMS webhooks
+	
+</details>
 
-
-## Supported Repos
+<details>
+	<summary>Supported Repos</summary
 
 Currently we are only supporting **GITHUB** via [@octokit](https://github.com/octokit/octokit.js) and TEAMS notifications using webhooks.
+		
+</details>
+
+---
 
 # Documentation
 
-- Usage
+- [Usage](#usage)
 	- [Installation](#installation)
 	- [Configuration](#configuration)
         - [Configuration file](#configuration-file)
         - [Decoration object](#decoration-object)
     	- [CI Configuration](#ci-configuration)
 	- [Cli commands](#cli)
-- Examples
+- [Examples](#examples)
 	- [Configuration](#configuration-example)
 	- [PullRequest](#pull-request)
 	- [Output](#output)
-
+<br/>
+		
 # Usage
 
-### Installation
+## Installation
 
 ```bash
 npm i -D "@adrian.insua/relase-notes-generator"
 ```
 
-### Configuration
+## Configuration
 
 Relase notes generator can be configured in a variety of ways. You can pass options directly to **rng** using cli commands, or create a configuration file in your `<root>` folder.
 
-#### Configuration file
+### Configuration file
 
 We'll search for a config. file named `.releasenotesrc` by default, you can set a different name using `-c` CLI command.
 
@@ -88,7 +95,7 @@ We support `.yml` and `.json` formats with these options:
 | notification | [Notification customization](#customized-notification) | Object that allows you to customize your webhook notification |
 
 
-##### Webhooks
+#### Webhooks
 
 Notificate your partners via [TEAMS webhook integration!](https://docs.microsoft.com/es-es/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook)
 
@@ -112,7 +119,7 @@ webhooks:
 > [Microsoft Docs for activity cards](https://docs.microsoft.com/es-es/microsoftteams/platform/task-modules-and-cards/cards/cards-format?tabs=adaptive-md%2Cconnector-html#format-cards-with-html)
 
 
-##### Decoration object 
+#### Decoration object 
 
 This object of `key:value` have as key the issue type and value desired decotaion
 
@@ -134,7 +141,7 @@ This is the result markdown for a pr tagged with `enhancement` label:
 ## :zap: Issue title
 ```
 
-##### Customized notification
+#### Customized notification
 
 You can customize your webhook notification using `notification.style` attribute.
 
@@ -165,7 +172,7 @@ notification:
       margin-bottom: .7rem
 ```
 
-##### CI Configuration
+#### CI Configuration
 
 This configuration depends entirely on your necessities, just keep in mind that PRs are parsed since last release so you'll need to execute **RNG** before new release step.
 
@@ -183,7 +190,9 @@ If you are trying to push to a **protected_branch** you can create a personal ac
     GITHUB_TOKEN: ${ secrets.ADMIN_TOKEN }
 ```
 
-#### CLI
+<br/>
+
+## CLI
 
 :computer: You can use **RNG** in command-line with `rng`!
 
@@ -201,7 +210,7 @@ Opciones:
 
 There are two available commands `generate` and `publish`.
 
-###### Generate
+##### Generate
 
 ```bash
 // rng generate --help
@@ -228,7 +237,7 @@ Opciones:
   -i, --interactive     Executes interactive version of the script    [booleano]
 ```
 
-###### Publish
+##### Publish
 
 ```bash
 // rng publish --help
@@ -252,8 +261,11 @@ Opciones:
   -v, --verbose         Makes the script verbose                      [booleano]
   -i, --interactive     Executes interactive version of the script    [booleano]
 ```
-
-
+<br/>
+		
+---
+		
+<br/>
 
 # Examples
 
