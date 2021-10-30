@@ -49,7 +49,7 @@ Currently we are only supporting **GITHUB** via [@octokit](https://github.com/oc
     - [Configuration file](#configuration-file)
     - [Decoration object](#decoration-object)
     - [CI Configuration](#ci-configuration)
-- [Cli commands](#cli)
+- [Cli commands](/src/commander#readme)
 - [Examples](#examples)
 	- [Configuration](#configuration-example)
 	- [PullRequest](#pull-request)
