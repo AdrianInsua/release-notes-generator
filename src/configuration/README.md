@@ -1,5 +1,4 @@
-
-- [Configuration](#configuraion)
+- [Configuration](configuraion)
   - [token](#token)
   - [repo](#repo)
   - [out](#out)
@@ -60,12 +59,38 @@ Base path where `RELEASE-NOTES` will be generated. **It must exists.**
 out: '.' # creates release-notes folder in root
 ```
 
+### NAME
+##### Default value `RELEASE-NOTES`
 
-| repo | `GITHUB_REPOSITORY` | |
-| out | `'.'` | Base path where `RELEASE-NOTES` will be generated |
-| name | `RELEASE-NOTES` | Output file name |
-| labels | `[ 'release-note' ]` | Only PRs with these labels will be used in generation process |
-| ignoredLabels | `[ 'in-release-note' ]` | PRs with these labels will be ignored |
+Output file name
+
+```yml
+name: RELASE-NOTES-DEMO
+```
+
+### LABELS
+##### Default value `['release-note']`
+
+Only PRs with these labels will be used in generation process 
+
+```yml
+labels:
+  - release-note
+  - release-note-demo
+```
+
+### IGNORED LABELS
+##### Default value `[ 'in-release-note' ]`
+
+PRs with these labels will be ignored 
+
+```yml
+ignoredLabels:
+  - in-release-note
+  - in-release-note-demo
+```
+
+
 | split | `false` | If `true` one file will be generated per iteration, and will be stored under a `release_notes` folder in `out` directory |
 | publish | `false` | If `true` the output file will be commited to repo |
 | message | `chore: update RELEASE-NOTES` | Commit message |
