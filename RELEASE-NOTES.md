@@ -1,38 +1,39 @@
 # RELEASE NOTES
 
-# :rocket: Release 1.6.0 
-###### 2021-10-21
+# :rocket: Release 1.7.0 
+###### 2021-10-30
+
+We have a new BRAND LOGO 🥳
+
+---
 
 
 
-Use last n releases 
-###### 2021-10-21
+## :zap: Feat/customize notifications 
+###### 2021-10-30
 
 ### Changes
 <!-- Specify changes you've done in your PR, be as specific as you can! :) -->
 
-New option to process last `N` releases is available!! 🥳 
+💅 Now you can customize your notifications!!
+
+To do this you can configure a set of tag styles using `notification.style` configuration property like this
 
 ```yml
-useLast: 2
+notification:
+  style:
+    h1:
+      font-size: 3rem
+      margin-top: 2rem
+    h2:
+      font-size: 2rem
+      margin-top: 3rem 
 ```
 
-Will use the creation date of the 2nd latest release to process pull requests
+### Issues
+<!-- Link related issue after close using # notation. `Close #123`-->
 
-
-
-
-
-Move section decoration to config 
-###### 2021-10-21
-
-### Changes
-<!-- Specify changes you've done in your PR, be as specific as you can! :) -->
-
-Release sections have not the required relevance as they are decorated with `##` as any other issue.
-
-To solve this we move section decorators `#` to configuration object, this allow users to configure as many `#` as they want.
-
+Close #67 
 
 
 

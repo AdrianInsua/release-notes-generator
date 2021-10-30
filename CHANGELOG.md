@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/adrianiy/release-notes-generator/compare/v1.6.0...v1.7.0) (2021-10-30)
+
+
+### Features
+
+* add notification customization config ([04a3f7d](https://github.com/adrianiy/release-notes-generator/commit/04a3f7d118a5a84c94429fa7aa7b2b23d78171cd))
+
 # [1.6.0](https://github.com/adrianiy/release-notes-generator/compare/v1.5.0...v1.6.0) (2021-10-22)
 
 
