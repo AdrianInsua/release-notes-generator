@@ -88,7 +88,7 @@ We support `.yml` and `.json` formats with these options:
 | message | `chore: update RELEASE-NOTES` | Commit message |
 | filter | `is:closed` | Filter applied on pull request query |
 | branch | `main` | Branch where output will be uploaded |
-| useLast | `null` | Uses last `n` releases in generation step |
+| useLast | 2 | Gets data from release `n` to release 0 |
 | title | `RELEASE NOTES` | Title used in output markdown |
 | decoration | [Decoration object](#decoration-object) | Icon decoration for each issue type |
 | webhooks | `{}` | List of [webhooks](#webhooks) to execute |

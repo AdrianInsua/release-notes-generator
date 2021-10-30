@@ -3,7 +3,6 @@ import { Connector } from 'connector/connector';
 import { CliParams } from 'commander/options';
 import { TeamsWebhook } from './webhooks/teams';
 import { Webhook } from './webhooks/webhook';
-import { format } from 'date-fns';
 import inquirer from 'inquirer';
 import fs from 'fs';
 
@@ -64,7 +63,7 @@ export class PluginLoader {
     private _setFilePath(): void {
         const { out, name, split, suffix } = this._configuration;
         const outDir = split ? `${out}/release-notes` : out;
-        const fileName = split ? `${name}-${format(suffix!, 'yyyy-MM-ddHHmmss')}` : name;
+        const fileName = split ? `${name}-${suffix}` : name;
 
         if (!fs.existsSync(outDir!)) {
             fs.mkdirSync(outDir!);
