@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/adrianiy/release-notes-generator/compare/v1.7.0...v1.8.0) (2021-10-30)
+
+
+### Features
+
+* split release notes by release number ([#77](https://github.com/adrianiy/release-notes-generator/issues/77)) ([6007f0d](https://github.com/adrianiy/release-notes-generator/commit/6007f0dcee2134af896b40f31c76a4fabd16139e))
+
 # [1.7.0](https://github.com/adrianiy/release-notes-generator/compare/v1.6.0...v1.7.0) (2021-10-30)
 
 
