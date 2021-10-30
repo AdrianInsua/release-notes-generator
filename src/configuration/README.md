@@ -1,4 +1,4 @@
-- [Configuration](configuraion)
+- [Configuration](#configuraion)
   - [summary](#summary)
   - [token](#token)
   - [repo](#repo)
@@ -16,6 +16,7 @@
   - [decoration](#decoration)
   - [webhooks](#webhooks)
   - [notification](#notification)
+
 # Configuration
 
 Relase notes generator can be configured in a variety of ways. You can pass options directly to **rng** using cli commands, or create a configuration file in your `<root>` folder.
