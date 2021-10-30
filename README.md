@@ -3,7 +3,7 @@
 [![Version][version-image]][repo-version-link]
 
 <p align="center">
-  <img alt="RNG" src="./assets/RNG.svg">
+  <img alt="RNG" src="./assets/RNG.png">
 </p>
 
 <center><h1 align="center">:rocket: RELEASE NOTES GENERATOR :rocket:</h1></center>
