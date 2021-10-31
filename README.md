@@ -30,7 +30,8 @@ A **complete markdown** file will be created using your pull request description
 <details>
 	<summary>Supported Repos</summary
 
-Currently we are only supporting **GITHUB** via [@octokit](https://github.com/octokit/octokit.js) and TEAMS notifications using webhooks.
+- **GITHUB** via [@octokit](https://github.com/octokit/octokit.js).
+- **TEAMS** via Webhooks.
 		
 </details>
 
@@ -38,7 +39,7 @@ Currently we are only supporting **GITHUB** via [@octokit](https://github.com/oc
 
 # Documentation
 
-- [Installation](#installation)
+- [Install](#install)
 - [Configuration](/src/configuration#readme)
     - [Configuration file](/src/configuration#configuraition-file)
     - [Decoration object](/src/configuration#decoration-object)
@@ -51,7 +52,7 @@ Currently we are only supporting **GITHUB** via [@octokit](https://github.com/oc
 	- [Output](#output)
 <br/>
 		
-# Installation
+# Install
 
 ```bash
 npm i -D "@adrian.insua/relase-notes-generator"
@@ -59,39 +60,25 @@ npm i -D "@adrian.insua/relase-notes-generator"
 		
 <br/>
 
-# CI Configuration
-
-This configuration depends entirely on your necessities, just keep in mind that PRs are parsed since last release so you'll need to execute **RNG** before new release step.
-
-> GITHUB_TOKEN should have enough permissions if you are trying to update a protected branch!
-
-If you are trying to push to a **protected_branch** you can create a personal access token in your profile with enough permissions and use it in your workflow
-
-1. Create a **personal access token**.
-2. Add it as a secret in your project configuration.
-3. Update your workflow to use it as auth token for **rng**
-
-```yml
-  run: npm run rng
-  env:
-    GITHUB_TOKEN: ${ secrets.ADMIN_TOKEN }
-```
-
-<br/>
-
-# Examples
-
-### Configuration example
-
-This is our test configuarion `.yml`
+# Example
 
 ```yml
 # releasenotesrc.yml
 
+message: "chore: update RELEASE-NOTES [skip ci]"
 token: TOKEN
-name: RELEASE_NOTES_TEST
-commit: false
-
+repo: RELEASE_NOTES_TEST
+split: true
+out: '.'
+ignored-labels:
+  - in-release-note
+  - released
+assets:
+  - CHANGELOG.md
+  - package.json
+decoration:
+  type/feature: '## :zap: '
+  type/bug: '## :bug: '
 ```
 
 ```
@@ -101,33 +88,20 @@ TOKEN=<your-repo-token>
 RELEASE_NOTES_TEST=adrianiy/release-notes-generator
 ```
 
-### Pull request
-
-This is going to depend on your configuration file, by default we'll look for Pr's labeled with `release-note` like [this](https://github.com/adrianiy/release-notes-generator/pull/12).
-
 ### Output
-
-This is an output example of `RELEASE-NOTES.md`
-
-> # RELEASE NOTES
->
-> ## :rocket: Mock testing issue 
-> ###### 2021-10-13
->
-> ### Test Issue
->
-> This issue is used by release-notes-generator for test purposes
 
 ```markdown
 # RELEASE NOTES
 
-## :rocket: Mock testing issue 
+# :rocket: Mock testing issue 
 ###### 2021-10-13
 
-### Test Issue
+## :zap: Test Issue
 
 This issue is used by release-notes-generator for test purposes
 ```
+
+Check out our [RELEASE NOTES](/release-notes)
 
 [build-badge]: https://github.com/adrianiy/release-notes-generator/workflows/Build%20&%20Test/badge.svg
 [build-link]: https://github.com/adrianiy/release-notes-generator/actions?query=workflow%3A"Build+%26+Test"
