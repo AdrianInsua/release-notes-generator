@@ -27,11 +27,14 @@ export abstract class Generator {
 
     async generateReleaseNotes(): Promise<void> {
         const list = await this._getPullRequestList();
-        const markdown = this._parsePullRequests(list);
 
-        await this._labelPullRequests(list);
+        if (list.length) {
+            const markdown = this._parsePullRequests(list);
 
-        this._storeMarkdown(markdown);
+            await this._labelPullRequests(list);
+
+            this._storeMarkdown(markdown);
+        }
     }
 
     async publishReleaseNotes(): Promise<void> {
