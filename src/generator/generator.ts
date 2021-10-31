@@ -71,7 +71,7 @@ export abstract class Generator {
 
         const latestRelease: Release[] = await this._connector.getLatestRelease();
         const pullRequestsList: PullRequest[] = await this._connector.getPullRequests(latestRelease?.[0]?.createdAt);
-        this._configuration.suffix = this._configuration.useLast! > 1 ? latestRelease.slice(-1)[0].tagName : `${Date.now()}`;
+        this._configuration.suffix = this._configuration.snapshot ? `${Date.now()}` : latestRelease.slice(-1)[0].tagName;
         this._setFilePath();
 
         this._verbose && logger.info(`We've found ${pullRequestsList.length} pull requests to parse!`);
