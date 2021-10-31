@@ -5,6 +5,7 @@ export interface CliParams {
     configuration?: string;
     interactive?: boolean;
     verbose?: boolean;
+    issue?: number;
 }
 
 export const repoOptions: Record<string, Options> = {
@@ -42,6 +43,10 @@ export const repoOptions: Record<string, Options> = {
         alias: 'p',
         type: 'boolean',
         description: 'Publish output to your repo',
+    },
+    issue: {
+        type: 'number',
+        description: 'Issue number where release note preview will be published in a comment',
     },
 };
 

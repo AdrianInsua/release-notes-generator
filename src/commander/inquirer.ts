@@ -37,6 +37,12 @@ const confirmMessage = async (customConfig: { message: string }) => {
     return response;
 };
 
+export const confirmPublishPreview = (issue: number): Promise<boolean> => {
+    return confirmMessage({
+        message: `Do you want to publish your RELEASE-NOTES Preview in ${issue} ?`,
+    });
+};
+
 export const confirmPublish = (): Promise<boolean> => {
     return confirmMessage({
         message: 'Do you want to publish your RELEASE-NOTES?',
