@@ -15,15 +15,19 @@ A **complete markdown** file will be created using your pull request description
 <details>
 	<summary>How Release Notes are done</summary>
 
-- Parse every PR **since last RELEASE**.
-- Include PR title and description's markdown in `RELEASE-NOTE.md`
-- The parser will use Pull Request labels for:
-	- **Filter** wich labels will be used in `RELEASE-NOTES.md`. i.e: `type/releas-note`
-	- **Mark** Release note section as feature, bug, refactor, etc.
-- If you set `publish: true` 
-    - Flag all changes will be commited to your repo.
+1. Parse every PR **since last RELEASE**.
+	
+2. **Filter** Pull Requests by label.
+	
+3. Add PR title and description to `RELEASE-NOTE.md`.
+
+4. **Mark** Release note section as feature, bug, refactor, etc.
+	
+5. If you set `publish: true` 
+    - All changes will be commited to your repo.
     - Tag pull requests with `in-release-note` label.
-- Execute plugins, like TEAMS webhooks
+	
+6. Execute plugins, like TEAMS webhooks
 	
 </details>
 
