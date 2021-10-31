@@ -1,9 +1,14 @@
 message: "chore: update RELEASE-NOTES [skip ci]"
 split: true
 out: '.'
-ignored-labels:
-  - in-release-note
-  - released
+labels:
+  include:
+    - release-note/use
+  ignore:
+    - released
+    - release-note/published
+  end:
+    - release-note/published
 assets:
   - CHANGELOG.md
   - package.json

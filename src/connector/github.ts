@@ -49,24 +49,11 @@ export class GitHubConnector extends Connector {
             return [{ createdAt: this._configuration.since, tagName: 'mock' }];
         }
 
-        if (this._configuration.useLast) {
+        if (this._configuration.snapshot) {
+            return await this._getSnapshotRelease();
+        } else {
             return await this._getLatestNReleases();
         }
-
-        this._verbose && logger.info('Getting latest release...');
-
-        const query = releaseQuery.loc!.source.body;
-
-        const data = (await this._connection.graphql(query, {
-            owner: this._owner,
-            name: this._repo,
-        })) as GraphQlQueryResponseData;
-
-        const latestRelease: Release = data.repository?.latestRelease;
-
-        this._verbose && logger.info(`Latest release ${latestRelease?.tagName} date is ${latestRelease?.createdAt}`);
-
-        return [latestRelease];
     }
 
     async getPullRequests(since?: string): Promise<PullRequest[]> {
@@ -88,7 +75,7 @@ export class GitHubConnector extends Connector {
             owner: this._owner,
             repo: this._repo,
             issue_number: pullRequest.number,
-            labels: ['in-release-note'],
+            labels: this._configuration.labels?.end,
         });
     };
 
@@ -114,14 +101,14 @@ export class GitHubConnector extends Connector {
     }
 
     private async _getLatestNReleases(): Promise<Release[]> {
-        this._verbose && logger.info(`Getting latest ${this._configuration.useLast} releases...`);
+        this._verbose && logger.info(`Getting latest 2 releases...`);
 
         const query = lastNReleasesQuery.loc!.source.body;
 
         const data = (await this._connection.graphql(query, {
             owner: this._owner,
             name: this._repo,
-            last: this._configuration.useLast,
+            last: 2,
         })) as GraphQlQueryResponseData;
 
         const releases: ReleaseNode = data.repository?.releases;
@@ -135,11 +122,28 @@ export class GitHubConnector extends Connector {
         return releases.nodes;
     }
 
-    private _getLabelFilter(): string {
-        const { labels, ignoredLabels } = this._configuration;
+    private async _getSnapshotRelease(): Promise<Release[]> {
+        this._verbose && logger.info('Getting latest release...');
 
-        const labelFilter = labels?.map((value: string) => `label:${value}`).join(' ') || '';
-        const ignoredLabelsFilter = ignoredLabels?.map((value: string) => `-label:${value}`).join(' ') || '';
+        const query = releaseQuery.loc!.source.body;
+
+        const data = (await this._connection.graphql(query, {
+            owner: this._owner,
+            name: this._repo,
+        })) as GraphQlQueryResponseData;
+
+        const latestRelease: Release = data.repository?.latestRelease;
+
+        this._verbose && logger.info(`Latest release ${latestRelease?.tagName} date is ${latestRelease?.createdAt}`);
+
+        return [latestRelease];
+    }
+
+    private _getLabelFilter(): string {
+        const { labels: { include, ignore } = {} } = this._configuration;
+
+        const labelFilter = include?.map((value: string) => `label:${value}`).join(' ') || '';
+        const ignoredLabelsFilter = ignore?.map((value: string) => `-label:${value}`).join(' ') || '';
 
         return `${labelFilter} ${ignoredLabelsFilter}`;
     }

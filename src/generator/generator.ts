@@ -27,11 +27,14 @@ export abstract class Generator {
 
     async generateReleaseNotes(): Promise<void> {
         const list = await this._getPullRequestList();
-        const markdown = this._parsePullRequests(list);
 
-        await this._labelPullRequests(list);
+        if (list.length) {
+            const markdown = this._parsePullRequests(list);
 
-        this._storeMarkdown(markdown);
+            await this._labelPullRequests(list);
+
+            this._storeMarkdown(markdown);
+        }
     }
 
     async publishReleaseNotes(): Promise<void> {
@@ -68,7 +71,7 @@ export abstract class Generator {
 
         const latestRelease: Release[] = await this._connector.getLatestRelease();
         const pullRequestsList: PullRequest[] = await this._connector.getPullRequests(latestRelease?.[0]?.createdAt);
-        this._configuration.suffix = latestRelease.slice(-1)[0].tagName;
+        this._configuration.suffix = this._configuration.snapshot ? `${Date.now()}` : latestRelease.slice(-1)[0].tagName;
         this._setFilePath();
 
         this._verbose && logger.info(`We've found ${pullRequestsList.length} pull requests to parse!`);
