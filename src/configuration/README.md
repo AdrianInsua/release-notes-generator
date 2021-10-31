@@ -6,9 +6,8 @@
   - [out](#out)
   - [split](#split)
   - [filter](#filter)
-  - [useLast](#use-last)
+  - [snapshot](#snapshot)
   - [labels](#labels)
-  - [ignoredLabels](#ignored-labels)
   - [title](#title)
   - [decoration](#decoration)
   - [publish](#publish)
@@ -37,9 +36,8 @@ We support `.yml` and `.json` formats with these options:
 | [out](#out) | `'.'` | Base path where `RELEASE-NOTES` will be generated |
 | [split](#split) | `false` | If `true` one file will be generated per iteration, and will be stored under a `release_notes` folder in `out` directory |
 | [filter](#filter) | `is:closed` | Filter applied on pull request query |
-| [useLast](#use-last) | 2 | Gets data from release `n` to release 0 |
+| [snapshot](#snapshot) | `false` | Generates snapshot release notes using Pull Request since latest release |
 | [labels](#labels) | `[ 'release-note' ]` | Only PRs with these labels will be used in generation process |
-| [ignoredLabels](#ignored-labels) | `[ 'in-release-note' ]` | PRs with these labels will be ignored |
 | [title](#title) | `RELEASE NOTES` | Title used in output markdown |
 | [decoration](#decoration) | [Decoration object](#decoration-object) | Icon decoration for each issue type |
 | [publish](#publish) | `false` | If `true` the output file will be commited to repo |
@@ -117,54 +115,33 @@ Default value looks for **closed** Pull Requests.
 filter: "is:open" # looks for open PRs
 ```
 
-### USE LAST
-##### Default value `2`
+### SNAPSHOT
+##### Default value `false`
 
-Gets data from release `n` to release 0.
-
-Value 2 means that we are getting PRs included in latest release.
-
-<details>
-  <summary>Example</summary>
-
-With latest releases:
-
-  1. 1.1.0
-  2. 1.0.0
-  3. 0.1.0
-
-- `useLast` with value 0 or 1 is used to get Release notes for unpublished version. We get all pull requests since version `1.1.0`.
-
-- `useLast` with value 2 means that we are getting all Pull Request from version `1.0.0` to `1.1.0`, creating the release notes for version `1.1.0`.
-
-- `useLast` with value 3 means taht we are getting all Pull Reqeust since `0.1.0`, creating the release notes for version `1.1.0`.
-
-</details>
+Generates snapshot release notes using Pull Request since latest release.
 
 ```yml
-useLast: 0 # RELEASE-NOTES for unpublished release
+snapshot: true # RELEASE-NOTES for unpublished release
 ```
 
 ### LABELS
-##### Default value `['release-note']`
+##### Default value [Label object](#label-object)
 
-Only PRs with these labels will be used in generation process.
+Configuration object to set wich labels will be **included**, **ignored** and used to **tag parsed** Pull Requests
+
+- include: Only Pull Requests with these labels will be included in release notes.
+- ignore: Pull Requests with these label will be ignored.
+- end: Once release notes are generated, Pull Requests will be tagged with these labels.
+
+#### Label object
+
+Default labels configuration.
 
 ```yml
 labels:
-  - release-note
-  - release-note-demo
-```
-
-### IGNORED LABELS
-##### Default value `[ 'in-release-note' ]`
-
-PRs with these labels will be ignored.
-
-```yml
-ignoredLabels:
-  - in-release-note
-  - in-release-note-demo
+  include: release-note
+  ignore: in-release-note
+  end: in-release-note
 ```
 
 ---

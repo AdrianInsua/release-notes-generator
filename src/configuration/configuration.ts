@@ -24,7 +24,7 @@ export interface Notification {
 export interface Labels {
     // Only PRs with this labels will be included in MD
     include?: string[];
-    // PRs with these labels will be ignores
+    // PRs with these labels will be ignored
     ignore?: string[];
     // Once RELEASE NOTES are generated PRs will be tagged with this labels
     end?: string[];
@@ -43,14 +43,12 @@ export interface Configuration {
     suffix?: string;
     // Only PRs with this labels will be included in MD
     labels?: Labels;
-    // PRs with these labels will be ignores
-    ignoredLabels?: string[];
     // PR query filter
     filter?: string;
     // Start date in pull request filter query
     since?: string;
-    // Use last n releases
-    useLast?: number;
+    // Generates snapshot release notes (from latest release)
+    snapshot?: boolean;
     // Split Release-Notes on file per Relase
     // This option will create a folder in `out` dir.
     split?: boolean;
@@ -82,7 +80,7 @@ const defaultConfiguration: Configuration = {
         end: ['in-release-note'],
     },
     publish: false,
-    useLast: 2,
+    snapshot: false,
     message: 'chore: update RELEASE-NOTES',
     branch: 'main',
     filter: 'is:closed',
