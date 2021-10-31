@@ -45,15 +45,27 @@ A **complete markdown** file will be created using your pull request description
 
 - [Install](#install)
 - [Configuration](/src/configuration#readme)
-    - [Configuration file](/src/configuration#configuraition-file)
-    - [Decoration object](/src/configuration#decoration-object)
-    - [Customized notification](/src/configuration#customized-notification)
-    - [CI Configuration](#ci-configuration)
+  - [summary](/src/configuration#summary)
+  - [token](/src/configuration#token)
+  - [repo](/src/configuration#repo)
+  - [name](/src/configuration#name)
+  - [out](/src/configuration#out)
+  - [split](/src/configuration#split)
+  - [filter](/src/configuration#filter)
+  - [useLast](/src/configuration#useLast)
+  - [labels](/src/configuration#labels)
+  - [ignoredLabels](/src/configuration#ignoredLabels)
+  - [title](/src/configuration#title)
+  - [decoration](/src/configuration#decoration)
+  - [publish](/src/configuration#publish)
+  - [branch](/src/configuration#branch)
+  - [message](/src/configuration#message)
+  - [webhooks](/src/configuration#webhooks)
+  - [notification](/src/configuration#notification)
+- [CI Configuration](#ci-configuration)
 - [Cli commands](/src/commander#readme)
-- [Examples](#examples)
-	- [Configuration](#configuration-example)
-	- [PullRequest](#pull-request)
-	- [Output](#output)
+- [Example](#example)
+
 <br/>
 		
 # Install
@@ -63,6 +75,22 @@ npm i -D "@adrian.insua/relase-notes-generator"
 ```
 		
 <br/>
+
+# CI Configuration
+
+**RNG** uses [TOKEN](/src/configuration#token) to authorize process repository access in CI.
+
+If you want to push changes to a **protected_branch** you'll need to use an access token with enough permissions.
+
+1. Create a **personal access token** with enough permissions.
+2. Add it as a secret in your project configuration.
+3. Update your workflow to use it as auth token for **rng**
+
+```yml
+  run: npm run rng
+  env:
+    GITHUB_TOKEN: ${ secrets.ADMIN_TOKEN }
+```
 
 # Example
 

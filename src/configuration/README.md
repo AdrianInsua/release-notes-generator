@@ -121,13 +121,13 @@ Value 2 means that we are getting PRs included in latest release.
 <details>
   <summary>Example</summary>
 
-If these are your latest releases:
+With latest releases:
 
   1. 1.1.0
   2. 1.0.0
   3. 0.1.0
 
-- `useLast` with value 0 || 1 is used to get Release notes for unpublished version. We get all pull requests since version `1.1.0`.
+- `useLast` with value 0 or 1 is used to get Release notes for unpublished version. We get all pull requests since version `1.1.0`.
 
 - `useLast` with value 2 means that we are getting all Pull Request from version `1.0.0` to `1.1.0`, creating the release notes for version `1.1.0`.
 
@@ -186,12 +186,12 @@ Icon decoration for each issue type.
 ```yml
 // default value
 decoration: 
-	enhancement: ':zap: '
-	bug: ':bug: ',
-	refactor: ':abacus: '
-	release: ':rocket: '
-	style: ':nailcare: '
-	documentation: ':book: '
+  enhancement: ':zap: '
+  bug: ':bug: '
+  refactor: ':abacus: '
+  release: ':rocket: '
+  style: ':nailcare: '
+  documentation: ':book: '
 ```
 
 Markdown for a pr tagged with `enhancement` label:
