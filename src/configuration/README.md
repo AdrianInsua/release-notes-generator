@@ -2,18 +2,18 @@
   - [summary](#summary)
   - [token](#token)
   - [repo](#repo)
-  - [out](#out)
   - [name](#name)
+  - [out](#out)
+  - [split](#split)
+  - [filter](#filter)
+  - [useLast](#useLast)
   - [labels](#labels)
   - [ignoredLabels](#ignoredLabels)
-  - [split](#split)
-  - [publish](#publish)
-  - [message](#message)
-  - [filter](#filter)
-  - [branch](#branch)
-  - [useLast](#useLast)
   - [title](#title)
   - [decoration](#decoration)
+  - [publish](#publish)
+  - [branch](#branch)
+  - [message](#message)
   - [webhooks](#webhooks)
   - [notification](#notification)
 
@@ -60,7 +60,7 @@ token: USER_TOKEN
 ### REPO
 ##### Default value `GITHUB_REPOSITORY`
 
-Environment variable with repository name with `user/repo` format 
+Environment variable with repository name with `user/repo` format.
 
 ```yml
 repo: CUSTOM_REPO
@@ -69,6 +69,15 @@ repo: CUSTOM_REPO
 ```
 // env file
 CUSTOM_REPO: user/repo
+```
+
+### NAME
+##### Default value `RELEASE-NOTES`
+
+Output file name.
+
+```yml
+name: RELASE-NOTES-DEMO
 ```
 
 
@@ -81,19 +90,59 @@ Base path where `RELEASE-NOTES` will be generated. **It must exists.**
 out: '.' # creates release-notes folder in root
 ```
 
-### NAME
-##### Default value `RELEASE-NOTES`
+### SPLIT
+##### Default value `false`
 
-Output file name
+If `true` one file will be generated per iteration, and will be stored under a `release-notes` folder in `out` directory.
 
 ```yml
-name: RELASE-NOTES-DEMO
+split: true
+out: '.'
+```
+
+### FILTER
+##### Default value `is:closed`
+
+Filter applied on pull request query.
+
+Default value looks for **closed** Pull Requests.
+
+```yml
+filter: "is:open" # looks for open PRs
+```
+
+### USE LAST
+##### Default value `2`
+
+Gets data from release `n` to release 0.
+
+Value 2 means that we are getting PRs included in latest release.
+
+<details>
+  <summary>Example</summary>
+
+If these are your latest releases:
+
+  1. 1.1.0
+  2. 1.0.0
+  3. 0.1.0
+
+- `useLast` with value 0 || 1 is used to get Release notes for unpublished version. We get all pull requests since version `1.1.0`.
+
+- `useLast` with value 2 means that we are getting all Pull Request from version `1.0.0` to `1.1.0`, creating the release notes for version `1.1.0`.
+
+- `useLast` with value 3 means taht we are getting all Pull Reqeust since `0.1.0`, creating the release notes for version `1.1.0`.
+
+</details>
+
+```yml
+useLast: 0 # RELEASE-NOTES for unpublished release
 ```
 
 ### LABELS
 ##### Default value `['release-note']`
 
-Only PRs with these labels will be used in generation process 
+Only PRs with these labels will be used in generation process.
 
 ```yml
 labels:
@@ -104,7 +153,7 @@ labels:
 ### IGNORED LABELS
 ##### Default value `[ 'in-release-note' ]`
 
-PRs with these labels will be ignored 
+PRs with these labels will be ignored.
 
 ```yml
 ignoredLabels:
@@ -112,22 +161,82 @@ ignoredLabels:
   - in-release-note-demo
 ```
 
+### TITLE
+##### Default value `RELEASE NOTES`
 
-| split | `false` | If `true` one file will be generated per iteration, and will be stored under a `release_notes` folder in `out` directory |
-| publish | `false` | If `true` the output file will be commited to repo |
-| message | `chore: update RELEASE-NOTES` | Commit message |
-| filter | `is:closed` | Filter applied on pull request query |
-| branch | `main` | Branch where output will be uploaded |
-| useLast | 2 | Gets data from release `n` to release 0 |
-| title | `RELEASE NOTES` | Title used in output markdown |
-| decoration | [Decoration object](#decoration-object) | Icon decoration for each issue type |
-| webhooks | `{}` | List of [webhooks](#webhooks) to execute |
-| notification | [Notification customization](#customized-notification) | Object that allows you to customize your webhook notification |
+Title used in output markdown
 
 
-#### Webhooks
+```yml
+title: RELEASE NOTES DEMO
+```
 
-Notificate your partners via [TEAMS webhook integration!](https://docs.microsoft.com/es-es/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook)
+### DECORATION
+##### Default value [Decoration object](#decoration-object)
+
+Icon decoration for each issue type.
+
+#### Decoration object 
+
+`key: value` object.
+
+- key: issue type
+- value: decoration string
+
+```yml
+// default value
+decoration: 
+	enhancement: ':zap: '
+	bug: ':bug: ',
+	refactor: ':abacus: '
+	release: ':rocket: '
+	style: ':nailcare: '
+	documentation: ':book: '
+```
+
+Markdown for a pr tagged with `enhancement` label:
+
+```markdown
+## :zap: Issue title
+```
+
+### PUBLISH
+##### Default value `false`
+
+If `true` the output file will be commited to repo.
+
+> GITHUB_TOKEN should have enough permissions if you are trying to update a protected branch!
+
+```yml
+publish: true
+```
+
+### BRANCH
+##### Default value `main`
+
+Branch where output will be updloaded
+
+```
+branch: develop
+```
+
+### MESSAGE
+##### Default value `chore: update RELEASE-NOTES`
+
+Commit message
+
+```yml
+message: "chore: update RELEASE-NOTES [skip ci]"
+```
+
+### WEBHOOKS
+##### Default value `{}`
+
+List of webhooks to execute.
+
+#### TEAMS
+
+Notificate your partners via [TEAMS webhook integration!](https://docs.microsoft.com/es-es/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook).
 
 ```yml
 webhooks:
@@ -148,36 +257,16 @@ webhooks:
 
 > [Microsoft Docs for activity cards](https://docs.microsoft.com/es-es/microsoftteams/platform/task-modules-and-cards/cards/cards-format?tabs=adaptive-md%2Cconnector-html#format-cards-with-html)
 
-
-#### Decoration object 
-
-This object of `key:value` have as key the issue type and value desired decotaion
-
-```js
-// default value
-decoration: {
-	enhancement: ':zap: ',
-	bug: ':bug: ',
-	refactor: ':abacus: ',
-	release: ':rocket: ',
-	style: ':nailcare: ',
-	documentation: ':book: ',
-},
-```
-
-This is the result markdown for a pr tagged with `enhancement` label:
-
-```markdown
-## :zap: Issue title
-```
-
-#### Customized notification
+### Notification
+##### Default value [Configuration object](#default-configuration)
 
 You can customize your webhook notification using `notification.style` attribute.
 
 This is an object where each key is a htm tag like `<div>` with a style object as value.
 
 By default we modify some classes to make notification more readable, we encourage yo to use this yml example as a base for your customizations
+
+#### Default configuration
 
 ```yml
 notification:
