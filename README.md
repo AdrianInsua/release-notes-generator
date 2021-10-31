@@ -15,7 +15,7 @@ A **complete markdown** file will be created using your pull request description
 <details>
 	<summary>How Release Notes are done</summary>
 
-1. Parse every PR **since last RELEASE**.
+1. Parse every PR **in latest RELEASE**.
 	
 2. **Filter** Pull Requests by label.
 	
@@ -52,9 +52,8 @@ A **complete markdown** file will be created using your pull request description
   - [out](/src/configuration#out)
   - [split](/src/configuration#split)
   - [filter](/src/configuration#filter)
-  - [useLast](/src/configuration#use-last)
+  - [snapshot](/src/configuration#snapshot)
   - [labels](/src/configuration#labels)
-  - [ignoredLabels](/src/configuration#ignored-labels)
   - [title](/src/configuration#title)
   - [decoration](/src/configuration#decoration)
   - [publish](/src/configuration#publish)
