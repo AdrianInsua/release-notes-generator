@@ -5,7 +5,6 @@ labels:
   include:
     - release-note/use
   ignore:
-    - released
     - release-note/published
   end:
     - release-note/published
