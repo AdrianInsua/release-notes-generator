@@ -1,4 +1,4 @@
-- [Configuration](#configuraion)
+- [Configuration file](#configuration-file)
   - [summary](#summary)
   - [token](#token)
   - [repo](#repo)
@@ -6,9 +6,9 @@
   - [out](#out)
   - [split](#split)
   - [filter](#filter)
-  - [useLast](#useLast)
+  - [useLast](#use-last)
   - [labels](#labels)
-  - [ignoredLabels](#ignoredLabels)
+  - [ignoredLabels](#ignored-labels)
   - [title](#title)
   - [decoration](#decoration)
   - [publish](#publish)
@@ -31,22 +31,24 @@ We support `.yml` and `.json` formats with these options:
 
 | Options | Default | Description |
 |---------|---------|-------------|
-| token | `GITHUB_TOKEN` | Authorization token. This will allow **rng** to access your repo! |
-| repo | `GITHUB_REPOSITORY` | Environment variable with repository name with `user/repo` format |
-| out | `'.'` | Base path where `RELEASE-NOTES` will be generated |
-| name | `RELEASE-NOTES` | Output file name |
-| labels | `[ 'release-note' ]` | Only PRs with these labels will be used in generation process |
-| ignoredLabels | `[ 'in-release-note' ]` | PRs with these labels will be ignored |
-| split | `false` | If `true` one file will be generated per iteration, and will be stored under a `release_notes` folder in `out` directory |
-| publish | `false` | If `true` the output file will be commited to repo |
-| message | `chore: update RELEASE-NOTES` | Commit message |
-| filter | `is:closed` | Filter applied on pull request query |
-| branch | `main` | Branch where output will be uploaded |
-| useLast | 2 | Gets data from release `n` to release 0 |
-| title | `RELEASE NOTES` | Title used in output markdown |
-| decoration | [Decoration object](#decoration-object) | Icon decoration for each issue type |
-| webhooks | `{}` | List of [webhooks](#webhooks) to execute |
-| notification | [Notification customization](#customized-notification) | Object that allows you to customize your webhook notification |
+| [token](#token) | `GITHUB_TOKEN` | Authorization token. This will allow **rng** to access your repo! |
+| [repo](#repo) | `GITHUB_REPOSITORY` | Environment variable with repository name with `user/repo` format |
+| [name](#name) | `RELEASE-NOTES` | Output file name |
+| [out](#out) | `'.'` | Base path where `RELEASE-NOTES` will be generated |
+| [split](#split) | `false` | If `true` one file will be generated per iteration, and will be stored under a `release_notes` folder in `out` directory |
+| [filter](#filter) | `is:closed` | Filter applied on pull request query |
+| [useLast](#use-last) | 2 | Gets data from release `n` to release 0 |
+| [labels](#labels) | `[ 'release-note' ]` | Only PRs with these labels will be used in generation process |
+| [ignoredLabels](#ignored-labels) | `[ 'in-release-note' ]` | PRs with these labels will be ignored |
+| [title](#title) | `RELEASE NOTES` | Title used in output markdown |
+| [decoration](#decoration) | [Decoration object](#decoration-object) | Icon decoration for each issue type |
+| [publish](#publish) | `false` | If `true` the output file will be commited to repo |
+| [branch](#branch) | `main` | Branch where output will be uploaded |
+| [message](#message) | `chore: update RELEASE-NOTES` | Commit message |
+| [webhooks](#webhooks) | `{}` | List of [webhooks](#webhooks) to execute |
+| [notification](#notification) | [Notification customization](#customized-notification) | Object that allows you to customize your webhook notification |
+
+---
 
 ### TOKEN
 ##### Default value `GITHUB_TOKEN`
@@ -70,6 +72,8 @@ repo: CUSTOM_REPO
 // env file
 CUSTOM_REPO: user/repo
 ```
+
+---
 
 ### NAME
 ##### Default value `RELEASE-NOTES`
@@ -99,6 +103,8 @@ If `true` one file will be generated per iteration, and will be stored under a `
 split: true
 out: '.'
 ```
+
+---
 
 ### FILTER
 ##### Default value `is:closed`
@@ -161,6 +167,8 @@ ignoredLabels:
   - in-release-note-demo
 ```
 
+---
+
 ### TITLE
 ##### Default value `RELEASE NOTES`
 
@@ -200,6 +208,8 @@ Markdown for a pr tagged with `enhancement` label:
 ## :zap: Issue title
 ```
 
+---
+
 ### PUBLISH
 ##### Default value `false`
 
@@ -228,6 +238,8 @@ Commit message
 ```yml
 message: "chore: update RELEASE-NOTES [skip ci]"
 ```
+
+---
 
 ### WEBHOOKS
 ##### Default value `{}`
