@@ -6,17 +6,11 @@
   <img alt="RNG" src="./assets/RNG.png">
 </p>
 
-<center><h1 align="center">:rocket: RELEASE NOTES GENERATOR :rocket:</h1></center>
+---
 
-**RELEASE NOTES GENERATOR** automates the creation of a customized release note.
+This project was born to **automate the communication between developers and final users.**
 
-This is not a changelog generator, it will not generate simple changelog notes about what changes
-are included.
-
-A complete markdown file will be created with using your pull request descriptions, so final users can have
-a deeply description of the changes published in the release.
-
-This project was born to automate the communication between developers and final users.
+A **complete markdown** file will be created using your pull request descriptions. 
 
 <details>
 	<summary>How Release Notes are done</summary>
