@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   pull_request:
     branches:
-      - feat/commentPR
+      - develop
 
 jobs:
   build:
