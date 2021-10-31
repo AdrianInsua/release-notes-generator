@@ -88,7 +88,7 @@ export class GitHubConnector extends Connector {
             owner: this._owner,
             repo: this._repo,
             issue_number: pullRequest.number,
-            labels: ['in-release-note'],
+            labels: this._configuration.labels?.end,
         });
     };
 
@@ -136,10 +136,10 @@ export class GitHubConnector extends Connector {
     }
 
     private _getLabelFilter(): string {
-        const { labels, ignoredLabels } = this._configuration;
+        const { labels: { include, ignore } = {} } = this._configuration;
 
-        const labelFilter = labels?.map((value: string) => `label:${value}`).join(' ') || '';
-        const ignoredLabelsFilter = ignoredLabels?.map((value: string) => `-label:${value}`).join(' ') || '';
+        const labelFilter = include?.map((value: string) => `label:${value}`).join(' ') || '';
+        const ignoredLabelsFilter = ignore?.map((value: string) => `-label:${value}`).join(' ') || '';
 
         return `${labelFilter} ${ignoredLabelsFilter}`;
     }

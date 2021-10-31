@@ -21,6 +21,15 @@ export interface Notification {
     style: Customization;
 }
 
+export interface Labels {
+    // Only PRs with this labels will be included in MD
+    include?: string[];
+    // PRs with these labels will be ignores
+    ignore?: string[];
+    // Once RELEASE NOTES are generated PRs will be tagged with this labels
+    end?: string[];
+}
+
 export interface Configuration {
     // GITHUB authorization token
     token?: string;
@@ -33,7 +42,7 @@ export interface Configuration {
     // File sufix for splitted content
     suffix?: string;
     // Only PRs with this labels will be included in MD
-    labels?: string[];
+    labels?: Labels;
     // PRs with these labels will be ignores
     ignoredLabels?: string[];
     // PR query filter
@@ -67,8 +76,11 @@ const defaultConfiguration: Configuration = {
     token: 'GITHUB_TOKEN',
     out: '.',
     name: 'RELEASE-NOTES',
-    labels: ['release-note'],
-    ignoredLabels: ['in-release-note'],
+    labels: {
+        include: ['release-note'],
+        ignore: ['in-release-note'],
+        end: ['in-release-note'],
+    },
     publish: false,
     useLast: 2,
     message: 'chore: update RELEASE-NOTES',
