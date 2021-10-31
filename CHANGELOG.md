@@ -1,3 +1,21 @@
+# [2.0.0](https://github.com/adrianiy/release-notes-generator/compare/v1.8.0...v2.0.0) (2021-10-31)
+
+
+### Bug Fixes
+
+* stop gen pipe if no PRs found ([#84](https://github.com/adrianiy/release-notes-generator/issues/84)) ([985b304](https://github.com/adrianiy/release-notes-generator/commit/985b3048eb3f568cd1386c29f17e3b4abb4cc1de))
+
+
+* feat!: improve label and release configuration (#86) ([1e7e499](https://github.com/adrianiy/release-notes-generator/commit/1e7e499e94080591b543df3b7122c27df633e3c2)), closes [#86](https://github.com/adrianiy/release-notes-generator/issues/86)
+
+
+### BREAKING CHANGES
+
+* `useLast` attribute is deprecated.
+
+By default RNG will include all Pull Request in latest published release
+If you set snapshot: true all Pull Request since latest release will be used.
+
 # [1.8.0](https://github.com/adrianiy/release-notes-generator/compare/v1.7.0...v1.8.0) (2021-10-30)
 
 
