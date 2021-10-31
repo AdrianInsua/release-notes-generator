@@ -34,6 +34,10 @@ export const repoOptions: Record<string, Options> = {
         type: 'boolean',
         description: 'Generates snapshot release notes',
     },
+    issue: {
+        type: 'number',
+        description: 'Issue number where release note preview will be published in a comment',
+    },
     message: {
         alias: 'm',
         type: 'string',
@@ -43,10 +47,6 @@ export const repoOptions: Record<string, Options> = {
         alias: 'p',
         type: 'boolean',
         description: 'Publish output to your repo',
-    },
-    issue: {
-        type: 'number',
-        description: 'Issue number where release note preview will be published in a comment',
     },
 };
 

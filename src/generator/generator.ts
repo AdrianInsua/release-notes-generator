@@ -88,7 +88,7 @@ export abstract class Generator {
     }
 
     protected async _labelPullRequests(pullRequests: PullRequest[]): Promise<void> {
-        const willPublish = !this._interactive || (await confirmPullRequestLabeling());
+        const willPublish = !this._configuration.snapshot && (!this._interactive || (await confirmPullRequestLabeling()));
 
         willPublish && (await Promise.all(pullRequests.map(this._connector.updatePullRequest)));
     }
@@ -105,9 +105,11 @@ export abstract class Generator {
     }
 
     protected _storeMarkdown(markdown: string): void {
-        this._verbose && logger.info(`Saving generated MD in ${this._filePath}`);
+        if (!this._configuration.snapshot) {
+            this._verbose && logger.info(`Saving generated MD in ${this._filePath}`);
 
-        fs.writeFileSync(path.join(this._filePath), markdown);
+            fs.writeFileSync(path.join(this._filePath), markdown);
+        }
     }
 
     protected abstract _parsePullRequests(pullRequests: PullRequest[]): string;
