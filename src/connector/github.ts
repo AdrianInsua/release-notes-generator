@@ -141,7 +141,6 @@ export class GitHubConnector extends Connector {
         const latestRelease: Release = data.repository?.latestRelease;
 
         this._verbose && logger.info(`Latest release ${latestRelease?.tagName} date is ${latestRelease?.createdAt}`);
-        console.log(latestRelease);
 
         return [latestRelease];
     }
