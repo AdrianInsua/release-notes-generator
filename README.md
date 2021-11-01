@@ -137,7 +137,7 @@ jobs:
 }
 ```
 
-This workflow does:
+Workflow steps:
 
 - Pass  `issue` to `preview` script.
 - Set [snapshot](/src/configuration#snapshot) flag to parse pull requests since latest release.
