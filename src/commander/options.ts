@@ -5,6 +5,8 @@ export interface CliParams {
     configuration?: string;
     interactive?: boolean;
     verbose?: boolean;
+    snapshot?: boolean;
+    issue?: number;
 }
 
 export const repoOptions: Record<string, Options> = {
@@ -29,9 +31,12 @@ export const repoOptions: Record<string, Options> = {
         description: 'Start date in pull request filter query',
     },
     snapshot: {
-        alias: ['sn', 'snapshot'],
         type: 'boolean',
         description: 'Generates snapshot release notes',
+    },
+    issue: {
+        type: 'number',
+        description: 'Issue number where release note preview will be published in a comment',
     },
     message: {
         alias: 'm',

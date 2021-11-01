@@ -1,5 +1,6 @@
 message: "chore: update RELEASE-NOTES [skip ci]"
 split: true
+title: ''
 out: '.'
 labels:
   include:
@@ -12,5 +13,5 @@ assets:
   - CHANGELOG.md
   - package.json
 decoration:
-  type/feature: '## :zap: '
+  type/feature: '## :sparkles: '
   type/bug: '## :bug: '

@@ -10,6 +10,7 @@
   - [labels](#labels)
   - [title](#title)
   - [decoration](#decoration)
+  - [preview](#preview)
   - [publish](#publish)
   - [branch](#branch)
   - [message](#message)
@@ -40,6 +41,7 @@ We support `.yml` and `.json` formats with these options:
 | [labels](#labels) | `[ 'release-note' ]` | Only PRs with these labels will be used in generation process |
 | [title](#title) | `RELEASE NOTES` | Title used in output markdown |
 | [decoration](#decoration) | [Decoration object](#decoration-object) | Icon decoration for each issue type |
+| [preview](#preview) | [Preview object](#preview-object) | Customize preview comment |
 | [publish](#publish) | `false` | If `true` the output file will be commited to repo |
 | [branch](#branch) | `main` | Branch where output will be uploaded |
 | [message](#message) | `chore: update RELEASE-NOTES` | Commit message |
@@ -186,6 +188,26 @@ Markdown for a pr tagged with `enhancement` label:
 ```
 
 ---
+
+### PREVIEW
+##### Defaul value [Preview object](#preview-object)
+
+Customize `header` and `footer` of release note preview comment.
+
+Preview comment will be published only if `issue` attribute is informed.
+
+You can configure `issue` dinamically using `--issue` CLI command.
+
+#### Preview object
+
+Default preview configuration.
+
+```yml
+preview:
+  issue: undefined # if informed the generation script will try to publish a comment in `issue`
+  header: '### :book::rocket: RELEASE NOTES Preview'
+  footer: 'Generated with [RNG](https://github.com/adrianiy/release-notes-generator) bot :robot:'
+```
 
 ### PUBLISH
 ##### Default value `false`

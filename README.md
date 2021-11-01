@@ -35,6 +35,7 @@ A **complete markdown** file will be created using your pull request description
 	<summary>Supported Repos</summary
 
 - **GITHUB** via [@octokit](https://github.com/octokit/octokit.js).
+
 - **TEAMS** via Webhooks.
 		
 </details>
@@ -56,6 +57,7 @@ A **complete markdown** file will be created using your pull request description
   - [labels](/src/configuration#labels)
   - [title](/src/configuration#title)
   - [decoration](/src/configuration#decoration)
+  - [preview](/src/configuration#preview)
   - [publish](/src/configuration#publish)
   - [branch](/src/configuration#branch)
   - [message](/src/configuration#message)
@@ -90,6 +92,77 @@ If you want to push changes to a **protected_branch** you'll need to use an acce
   env:
     GITHUB_TOKEN: ${ secrets.ADMIN_TOKEN }
 ```
+
+### Preview in pull request
+
+You can see how RELEASE NOTES will look like using `preview` and `issue` attribute
+
+<details>
+  <summary>Github Actions</summary>
+
+#### Workflow 
+
+```yml
+name: Preview Release Notes in PR
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  build:
+    name: Release notes preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - run: npm ci
+      - run: npm run build
+      - run: npm run preview -- ${{ github.event.number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.ADMIN_TOKEN }}
+```
+
+```json
+{ 
+  "scripts": {
+    "preview": "rng gen -v --snapshot -f '' --issue"
+  }
+}
+```
+
+Workflow steps:
+
+- Pass  `issue` to `preview` script.
+- Set [snapshot](/src/configuration#snapshot) flag to parse pull requests since latest release.
+
+##### Custom configuration file
+
+You can use a custom config file for this process
+
+```json
+{ 
+  "scripts": {
+    "preview": "rng gen -v -c .releasenotes-preview.yml --issue"
+  }
+}
+```
+
+```yaml
+# releasenote-preview
+snapshot: true
+filter: ''
+decoration:
+  type/feature: '## :sparkles: '
+  type/bug: '## :bug: '
+```
+</details>
 
 # Example
 
