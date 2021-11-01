@@ -3,7 +3,7 @@ import { PullRequest } from 'connector/models/pullRequest';
 import { Release } from 'connector/models/release';
 import { Configuration } from 'configuration/configuration';
 import { CliParams } from 'commander/options';
-import { confirmPublish, confirmPublishAssets, confirmPullRequestLabeling } from 'commander/inquirer';
+import { confirmPublish, confirmPublishAssets, confirmPublishPreview, confirmPullRequestLabeling } from 'commander/inquirer';
 import log4js from 'log4js';
 import fs from 'fs';
 import path from 'path';
@@ -33,7 +33,19 @@ export abstract class Generator {
 
             await this._labelPullRequests(list);
 
-            this._storeMarkdown(markdown);
+            if (this._configuration.snapshot) {
+                this.publishPreview(markdown);
+            } else {
+                this._storeMarkdown(markdown);
+            }
+        }
+    }
+
+    async publishPreview(markdown: string): Promise<void> {
+        if (this._configuration.preview?.issue) {
+            const issue = this._configuration.preview?.issue;
+            const willPublish = !this._interactive || (await confirmPublishPreview(issue));
+            willPublish && (await this._connector.publishPreview(markdown, issue));
         }
     }
 
@@ -80,7 +92,7 @@ export abstract class Generator {
     }
 
     protected async _labelPullRequests(pullRequests: PullRequest[]): Promise<void> {
-        const willPublish = !this._interactive || (await confirmPullRequestLabeling());
+        const willPublish = !this._configuration.snapshot && (!this._interactive || (await confirmPullRequestLabeling()));
 
         willPublish && (await Promise.all(pullRequests.map(this._connector.updatePullRequest)));
     }

@@ -21,6 +21,12 @@ export interface Notification {
     style: Customization;
 }
 
+export interface Preview {
+    issue?: number;
+    header?: string;
+    footer?: string;
+}
+
 export interface Labels {
     // Only PRs with this labels will be included in MD
     include?: string[];
@@ -52,6 +58,8 @@ export interface Configuration {
     // Split Release-Notes on file per Relase
     // This option will create a folder in `out` dir.
     split?: boolean;
+    // Should comment on especified Issue
+    preview?: Preview;
     // Should we publish changes?
     publish?: boolean;
     // Commit message
@@ -78,6 +86,10 @@ const defaultConfiguration: Configuration = {
         include: ['release-note'],
         ignore: ['in-release-note'],
         end: ['in-release-note'],
+    },
+    preview: {
+        header: '### :book::rocket: RELEASE NOTES Preview',
+        footer: 'Your [RNG](https://github.com/adrianiy/release-notes-generator) bot :robot:',
     },
     publish: false,
     snapshot: false,
@@ -142,10 +154,11 @@ const loadDefaultConfig = (): Configuration => {
 };
 
 export const getConfiguration = (cliConfig: CliParams = {}): Configuration => {
-    const { configuration } = cliConfig;
+    const { configuration, issue } = cliConfig;
 
     const config = configuration ? loadCustomConfig(configuration) : loadDefaultConfig();
     const decoration = { ...defaultConfiguration.decoration, ...config?.decoration };
+    const preview = { ...defaultConfiguration.preview, ...config?.preview, issue };
 
-    return { ...defaultConfiguration, ...config, ...cliConfig, decoration };
+    return { ...defaultConfiguration, ...config, ...cliConfig, decoration, preview };
 };
