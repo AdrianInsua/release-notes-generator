@@ -206,7 +206,8 @@ Default preview configuration.
 preview:
   issue: undefined # if informed the generation script will try to publish a comment in `issue`
   header: '### :book::rocket: RELEASE NOTES Preview'
-  footer: 'Your [RNG](https://github.com/adrianiy/release-notes-generator) bot :robot:'
+  footer: | '---'
+    'Generated with [RNG](https://github.com/adrianiy/release-notes-generator) :robot:'
 ```
 
 ### PUBLISH
