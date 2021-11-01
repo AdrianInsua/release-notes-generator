@@ -214,7 +214,9 @@ export class GitHubConnector extends Connector {
     private async _publishComment(markdown: string, issue_number: number): Promise<number> {
         this._verbose && logger.info(`We are going to comment issue ${issue_number} changes...`);
 
-        const { header, footer } = this._configuration.preview!;
+        const { header: headerRaw, footer: footerRaw } = this._configuration.preview!;
+        const header = headerRaw?.length ? `${headerRaw}\n---` : '';
+        const footer = footerRaw?.length ? `---\n${footerRaw}` : '';
         const body = `${header}\n${markdown}\n${footer}`;
 
         const result = await this._connection.rest.issues.createComment({
