@@ -23,3 +23,5 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run preview -- ${{ github.event.number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.ADMIN_TOKEN }}
