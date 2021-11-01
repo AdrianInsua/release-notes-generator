@@ -15,8 +15,6 @@ export const publish: yargs.CommandModule = {
     handler: async command => {
         const { generator, pluginLoader } = await getGenerator(command as CliParams);
 
-        await generator.publishPreview();
-
         await generator.publishReleaseNotes();
 
         await generator.publishAssets();

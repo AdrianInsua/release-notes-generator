@@ -211,12 +211,11 @@ export class GitHubConnector extends Connector {
         return result.status;
     }
 
-    private async _publishComment(filePath: string, issue_number: number): Promise<number> {
+    private async _publishComment(markdown: string, issue_number: number): Promise<number> {
         this._verbose && logger.info(`We are going to comment issue ${issue_number} changes...`);
 
-        const content = fs.readFileSync(path.join(filePath), { encoding: 'utf8' });
         const { header, footer } = this._configuration.preview!;
-        const body = `${header}\n${content}\n${footer}`;
+        const body = `${header}\n${markdown}\n${footer}`;
 
         const result = await this._connection.rest.issues.createComment({
             owner: this._owner,

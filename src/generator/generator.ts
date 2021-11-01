@@ -33,15 +33,19 @@ export abstract class Generator {
 
             await this._labelPullRequests(list);
 
-            this._storeMarkdown(markdown);
+            if (this._configuration.snapshot) {
+                this.publishPreview(markdown);
+            } else {
+                this._storeMarkdown(markdown);
+            }
         }
     }
 
-    async publishPreview(): Promise<void> {
+    async publishPreview(markdown: string): Promise<void> {
         if (this._configuration.preview?.issue) {
             const issue = this._configuration.preview?.issue;
             const willPublish = !this._interactive || (await confirmPublishPreview(issue));
-            willPublish && (await this._connector.publishPreview(this._filePath, issue));
+            willPublish && (await this._connector.publishPreview(markdown, issue));
         }
     }
 
@@ -105,11 +109,9 @@ export abstract class Generator {
     }
 
     protected _storeMarkdown(markdown: string): void {
-        if (!this._configuration.snapshot) {
-            this._verbose && logger.info(`Saving generated MD in ${this._filePath}`);
+        this._verbose && logger.info(`Saving generated MD in ${this._filePath}`);
 
-            fs.writeFileSync(path.join(this._filePath), markdown);
-        }
+        fs.writeFileSync(path.join(this._filePath), markdown);
     }
 
     protected abstract _parsePullRequests(pullRequests: PullRequest[]): string;
