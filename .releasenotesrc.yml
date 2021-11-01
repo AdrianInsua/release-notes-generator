@@ -12,5 +12,5 @@ assets:
   - CHANGELOG.md
   - package.json
 decoration:
-  type/feature: '## :zap: '
+  type/feature: '## :sparkles: '
   type/bug: '## :bug: '
