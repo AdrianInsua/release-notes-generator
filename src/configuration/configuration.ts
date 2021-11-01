@@ -89,7 +89,8 @@ const defaultConfiguration: Configuration = {
     },
     preview: {
         header: '### :book::rocket: RELEASE NOTES Preview',
-        footer: 'Your [RNG](https://github.com/adrianiy/release-notes-generator) bot :robot:',
+        footer: `---
+            Generated with [RNG](https://github.com/adrianiy/release-notes-generator) :robot:`,
     },
     publish: false,
     snapshot: false,

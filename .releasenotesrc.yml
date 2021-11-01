@@ -1,5 +1,6 @@
 message: "chore: update RELEASE-NOTES [skip ci]"
 split: true
+title: ''
 out: '.'
 labels:
   include:
