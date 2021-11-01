@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/adrianiy/release-notes-generator/compare/v2.0.0...v2.1.0) (2021-11-01)
+
+
+### Features
+
+* add preview comment method ([#90](https://github.com/adrianiy/release-notes-generator/issues/90)) ([25bce6d](https://github.com/adrianiy/release-notes-generator/commit/25bce6d9c5c7f66e0d245476ccdd8a008a38ed76))
+
 # [2.0.0](https://github.com/adrianiy/release-notes-generator/compare/v1.8.0...v2.0.0) (2021-10-31)
 
 
