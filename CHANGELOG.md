@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/adrianiy/release-notes-generator/compare/v2.2.0...v2.2.1) (2021-11-02)
+
+
+### Bug Fixes
+
+* use last release md in webhooks ([#96](https://github.com/adrianiy/release-notes-generator/issues/96)) ([c53e58d](https://github.com/adrianiy/release-notes-generator/commit/c53e58df1464684a12634a3e917c39c0f1f6d986))
+
 # [2.1.0](https://github.com/adrianiy/release-notes-generator/compare/v2.0.0...v2.1.0) (2021-11-01)
 
 
