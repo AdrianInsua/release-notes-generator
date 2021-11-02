@@ -61,7 +61,7 @@ export class GitHubConnector extends Connector {
 
         const labels = this._getLabelFilter();
         const query = prQuery.loc!.source.body;
-        const created = since ? `created:>${since}` : '';
+        const created = since ? `updated:>${since}` : '';
         const queryString = `repo:${this._owner}/${this._repo} ${this._configuration.filter} is:pr ${labels} ${created}`;
         const response: PullRequestResponse[] = await this._paginatedResponse<PullRequestResponse>(query, { queryString });
 
