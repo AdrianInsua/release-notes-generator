@@ -22,7 +22,6 @@ export class PluginLoader {
         this._interactive = cliParams.interactive!;
 
         this._createHooks();
-        this._setFilePath();
     }
 
     async executePlugins(): Promise<void> {
@@ -39,10 +38,12 @@ export class PluginLoader {
 
                 willExecute = response;
             }
-            willExecute &&
+            if (willExecute) {
+                this._setFilePath();
                 this._webhooks?.map((webhook: Webhook) => {
                     webhook.execute(this._filePath, this._configuration.notification!.style);
                 });
+            }
         }
     }
 
