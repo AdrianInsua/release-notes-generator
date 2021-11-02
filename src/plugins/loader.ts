@@ -4,6 +4,7 @@ import { CliParams } from 'commander/options';
 import { TeamsWebhook } from './webhooks/teams';
 import { Webhook } from './webhooks/webhook';
 import inquirer from 'inquirer';
+import path from 'path';
 import fs from 'fs';
 
 export class PluginLoader {
@@ -61,14 +62,26 @@ export class PluginLoader {
     }
 
     private _setFilePath(): void {
-        const { out, name, split, suffix } = this._configuration;
+        const { out, name, split } = this._configuration;
         const outDir = split ? `${out}/release-notes` : out;
-        const fileName = split ? `${name}-${suffix}` : name;
+        const fileName = split ? this._getLatestFile(outDir!) : `${name}.md`;
 
         if (!fs.existsSync(outDir!)) {
             fs.mkdirSync(outDir!);
         }
 
-        this._filePath = `${outDir}/${fileName}.md`;
+        this._filePath = `${outDir}/${fileName}`;
+    }
+
+    private _getLatestFile(outDir: string): string {
+        const files = fs.readdirSync(outDir);
+
+        const creationDates = files.map(file => ({
+            file,
+            creationTime: fs.statSync(path.join(outDir, file)).ctime.getTime(),
+        }));
+        const lastFile = creationDates.sort((a, b) => b.creationTime - a.creationTime)[0];
+
+        return lastFile.file;
     }
 }
