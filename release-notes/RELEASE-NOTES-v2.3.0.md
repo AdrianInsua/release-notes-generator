@@ -16,6 +16,12 @@
 
 Now you can ignore Pull Request text surrounded with `ignoreTag`.
 
-Default ignore tag is `
+Default ignore tag is `<!--release-notes-ignore-->
+
+```markdown
+<!--release-notes-ignore-->
+text to ignore
+<!--release-notes-ignore-->
+```
 
 
