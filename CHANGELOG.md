@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/adrianiy/release-notes-generator/compare/v2.2.2...v2.3.0) (2021-11-04)
+
+
+### Features
+
+* add ignored tag option ([#102](https://github.com/adrianiy/release-notes-generator/issues/102)) ([dbf2ca6](https://github.com/adrianiy/release-notes-generator/commit/dbf2ca6fc572bef052b45e07e07ef20aeaeb31c6))
+
 ## [2.2.1](https://github.com/adrianiy/release-notes-generator/compare/v2.2.0...v2.2.1) (2021-11-02)
 
 
