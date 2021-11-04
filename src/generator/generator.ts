@@ -35,6 +35,7 @@ export abstract class Generator {
 
             if (this._configuration.snapshot) {
                 this.publishPreview(markdown);
+                this._storeMarkdown(markdown);
             } else {
                 this._storeMarkdown(markdown);
             }
