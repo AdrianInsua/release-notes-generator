@@ -20,9 +20,12 @@ export class GithubGenerator extends Generator {
 
     private _composeText = (pr: PullRequest) => {
         const decoration = this._configuration.decoration!;
+        const ignoredText = this._configuration.ignoreTag;
+        const ignoredRegexp = new RegExp(`${ignoredText}(\\r\\n*.*)*${ignoredText}`, 'g');
         const decorationMatch = pr.labels.find((label: string) => decoration[label]) || '';
         const date = new Date(pr.createdAt).toISOString().split('T')[0];
+        const body = pr.body?.replace(ignoredRegexp, '').replace(/\n\s*\n\s*\n/g, '\n') || '';
 
-        return `${decoration[decorationMatch] || ''}${pr.title} \n###### ${date}\n\n${pr.body}\n`;
+        return `${decoration[decorationMatch] || ''}${pr.title} \n###### ${date}\n\n${body}\n`;
     };
 }

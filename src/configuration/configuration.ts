@@ -53,6 +53,8 @@ export interface Configuration {
     filter?: string;
     // Start date in pull request filter query
     since?: string;
+    // Ignore text inside this tag
+    ignoreTag?: string;
     // Generates snapshot release notes (from latest release)
     snapshot?: boolean;
     // Split Release-Notes on file per Relase
@@ -96,6 +98,7 @@ const defaultConfiguration: Configuration = {
     message: 'chore: update RELEASE-NOTES',
     branch: 'main',
     filter: 'is:closed',
+    ignoreTag: '<!--release-notes-ignore-->',
     assets: [],
     webhooks: {},
     title: 'RELEASE NOTES',
