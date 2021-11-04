@@ -8,6 +8,7 @@
   - [filter](#filter)
   - [snapshot](#snapshot)
   - [labels](#labels)
+  - [ignoreTag](#ignore-tag)
   - [title](#title)
   - [decoration](#decoration)
   - [preview](#preview)
@@ -39,6 +40,7 @@ We support `.yml` and `.json` formats with these options:
 | [filter](#filter) | `is:closed` | Filter applied on pull request query |
 | [snapshot](#snapshot) | `false` | Generates snapshot release notes using Pull Request since latest release |
 | [labels](#labels) | `[ 'release-note' ]` | Only PRs with these labels will be used in generation process |
+| [ignoreTag](#ignore-tag) | `<!--release-notes-ignore-->` | Text inside this comment tag will be ignored in RELEASE NOTES |
 | [title](#title) | `RELEASE NOTES` | Title used in output markdown |
 | [decoration](#decoration) | [Decoration object](#decoration-object) | Icon decoration for each issue type |
 | [preview](#preview) | [Preview object](#preview-object) | Customize preview comment |
@@ -144,6 +146,27 @@ labels:
   include: release-note
   ignore: in-release-note
   end: in-release-note
+```
+
+### IGNORE TAG
+##### Default value `<!--release-notes-ignore-->`
+
+You can surround with this comment tag any text you want to ignore in release notes
+
+```markdown
+## Feat
+
+Text in release notes
+
+<!--release-notes--ignore-->
+Text ignore in release notes
+<!--release-notes-ignore-->
+```
+
+You can customize this tag in your `.releasenotesrc.yml`
+
+```yml
+ignoreTag: '<!--custom-ignore-tag-->'
 ```
 
 ---
