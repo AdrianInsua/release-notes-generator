@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/adrianiy/release-notes-generator/compare/v2.3.0...v2.4.0) (2021-12-01)
+
+
+### Features
+
+* Order release note issue types ([#106](https://github.com/adrianiy/release-notes-generator/issues/106)) ([9a1eae2](https://github.com/adrianiy/release-notes-generator/commit/9a1eae2d9cf6981ed5ff27916c1a19c2f54042a3))
+
 # [2.3.0](https://github.com/adrianiy/release-notes-generator/compare/v2.2.2...v2.3.0) (2021-11-04)
 
 
