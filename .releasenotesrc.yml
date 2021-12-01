@@ -15,3 +15,7 @@ assets:
 decoration:
   type/feature: '## :sparkles: '
   type/bug: '## :bug: '
+order:
+  - release
+  - type/feature 
+  - type/bug 

@@ -74,6 +74,8 @@ export interface Configuration {
     title?: string;
     // Notes decoration according to type
     decoration?: Record<string, string>;
+    // Order of issue types in release notes 
+    order?: string[];
     // Webhooks lis
     webhooks?: Record<string, Webhook>;
     // Notification configuration
@@ -110,6 +112,14 @@ const defaultConfiguration: Configuration = {
         style: '## :nailcare: ',
         documentation: '## :book: ',
     },
+    order: [
+        'release',
+        'refactor',
+        'enhancement',
+        'bug',
+        'style',
+        'documentation'
+    ],
     notification: {
         style: {
             h1: { 'font-size': '3rem', 'margin-top': '2rem' },
