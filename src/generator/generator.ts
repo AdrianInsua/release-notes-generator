@@ -92,6 +92,18 @@ export abstract class Generator {
         return pullRequestsList;
     }
 
+    protected _sortPullRequestByType(pullRequest: PullRequest[]): PullRequest[] {
+        if (this._configuration.order) {
+            return this._configuration.order.reduce((acc: PullRequest[], currType: string) => {
+                const group = pullRequest.filter(issue => issue.labels.includes(currType) && !acc.includes(issue));
+                
+                return acc.concat(group);
+            }, []);
+        }
+
+        return pullRequest;
+    }
+
     protected async _labelPullRequests(pullRequests: PullRequest[]): Promise<void> {
         const willPublish = !this._configuration.snapshot && (!this._interactive || (await confirmPullRequestLabeling()));
 

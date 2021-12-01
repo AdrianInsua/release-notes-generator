@@ -11,6 +11,7 @@
   - [ignoreTag](#ignore-tag)
   - [title](#title)
   - [decoration](#decoration)
+  - [order](#order)
   - [preview](#preview)
   - [publish](#publish)
   - [branch](#branch)
@@ -43,6 +44,7 @@ We support `.yml` and `.json` formats with these options:
 | [ignoreTag](#ignore-tag) | `<!--release-notes-ignore-->` | Text inside this comment tag will be ignored in RELEASE NOTES |
 | [title](#title) | `RELEASE NOTES` | Title used in output markdown |
 | [decoration](#decoration) | [Decoration object](#decoration-object) | Icon decoration for each issue type |
+| [order](#order) | `['release', 'refactor', 'enhancement', 'bug', 'style', 'documentation']` | Order of issues in release notes |
 | [preview](#preview) | [Preview object](#preview-object) | Customize preview comment |
 | [publish](#publish) | `false` | If `true` the output file will be commited to repo |
 | [branch](#branch) | `main` | Branch where output will be uploaded |
@@ -208,6 +210,22 @@ Markdown for a pr tagged with `enhancement` label:
 
 ```markdown
 ## :zap: Issue title
+```
+
+### ORDER 
+##### Default value `['release', 'refactor', 'enhancement', 'bug', 'style', 'documentation']`
+
+Customize how your issues will be sort in release notes, as usually you'll need to group issues of one kind all together, and 
+give some preference of ones among others, i.e enhancement > bug
+
+```yml
+order:
+    - release 
+    - refactor
+    - enhancement 
+    - bug 
+    - style 
+    - documentation 
 ```
 
 ---
