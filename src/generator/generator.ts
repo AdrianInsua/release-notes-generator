@@ -68,7 +68,7 @@ export abstract class Generator {
     }
 
     protected _setFilePath(): void {
-        const { out, name, split, suffix } = this._configuration;
+        const { out, name, split, suffix, format } = this._configuration;
         const outDir = split ? `${out}/release-notes` : out;
         const fileName = split ? `${name}-${suffix}` : name;
 
@@ -76,7 +76,7 @@ export abstract class Generator {
             fs.mkdirSync(outDir!);
         }
 
-        this._filePath = `${outDir}/${fileName}.md`;
+        this._filePath = `${outDir}/${fileName}${format}`;
     }
 
     protected async _getPullRequestList(): Promise<PullRequest[]> {
