@@ -1,3 +1,10 @@
+## [2.5.1](https://github.com/adrianiy/release-notes-generator/compare/v2.5.0...v2.5.1) (2022-05-12)
+
+
+### Bug Fixes
+
+* allow version interpolation with `${version}` ([90f851a](https://github.com/adrianiy/release-notes-generator/commit/90f851a0c496d69cf88f0d018b99496b5d1cf26a))
+
 # [2.5.0](https://github.com/adrianiy/release-notes-generator/compare/v2.4.0...v2.5.0) (2022-05-12)
 
 
