@@ -1,3 +1,10 @@
+# [2.5.0](https://github.com/adrianiy/release-notes-generator/compare/v2.4.0...v2.5.0) (2022-05-12)
+
+
+### Features
+
+* add custom formats with `header` and `title` ([#110](https://github.com/adrianiy/release-notes-generator/issues/110)) ([84300fa](https://github.com/adrianiy/release-notes-generator/commit/84300fa6913f8ce82c38ed99a36e2b4633a41ce2))
+
 # [2.4.0](https://github.com/adrianiy/release-notes-generator/compare/v2.3.0...v2.4.0) (2021-12-01)
 
 
