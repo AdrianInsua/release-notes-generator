@@ -57,6 +57,8 @@ A **complete markdown** file will be created using your pull request description
   - [labels](/src/configuration#labels)
   - [ignoreTag](/src/configuration#ignore-tag)
   - [title](/src/configuration#title)
+  - [header](/src/configuration#header)
+  - [format](/src/configuration#format)
   - [decoration](/src/configuration#decoration)
   - [order](/src/configuration#order)
   - [preview](/src/configuration#preview)
