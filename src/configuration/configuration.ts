@@ -47,6 +47,8 @@ export interface Configuration {
     name?: string;
     // File sufix for splitted content
     suffix?: string;
+    // File format
+    format?: string;
     // Only PRs with this labels will be included in MD
     labels?: Labels;
     // PR query filter
@@ -70,6 +72,8 @@ export interface Configuration {
     assets?: string[];
     // Branch where output will be uploaded
     branch?: string;
+    // Markdown header
+    header?: string;
     // Markdown title
     title?: string;
     // Notes decoration according to type
@@ -86,6 +90,7 @@ const defaultConfiguration: Configuration = {
     token: 'GITHUB_TOKEN',
     out: '.',
     name: 'RELEASE-NOTES',
+    format: '.md',
     labels: {
         include: ['release-note'],
         ignore: ['in-release-note'],

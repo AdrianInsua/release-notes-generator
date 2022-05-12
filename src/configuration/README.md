@@ -10,6 +10,8 @@
   - [labels](#labels)
   - [ignoreTag](#ignore-tag)
   - [title](#title)
+  - [header](#header)
+  - [format](#format)
   - [decoration](#decoration)
   - [order](#order)
   - [preview](#preview)
@@ -43,6 +45,8 @@ We support `.yml` and `.json` formats with these options:
 | [labels](#labels) | `[ 'release-note' ]` | Only PRs with these labels will be used in generation process |
 | [ignoreTag](#ignore-tag) | `<!--release-notes-ignore-->` | Text inside this comment tag will be ignored in RELEASE NOTES |
 | [title](#title) | `RELEASE NOTES` | Title used in output markdown |
+| [header](#header) | `null` | Text to be used on header section over release notes. Useful for `mdx` files |
+| [format](#format) | `.md` | File format used in save |
 | [decoration](#decoration) | [Decoration object](#decoration-object) | Icon decoration for each issue type |
 | [order](#order) | `['release', 'refactor', 'enhancement', 'bug', 'style', 'documentation']` | Order of issues in release notes |
 | [preview](#preview) | [Preview object](#preview-object) | Customize preview comment |
@@ -181,6 +185,27 @@ Title used in output markdown
 
 ```yml
 title: RELEASE NOTES DEMO
+```
+
+### HEADER 
+##### Defualt value `null`
+
+Header above markdown 
+
+```yml
+hader: |
+    import { Meta } from 'third-party';
+
+    <Meta title="test"/>
+```
+
+### FORMAT 
+##### Default value `.md`
+
+File format 
+
+```yml
+format: '.stories.mdx'
 ```
 
 ### DECORATION
