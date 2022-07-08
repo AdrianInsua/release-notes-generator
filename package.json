@@ -1,6 +1,6 @@
 {
     "name": "@adrian.insua/release-notes-generator",
-    "version": "2.5.1",
+    "version": "2.5.2",
     "description": "Repository parser to generate release notes using your PRs",
     "main": "lib/index.js",
     "publishConfig": {
