@@ -1,3 +1,10 @@
+## [2.5.2](https://github.com/adrianiy/release-notes-generator/compare/v2.5.1...v2.5.2) (2022-07-08)
+
+
+### Bug Fixes
+
+* add is closed filter ([#116](https://github.com/adrianiy/release-notes-generator/issues/116)) ([5fbe9ec](https://github.com/adrianiy/release-notes-generator/commit/5fbe9ecdd46c20ca4c070b443e3242258201aa60))
+
 ## [2.5.1](https://github.com/adrianiy/release-notes-generator/compare/v2.5.0...v2.5.1) (2022-05-12)
 
 
