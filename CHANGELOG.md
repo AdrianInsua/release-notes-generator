@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/adrianiy/release-notes-generator/compare/v2.5.2...v2.6.0) (2022-07-11)
+
+
+### Features
+
+* add version folder replacement ([#119](https://github.com/adrianiy/release-notes-generator/issues/119)) ([b1bec7c](https://github.com/adrianiy/release-notes-generator/commit/b1bec7c38192a34e94f5586c6d9f3ffdd4c81424))
+
 ## [2.5.2](https://github.com/adrianiy/release-notes-generator/compare/v2.5.1...v2.5.2) (2022-07-08)
 
 
