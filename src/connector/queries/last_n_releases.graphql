@@ -1,10 +1,11 @@
-query SkipRelease($owner: String!, $name: String!, $last: Int!) {
-    repository(owner: $owner, name: $name) {
-        releases(last: $last) {
+query GetReleases($owner: String!, $name: String!) {
+  repository(owner: $owner, name: $name) {
+    releases(last: 1,
+             orderBy: {field: CREATED_AT, direction: ASC}) {
             nodes {
                 tagName
                 createdAt
             }
-        }
     }
+  }
 }
