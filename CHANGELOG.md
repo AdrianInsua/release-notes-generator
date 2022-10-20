@@ -1,3 +1,10 @@
+## [2.6.1](https://github.com/adrianiy/release-notes-generator/compare/v2.6.0...v2.6.1) (2022-10-20)
+
+
+### Bug Fixes
+
+* releases query ([#121](https://github.com/adrianiy/release-notes-generator/issues/121)) ([b50ba59](https://github.com/adrianiy/release-notes-generator/commit/b50ba599b0d7bf9d302954e50faeb26abb5dbf01))
+
 # [2.6.0](https://github.com/adrianiy/release-notes-generator/compare/v2.5.2...v2.6.0) (2022-07-11)
 
 
